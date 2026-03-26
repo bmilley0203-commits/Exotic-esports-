@@ -5,7 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Exotic Esports</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Orbitron', sans-serif;
@@ -13,6 +18,61 @@
       color: white;
     }
 
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #0a0a0a;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-text {
+      font-weight: bold;
+    }
+
+    .dropbtn {
+      background: #111;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background: #111;
+      min-width: 200px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 12px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background: #1a1a1a;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* HERO */
     .hero {
       height: 100vh;
       display: flex;
@@ -20,19 +80,56 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      animation: fadeIn 1.5s ease;
     }
 
     .hero img {
       width: 160px;
       margin-bottom: 20px;
-      animation: scaleIn 1s ease;
     }
 
-    .hero h1 { font-size: 3rem; }
-    .hero p { color: #aaa; max-width: 500px; }
+    .hero h1 {
+      font-size: 3rem;
+    }
 
-    .roster { padding: 80px 20px; text-align: center; }
+    .hero p {
+      color: #aaa;
+      max-width: 500px;
+    }
+
+    /* JOIN */
+    .join {
+      text-align: center;
+      padding: 60px 20px;
+      background: #0a0a0a;
+    }
+
+    .join p {
+      max-width: 500px;
+      margin: 10px auto 20px;
+      color: #aaa;
+    }
+
+    .join-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #00bfff;
+      color: black;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .join-btn:hover {
+      background: #009acd;
+    }
+
+    /* ROSTER */
+    .roster {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -44,10 +141,13 @@
       padding: 20px;
       border-radius: 15px;
       cursor: pointer;
-      transition: transform 0.3s ease, background 0.3s;
+      transition: 0.3s;
     }
 
-    .card:hover { transform: scale(1.05); background: #1a1a1a; }
+    .card:hover {
+      transform: scale(1.05);
+      background: #1a1a1a;
+    }
 
     .avatar {
       width: 80px;
@@ -76,7 +176,6 @@
       border-radius: 15px;
       max-width: 400px;
       text-align: center;
-      animation: scaleIn 0.3s ease;
     }
 
     .close {
@@ -85,6 +184,7 @@
       color: #00bfff;
     }
 
+    /* FOOTER */
     footer {
       background: #0a0a0a;
       padding: 20px;
@@ -97,65 +197,70 @@
       color: white;
     }
 
-    footer a:hover { color: #00bfff; }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes scaleIn {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+    footer a:hover {
+      color: #00bfff;
     }
   </style>
 </head>
+
 <body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo-text">Exotic Esports</div>
+
+    <div class="dropdown">
+      <button class="dropbtn">Menu ▼</button>
+      <div class="dropdown-content">
+        <a href="#phoenix">Exotic Phoenix (Console)</a>
+        <a href="#cobras">Exotic Cobras (PC)</a>
+        <a href="#socials">Socials</a>
+        <a href="#about">About Us</a>
+      </div>
+    </div>
+  </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <!-- FIX: make sure logo.png is in SAME folder as this file -->
     <img src="./logo.png" alt="Exotic Esports Logo">
     <h1>Exotic Esports</h1>
     <p>Dominating the competition with precision, power, and teamwork.</p>
   </section>
 
-  <!-- TEAM ROSTER -->
-  <section class="roster">
-    <h2>Team Roster</h2>
+  <!-- JOIN -->
+  <section class="join">
+    <h2>Join Exotic Esports</h2>
+    <p>Want to compete at the highest level? Join our community and become part of the team.</p>
+    <a href="https://discord.gg/YOUR-LINK" class="join-btn">Join Here</a>
+  </section>
+
+  <!-- PHOENIX -->
+  <section id="phoenix" class="roster">
+    <h2>Exotic Phoenix (Console)</h2>
     <div class="grid">
-
-      <div class="card" onclick="openModal('Spadeonics','IGL','The brains of the team ')">
+      <div class="card" onclick="openModal('PlayerOne','Captain','Team leader and strategist.')">
         <div class="avatar"></div>
-        <h3>Spadeonics</h3>
-        <p>IGL</p>
+        <h3>PlayerOne</h3>
+        <p>Captain</p>
       </div>
-
-      <div class="card" onclick="openModal('Golden','Flex','He plays wgat tge team needs and is the happy spirit you need sometimes')">
-        <div class="avatar"></div>
-        <h3>Golden</h3>
-        <p>Flex</p>
-      </div>
-
-      <div class="card" onclick="openModal('Chubbs','Support','Keeps the team alive.')">
-        <div class="avatar"></div>
-        <h3>Chubbs</h3></h3>
-        <p>Flex</p>
-      </div>
-
-      <div class="card" onclick="openModal('Dalton','Entry','Aggressive front-line player.')">
-        <div class="avatar"></div>
-        <h3>Dalton</h3>
-        <p>Entry</p>
-      </div>
-
-      <div class="card" onclick="openModal('Xef','Flex','Adapts to any role.')">
-        <div class="avatar"></div>
-        <h3>Xef</h3>
-        <p>Entry</p>
-      </div>
-
     </div>
+  </section>
+
+  <!-- COBRAS -->
+  <section id="cobras" class="roster">
+    <h2>Exotic Cobras (PC)</h2>
+    <p>Roster coming soon.</p>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="roster">
+    <h2>About Us</h2>
+    <p>We are a competitive esports organisation focused on teamwork, skill, and growth.</p>
+  </section>
+    <!-- Phoenix.-->
+  <section id="phoenix" class="roster">
+    <h2>Exotic Phoenix (console)</h2>
+    <p>Roster coming soon.</p>
   </section>
 
   <!-- MODAL -->
@@ -169,12 +274,12 @@
   </div>
 
   <!-- FOOTER -->
-  <footer>
+  <footer id="socials">
     <p>Follow us</p>
     <div>
-      <a href="#">X</a>
-      <a href="#">Tiktok</a>
-      <a href="#">YouTube</a>
+      <a href="#">Twitter</a>
+      <a href="#">Twitch</a>
+      <a href="#">Instagram</a>
     </div>
     <p style="color: gray; margin-top: 10px;">© 2026 Exotic Esports</p>
   </footer>
