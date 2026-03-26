@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Socials - Exotic Esports</title>
+
+  <style>
+    body {
+      margin:0;
+      font-family:Arial;
+      background:#111;
+      color:white;
+    }
+
+    /* HEADER */
+    header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 20px;
+      background:#000;
+    }
+
+    .dropdown {
+      position:relative;
+    }
+
+    .dropbtn {
+      background:#222;
+      color:white;
+      padding:10px;
+      border:none;
+      cursor:pointer;
+    }
+
+    .dropdown-content {
+      display:none;
+      position:absolute;
+      right:0;
+      background:#111;
+      min-width:160px;
+    }
+
+    .dropdown-content a {
+      display:block;
+      padding:10px;
+      color:white;
+      text-decoration:none;
+    }
+
+    .dropdown-content a:hover {
+      background:#333;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display:block;
+    }
+
+    /* PAGE */
+    .socials {
+      height:80vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+    }
+
+    .icons {
+      display:flex;
+      gap:40px;
+      margin-top:30px;
+    }
+
+    .icon {
+      width:90px;
+      height:90px;
+      background:#222;
+      border-radius:20px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      cursor:pointer;
+      transition:0.2s;
+    }
+
+    .icon img {
+      width:50px;
+      height:50px;
+    }
+
+    .icon:hover {
+      transform:scale(1.1);
+      background:#333;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>Exotic Esports</h2>
+
+  <div class="dropdown">
+    <button class="dropbtn">Menu ▼</button>
+    <div class="dropdown-content">
+      <a href="index.html">Home</a>
+      <a href="phoenix.html">Phoenix</a>
+      <a href="cobras.html">Cobras</a>
+      <a href="socials.html">Socials</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</header>
+
+<section class="socials">
+  <h1>Follow Exotic Esports</h1>
+  <p>Stay connected with us</p>
+
+  <div class="icons">
+
+    <a href="https://youtube.com" target="_blank" class="icon">
+      <img src="youtube.png" alt="YouTube">
+    </a>
+
+    <a href="https://www.tiktok.com/@team.exotic.esports?is_from_webapp=1&sender_device=pc" target="_blank" class="icon">
+      <img src="https://www.vecteezy.com/png/18930463-tiktok-logo-png-tikok-icon-transparent-png-tikok-app-logo-png" alt="TikTok">
+    </a>
+
+    <a href="https://x.com" target="_blank" class="icon">
+      <img src="x.png" alt="X">
+    </a>
+
+  </div>
+</section>
+
+</body>
+</html>
