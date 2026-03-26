@@ -207,39 +207,6 @@
       <div class="map">Kafe</div>
     </div>
   </div>
-  <script>
-function setupShowMore(sectionId) {
-  const section = document.getElementById(sectionId);
-  const matches = section.querySelectorAll(".match");
-
-  if (matches.length <= 1) return;
-
-  // Hide all except first
-  for (let i = 1; i < matches.length; i++) {
-    matches[i].style.display = "none";
-  }
-
-  // Create button
-  const btn = document.createElement("button");
-  btn.textContent = "Show More";
-
-  btn.onclick = () => {
-    const hidden = matches[1].style.display === "none";
-
-    for (let i = 1; i < matches.length; i++) {
-      matches[i].style.display = hidden ? "block" : "none";
-    }
-
-    btn.textContent = hidden ? "Show Less" : "Show More";
-  };
-
-  section.appendChild(btn);
-}
-
-// Run it
-setupShowMore("upcomingSection");
-setupShowMore("resultsSection");
-  </script>
 
 </div>
 
@@ -314,7 +281,17 @@ setupShowMore("resultsSection");
       <iframe src="https://player.twitch.tv/?video=987654321&parent=localhost"></iframe>
     </div>
   </div>
-  <script>
+  
+
+</div>
+
+<script>
+function toggleVOD(id) {
+  const vod = document.getElementById(id);
+  vod.style.display = vod.style.display === "none" ? "block" : "none";
+}
+</script>
+<script>
 function setupShowMore(sectionId) {
   const section = document.getElementById(sectionId);
   const matches = section.querySelectorAll(".match");
@@ -346,16 +323,6 @@ function setupShowMore(sectionId) {
 // Run it
 setupShowMore("upcomingSection");
 setupShowMore("resultsSection");
-  </script>
-
-</div>
-
-<script>
-function toggleVOD(id) {
-  const vod = document.getElementById(id);
-  vod.style.display = vod.style.display === "none" ? "block" : "none";
-}
 </script>
-
 </body>
 </html> 
