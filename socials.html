@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -9,117 +9,77 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #000;
-    color: #fff;
+    background: black;
+    color: white;
 }
 
 /* NAVBAR */
 .navbar {
-    background: #0a0a0a;
-    padding: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: #0a0a0a;
+    padding: 15px;
 }
 
-.navbar-title {
+.logo {
     font-weight: bold;
-    font-size: 18px;
 }
 
-/* MENU BUTTON */
+/* LINKS */
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* MOBILE */
 .menu-btn {
-    background: #111;
-    border: none;
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-/* DROPDOWN */
-.dropdown {
     display: none;
     background: #111;
-    padding: 10px;
+    color: white;
+    border: none;
+    padding: 8px;
 }
 
-.dropdown a {
-    display: block;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 6px;
-}
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 55px;
+        right: 10px;
+        background: #111;
+        padding: 10px;
+    }
 
-.dropdown a:hover {
-    background: gold;
-    color: #000;
+    .menu-btn {
+        display: block;
+    }
 }
 
 /* HEADER */
 .header {
     text-align: center;
-    padding: 25px 15px 10px;
-}
-
-.header h1 {
-    font-size: 34px;
-    font-weight: 900;
-    margin: 0;
-}
-
-.header p {
-    color: #aaa;
-    margin-top: 8px;
-}
-
-/* SOCIALS */
-.social-container {
     padding: 20px;
 }
 
-.social-box {
+/* BOXES */
+.box {
     background: #111;
-    border-radius: 15px;
-    margin-bottom: 25px;
-    padding: 35px 20px;
+    margin: 20px;
+    padding: 30px;
     text-align: center;
-    border: 2px solid #222;
-    transition: 0.2s;
-}
-
-.social-box:hover {
-    border: 2px solid gold;
-    transform: scale(1.03);
-}
-
-.social-box img {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 20px;
-}
-
-.social-btn {
-    display: inline-block;
-    background: #333;
-    color: #fff;
-    padding: 15px 35px;
     border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
 }
 
-.social-btn:hover {
-    background: gold;
-    color: #000;
+.box img {
+    width: 80px;
 }
-
-/* COLOUR STRIPS */
-.youtube { border-left: 6px solid red; }
-.tiktok { border-left: 6px solid #00f2ea; }
-.twitter { border-left: 6px solid #1da1f2; }
-
 </style>
 </head>
 
@@ -127,59 +87,48 @@ body {
 
 <!-- NAVBAR -->
 <div class="navbar">
-    <div class="navbar-title">Exotic Esports</div>
-    <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
-</div>
+    <div class="logo">Exotic Esports</div>
 
-<!-- DROPDOWN MENU -->
-<div class="dropdown">
-    <button class="dropbtn">Menu ▼</button>
-    <div class="dropdown-content">
-      <a href="index.html">Home</a>
-      <a href="phoenix.html">Phoenix Roster</a>
-      <a href="phoenixmatch.html">Phoenix Game Schedule</a>
-      <a href="cobras.html">Cobras Roster</a>
-      <a href="cobrasmatch.html">Cobra Game Schedule</a>
-      <a href="bears.html">Bears Roster</a>
-      <a href="bearsmatchs.html">Bears Game Schedule</a>
-      <a href="socials.html">Socials</a>
-      <a href="about.html">About</a>
+    <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="phoenix.html">Phoenix Roster</a>
+        <a href="phoenixmatch.html">Phoenix Game Schedule</a>
+        <a href="cobras.html">Cobras Roster</a>
+        <a href="cobrasmatch.html">Cobra Game Schedule</a>
+        <a href="bears.html">Bears Roster</a>
+        <a href="bearsmatchs.html">Bears Game Schedule</a>
+        <a href="socials.html">Socials</a>
+        <a href="about.html">About</a>
     </div>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</div>
 
 <!-- HEADER -->
 <div class="header">
     <h1>FOLLOW EXOTIC ESPORTS</h1>
-    <p>Stay connected with us across all platforms</p>
 </div>
 
 <!-- SOCIALS -->
-<div class="social-container">
-
-    <div class="social-box youtube">
-        <img src="youtube.png">
-        <br>
-        <a href="https://youtube.com" target="_blank" class="social-btn">YOUTUBE</a>
-    </div>
-
-    <div class="social-box tiktok">
-        <img src="tiktok.png">
-        <br>
-        <a href="https://tiktok.com" target="_blank" class="social-btn">TIKTOK</a>
-    </div>
-
-    <div class="social-box twitter">
-        <img src="x.png">
-        <br>
-        <a href="https://x.com" target="_blank" class="social-btn">TWITTER (X)</a>
-    </div>
-
+<div class="box">
+    <img src="youtube.png">
+    <p>YouTube</p>
 </div>
 
-<!-- SCRIPT -->
+<div class="box">
+    <img src="tiktok.png">
+    <p>TikTok</p>
+</div>
+
+<div class="box">
+    <img src="x.png">
+    <p>Twitter (X)</p>
+</div>
+
 <script>
 function toggleMenu() {
-    const menu = document.getElementById("dropdown");
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
+    var nav = document.getElementById("navLinks");
+    nav.style.display = (nav.style.display === "flex") ? "none" : "flex";
 }
 </script>
 
