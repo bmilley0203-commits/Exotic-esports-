@@ -1,212 +1,136 @@
           <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Socials - Exotic Esports</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exotic Esports - Socials</title>
 
-  <style>
-    body {
-      margin:0;
-      font-family:Arial;
-      background: radial-gradient(circle at top, #111, #000);
-      color:white;
-    }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+}
 
-    /* HEADER */
-    header {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:15px 20px;
-      background:#0a0a0a;
-      border-bottom:1px solid #222;
-    }
+/* NAVBAR */
+.navbar {
+    background: #0a0a0a;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 18px;
+}
 
-    header h2 {
-      margin:0;
-      color:#fff;
-    }
+/* HEADER TEXT UNDER NAVBAR */
+.header {
+    text-align: center;
+    padding: 25px 15px 10px;
+}
 
-    /* DROPDOWN */
-    .dropdown {
-      position:relative;
-    }
+.header h1 {
+    font-size: 34px;
+    font-weight: 900;
+    margin: 0;
+}
 
-    .dropbtn {
-      background:#222;
-      color:white;
-      padding:10px 14px;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-    }
+.header p {
+    color: #aaa;
+    margin-top: 8px;
+}
 
-    .dropdown-content {
-      display:none;
-      position:absolute;
-      right:0;
-      background:#111;
-      min-width:180px;
-      border-radius:10px;
-      overflow:hidden;
-      box-shadow:0 0 10px rgba(0,0,0,0.5);
-    }
+/* SOCIAL BOXES */
+.social-container {
+    padding: 20px;
+}
 
-    .dropdown-content a {
-      display:block;
-      padding:12px;
-      color:white;
-      text-decoration:none;
-      transition:0.2s;
-    }
+.social-box {
+    background: #111;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    padding: 35px 20px;
+    text-align: center;
+    border: 2px solid #222;
+    transition: 0.2s;
+}
 
-    .dropdown-content a:hover {
-      background:#222;
-    }
+.social-box:hover {
+    border: 2px solid gold;
+    transform: scale(1.03);
+}
 
-    .dropdown:hover .dropdown-content {
-      display:block;
-    }
+/* LOGOS */
+.social-box img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
 
-    /* PAGE */
-    .socials {
-      min-height:80vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:20px;
-      max-width:1200px;
-      margin:auto;
-    }
+/* BUTTON */
+.social-btn {
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-    .socials h1 {
-      font-size:44px;
-      font-weight:900;
-      letter-spacing:1.5px;
-      margin-bottom:12px;
-      text-transform:uppercase;
-      background: linear-gradient(90deg, #fff, #aaa);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
+.social-btn:hover {
+    background: gold;
+    color: #000;
+}
 
-    .socials p {
-      color:#aaa;
-    }
+/* COLOURED SIDE BARS */
+.youtube { border-left: 6px solid red; }
+.tiktok { border-left: 6px solid #00f2ea; }
+.twitter { border-left: 6px solid #1da1f2; }
 
-    /* 🔥 FULL WIDTH BARS */
-    .social-links {
-      width:100%;
-      max-width:1100px;
-      padding:0 20px;
-      box-sizing:border-box;
-      display:flex;
-      flex-direction:column;
-      gap:15px;
-      margin-top:40px;
-    }
-
-    .social-card {
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      background:#0f0f0f;
-      padding:18px 25px;
-      border-radius:14px;
-      text-decoration:none;
-      color:white;
-      transition:0.3s;
-      border:1px solid #222;
-    }
-
-    .social-card:hover {
-      background:#1a1a1a;
-      transform:translateX(6px);
-    }
-
-    .social-left {
-      display:flex;
-      align-items:center;
-      gap:15px;
-    }
-
-    .social-left img {
-      width:35px;
-    }
-
-    .social-text {
-      font-size:18px;
-      font-weight:700;
-    }
-
-    .arrow {
-      font-size:20px;
-      opacity:0.6;
-    }
-
-    /* PLATFORM GLOW */
-    .social-card.youtube:hover { border-color:red; }
-    .social-card.tiktok:hover { border-color:#ff0050; }
-    .social-card.twitter:hover { border-color:#1da1f2; }
-
-  </style>
+</style>
 </head>
 
 <body>
 
-<header>
-  <h2>Exotic Esports</h2>
+<div class="navbar">
+    Exotic Esports
+</div>
 
-  <div class="dropdown">
-    <button class="dropbtn">Menu ▼</button>
-    <div class="dropdown-content">
-      <a href="index.html">Home</a>
-      <a href="phoenix.html">Phoenix Roster</a>
-      <a href="phoenixmatch.html">Phoenix Game Schedule</a>
-      <a href="cobras.html">Cobras Roster</a>
-      <a href="cobrasmatch.html">Cobras Game Schedule</a>
-      <a href="bears.html">Bears Roster</a>
-      <a href="bearsmatchs.html">Bears Game Schedule</a>
-      <a href="socials.html">Socials</a>
-      <a href="about.html">About</a>
+<div class="header">
+    <h1>FOLLOW EXOTIC ESPORTS</h1>
+    <p>Stay connected with us across all platforms</p>
+</div>
+
+<div class="social-container">
+
+    <!-- YOUTUBE -->
+    <div class="social-box youtube">
+        <img src="youtube.png" alt="YouTube">
+        <br>
+        <a href="https://youtube.com" target="_blank" class="social-btn">
+            YOUTUBE
+        </a>
     </div>
-  </div>
-</header>
 
-<section class="socials">
-  <h1>Follow Exotic Esports</h1>
-  <p>Stay connected with us across all platforms</p>
+    <!-- TIKTOK -->
+    <div class="social-box tiktok">
+        <img src="tiktok.png" alt="TikTok">
+        <br>
+        <a href="https://tiktok.com" target="_blank" class="social-btn">
+            TIKTOK
+        </a>
+    </div>
 
-  <div class="social-links">
+    <!-- TWITTER / X -->
+    <div class="social-box twitter">
+        <img src="x.png" alt="X">
+        <br>
+        <a href="https://x.com" target="_blank" class="social-btn">
+            TWITTER (X)
+        </a>
+    </div>
 
-    <a href="https://www.youtube.com/channel/UCWu1QnaZ19-GF5eIwMxN7Hw" target="_blank" class="social-card youtube">
-      <div class="social-left">
-        <img src="youtube.png">
-        <div class="social-text">Follow us on YouTube</div>
-      </div>
-      <div class="arrow">→</div>
-    </a>
-
-    <a href="https://www.tiktok.com/@team.exotic.esports" target="_blank" class="social-card tiktok">
-      <div class="social-left">
-        <img src="tiktok.png">
-        <div class="social-text">Follow us on TikTok</div>
-      </div>
-      <div class="arrow">→</div>
-    </a>
-
-    <a href="https://x.com/ExoticEsportz" target="_blank" class="social-card twitter">
-      <div class="social-left">
-        <img src="x.png">
-        <div class="social-text">Follow us on X</div>
-      </div>
-      <div class="arrow">→</div>
-    </a>
-
-  </div>
-</section>
+</div>
 
 </body>
 </html>
