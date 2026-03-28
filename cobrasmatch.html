@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Phoenix Matches - Exotic Esports</title>
+  <title>Cobras Matches - Exotic Esports</title>
 
   <style>
     body {
@@ -16,9 +16,8 @@
       justify-content:space-between;
       padding:15px 20px;
       background:#000;
+      border-bottom:2px solid gold;
     }
-
-    .dropdown { position:relative; }
 
     .dropbtn {
       background:#222;
@@ -27,6 +26,8 @@
       border:none;
       cursor:pointer;
     }
+
+    .dropdown { position:relative; }
 
     .dropdown-content {
       display:none;
@@ -49,6 +50,7 @@
 
     h1, h2 {
       text-align:center;
+      color:gold;
     }
 
     .section {
@@ -57,17 +59,18 @@
     }
 
     .match {
-      background:#222;
       margin:20px auto;
       padding:20px;
       width:400px;
       border-radius:12px;
       transition:0.2s;
+      border:2px solid gold;
     }
 
-    .match:hover {
-      transform:scale(1.03);
-    }
+    /* RESULT BACKGROUNDS */
+    .win-bg { background:#1f5e2b; }
+    .loss-bg { background:#5e1f1f; }
+    .neutral-bg { background:#222; }
 
     .teams {
       display:flex;
@@ -83,67 +86,42 @@
     .team-logo {
       width:60px;
       height:60px;
-      object-fit:contain;
       border-radius:50%;
-      background:#111;
+      background:#000;
       padding:5px;
     }
 
-    .score .maps .map {
-  font-size: 11px !important;
-  font-weight: 400 !important;
-  padding: 2px 6px !important;
-  border-radius: 6px;
-}
+    .score {
+      text-align:center;
+      font-size:18px;
+      font-weight:bold;
+    }
 
     .maps {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 6px;
-}
+      display:flex;
+      justify-content:center;
+      gap:6px;
+      margin-top:8px;
+    }
 
-}
-    .maps .map {
-  color: #ffffff !important;
-  background: #555 !important;
-  padding: 3px 6px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: normal
+    .map {
+      padding:4px 8px;
+      border-radius:6px;
+      font-size:12px;
+      background:#555;
+    }
 
-}
-
-.maps .map.win {
-  background: #4CAF50 !important;
-  color: #fff !important;
-}
-
-.maps .map.loss {
-  background: #ff4d4d !important;
-  color: #fff !important;
-}
+    .map.win { background:#4CAF50; }
+    .map.loss { background:#f44336; }
+    .map.unplayed { background:#777; }
 
     .winner .team-logo {
-      box-shadow: 0 0 15px #4CAF50, 0 0 30px #4CAF50;
-      animation: glowPulse 1.5s infinite alternate;
+      box-shadow: 0 0 15px gold;
     }
-
-    .loser .team-logo {
-      box-shadow: 0 0 10px #f44336;
-      opacity:0.0;
-    }
-
-    @keyframes glowPulse {
-      from { box-shadow: 0 0 10px #4CAF50; }
-      to { box-shadow: 0 0 25px #4CAF50; }
-    }
-
-    .win { color:#4CAF50; }
-    .loss { color:#f44336; }
 
     .vod {
       margin-top:15px;
+      display:none;
     }
 
     .vod iframe {
@@ -162,17 +140,13 @@
       cursor:pointer;
       margin-top:10px;
     }
-
-    .vod-btn:hover {
-      background:#772ce8;
-    }
   </style>
 </head>
 
 <body>
 
 <header>
-  <h2>Exotic Esports</h2>
+  <h2>Exotic Cobras</h2>
 
   <div class="dropdown">
     <button class="dropbtn">Menu ▼</button>
@@ -180,10 +154,7 @@
       <a href="index.html">Home</a>
       <a href="phoenix.html">Phoenix Roster</a>
       <a href="cobras.html">Cobras Roster</a>
-      <a href="bears.html">Bears Roster</a>
-       <a href="phoenixmatch.html">Phoenix Game Schedule</a>
-       <a href="cobrasmatch.html">Cobra Game Schedule</a>
-       <a href="bearsmatchs.html">Bears Game Schedule</a>
+      <a href="cobrasmatch.html">Cobras Matches</a>
       <a href="socials.html">Socials</a>
       <a href="about.html">About</a>
     </div>
@@ -192,15 +163,15 @@
 
 <h1>Cobras Matches</h1>
 
-<!-- 🔮 UPCOMING -->
+<!-- UPCOMING -->
 <div class="section">
-  <h2>Upcoming Matches</h2>
+  <h2>Upcoming</h2>
 
-  <div class="match">
+  <div class="match neutral-bg">
     <div class="teams">
 
       <div class="team">
-        <img src="Cobras.png" class="team-logo">
+        <img src="cobras.png" class="team-logo">
         <p>Cobras</p>
       </div>
 
@@ -214,37 +185,37 @@
     </div>
 
     <p>29 March - 8:30 PM</p>
-    <p>Format: BO1</p>
+    <p>BO3</p>
 
-    <!-- Optional map pool -->
     <div class="maps">
       <div class="map">Kafe</div>
+      <div class="map">Clubhouse</div>
+      <div class="map">Chalet</div>
     </div>
   </div>
-
 </div>
 
-<!-- 🏆 RESULTS -->
+<!-- RESULTS -->
 <div class="section">
   <h2>Results</h2>
 
-  <!-- MATCH 1 -->
-  <div class="match">
+  <!-- LOSS -->
+  <div class="match loss-bg">
     <div class="teams">
 
-      <div class="team looser">
+      <div class="team">
         <img src="cobras.png" class="team-logo">
-        <p>cobras</p>
+        <p>Cobras</p>
       </div>
 
       <div class="score">
-        0 - 2
+        1 - 2
 
         <div class="maps">
-          <div class="map loss">Clubhouse</div>
+          <div class="map win">Kafe</div>
+          <div class="map loss">Bank</div>
+          <div class="map loss">Chalet</div>
         </div>
-        <div class="map loss">bank</div>
-      </div>
       </div>
 
       <div class="team winner">
@@ -254,58 +225,52 @@
 
     </div>
 
-    <p class="win">Winner: enemy (BO3)</p>
+    <p>Winner: Enemy (BO3)</p>
 
     <button class="vod-btn" onclick="toggleVOD('vod1')">Watch VOD</button>
 
-    <div id="vod1" class="vod" style="display:none;">
-      <iframe src="https://youtu.be/Jbjy_wgpI-Q?si=TQO-mMTjJ5SKtYu7"></iframe>
+    <div id="vod1" class="vod">
+      <iframe src="https://www.youtube.com/embed/Jbjy_wgpI-Q"></iframe>
     </div>
   </div>
 
+  <!-- WIN -->
+  <div class="match win-bg">
+    <div class="teams">
+
+      <div class="team winner">
+        <img src="cobras.png" class="team-logo">
+        <p>Cobras</p>
+      </div>
+
+      <div class="score">
+        2 - 0
+
+        <div class="maps">
+          <div class="map win">Oregon</div>
+          <div class="map win">Border</div>
+          <div class="map unplayed">—</div>
+        </div>
+      </div>
+
+      <div class="team">
+        <img src="enemy.png" class="team-logo">
+        <p>Enemy</p>
+      </div>
+
+    </div>
+
+    <p>Winner: Cobras (BO3)</p>
   </div>
-  
 
 </div>
 
 <script>
 function toggleVOD(id) {
   const vod = document.getElementById(id);
-  vod.style.display = vod.style.display === "none" ? "block" : "none";
+  vod.style.display = vod.style.display === "block" ? "none" : "block";
 }
 </script>
-<script>
-function setupShowMore(sectionId) {
-  const section = document.getElementById(sectionId);
-  const matches = section.querySelectorAll(".match");
 
-  if (matches.length <= 1) return;
-
-  // Hide all except first
-  for (let i = 1; i < matches.length; i++) {
-    matches[i].style.display = "none";
-  }
-
-  // Create button
-  const btn = document.createElement("button");
-  btn.textContent = "Show More";
-
-  btn.onclick = () => {
-    const hidden = matches[1].style.display === "none";
-
-    for (let i = 1; i < matches.length; i++) {
-      matches[i].style.display = hidden ? "block" : "none";
-    }
-
-    btn.textContent = hidden ? "Show Less" : "Show More";
-  };
-
-  section.appendChild(btn);
-}
-
-// Run it
-setupShowMore("upcomingSection");
-setupShowMore("resultsSection");
-</script>
 </body>
 </html> 
