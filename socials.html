@@ -79,72 +79,72 @@
     }
 
     .socials h1 {
-  font-size: 44px;
-  font-weight: 900;
-  letter-spacing: 1.5px;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  background: linear-gradient(90deg, #fff, #aaa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+      font-size: 44px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #fff, #aaa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .socials p {
       color:#aaa;
     }
 
-    /* ICON GRID */
-    .icons {
-      display:flex;
-      gap:30px;
-      margin-top:40px;
-      flex-wrap:wrap;
-      justify-content:center;
-    }
-
-    .icon {
-      width:110px;
-      height:110px;
-      background:rgba(255,255,255,0.05);
-      border-radius:20px;
+    /* 🔥 NEW HORIZONTAL STYLE */
+    .social-links {
+      width:100%;
+      max-width:700px;
       display:flex;
       flex-direction:column;
-      justify-content:center;
+      gap:15px;
+      margin-top:40px;
+    }
+
+    .social-card {
+      display:flex;
       align-items:center;
-      cursor:pointer;
-      transition:0.25s;
-      backdrop-filter:blur(10px);
-      border:1px solid rgba(255,255,255,0.08);
+      justify-content:space-between;
+      background:#0f0f0f;
+      padding:18px 25px;
+      border-radius:14px;
+      text-decoration:none;
+      color:white;
+      transition:0.3s;
+      border:1px solid #222;
     }
 
-    .icon img {
-      width:50px;
-      height:50px;
-      margin-bottom:8px;
+    .social-card:hover {
+      background:#1a1a1a;
+      transform:translateX(6px);
     }
 
-    .icon span {
-      font-size:14px;
-      color:#ccc;
+    .social-left {
+      display:flex;
+      align-items:center;
+      gap:15px;
     }
 
-    /* HOVER EFFECTS */
-    .icon:hover {
-      transform:scale(1.1);
-      background:rgba(255,255,255,0.1);
+    .social-left img {
+      width:35px;
     }
 
-    .icon.youtube:hover {
-      box-shadow:0 0 20px red;
+    .social-text {
+      font-size:18px;
+      font-weight:700;
     }
 
-    .icon.tiktok:hover {
-      box-shadow:0 0 20px #ff0050;
+    .arrow {
+      font-size:20px;
+      opacity:0.6;
     }
 
-    .icon.twitter:hover {
-      box-shadow:0 0 20px #1da1f2;
-    }
+    /* 🔥 PLATFORM GLOW */
+    .social-card.youtube:hover { border-color:red; }
+    .social-card.tiktok:hover { border-color:#ff0050; }
+    .social-card.twitter:hover { border-color:#1da1f2; }
 
   </style>
 </head>
@@ -174,21 +174,30 @@
   <h1>Follow Exotic Esports</h1>
   <p>Stay connected with us across all platforms</p>
 
-  <div class="icons">
+  <div class="social-links">
 
-    <a href="https://www.youtube.com/channel/UCWu1QnaZ19-GF5eIwMxN7Hw" target="_blank" class="icon youtube">
-      <img src="youtube.png" alt="YouTube">
-      <span>YouTube</span>
+    <a href="https://www.youtube.com/channel/UCWu1QnaZ19-GF5eIwMxN7Hw" target="_blank" class="social-card youtube">
+      <div class="social-left">
+        <img src="youtube.png">
+        <div class="social-text">Follow us on YouTube</div>
+      </div>
+      <div class="arrow">→</div>
     </a>
 
-    <a href="https://www.tiktok.com/@team.exotic.esports" target="_blank" class="icon tiktok">
-      <img src="tiktok.png" alt="TikTok">
-      <span>TikTok</span>
+    <a href="https://www.tiktok.com/@team.exotic.esports" target="_blank" class="social-card tiktok">
+      <div class="social-left">
+        <img src="tiktok.png">
+        <div class="social-text">Follow us on TikTok</div>
+      </div>
+      <div class="arrow">→</div>
     </a>
 
-    <a href="https://x.com/ExoticEsportz" target="_blank" class="icon twitter">
-      <img src="x.png" alt="X">
-      <span>Twitter / X</span>
+    <a href="https://x.com/ExoticEsportz" target="_blank" class="social-card twitter">
+      <div class="social-left">
+        <img src="x.png">
+        <div class="social-text">Follow us on X</div>
+      </div>
+      <div class="arrow">→</div>
     </a>
 
   </div>
