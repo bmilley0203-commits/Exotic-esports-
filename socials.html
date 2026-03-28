@@ -1,4 +1,4 @@
-          <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -17,11 +17,47 @@ body {
 .navbar {
     background: #0a0a0a;
     padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-title {
     font-weight: bold;
     font-size: 18px;
 }
 
-/* HEADER TEXT UNDER NAVBAR */
+/* MENU BUTTON */
+.menu-btn {
+    background: #111;
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* DROPDOWN */
+.dropdown {
+    display: none;
+    background: #111;
+    padding: 10px;
+}
+
+.dropdown a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.dropdown a:hover {
+    background: gold;
+    color: #000;
+}
+
+/* HEADER */
 .header {
     text-align: center;
     padding: 25px 15px 10px;
@@ -38,7 +74,7 @@ body {
     margin-top: 8px;
 }
 
-/* SOCIAL BOXES */
+/* SOCIALS */
 .social-container {
     padding: 20px;
 }
@@ -58,15 +94,12 @@ body {
     transform: scale(1.03);
 }
 
-/* LOGOS */
 .social-box img {
     width: 100px;
     height: 100px;
-    object-fit: contain;
     margin-bottom: 20px;
 }
 
-/* BUTTON */
 .social-btn {
     display: inline-block;
     background: #333;
@@ -82,7 +115,7 @@ body {
     color: #000;
 }
 
-/* COLOURED SIDE BARS */
+/* COLOUR STRIPS */
 .youtube { border-left: 6px solid red; }
 .tiktok { border-left: 6px solid #00f2ea; }
 .twitter { border-left: 6px solid #1da1f2; }
@@ -92,45 +125,63 @@ body {
 
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
-    Exotic Esports
+    <div class="navbar-title">Exotic Esports</div>
+    <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
 </div>
 
+<!-- DROPDOWN MENU -->
+<div class="dropdown">
+    <button class="dropbtn">Menu ▼</button>
+    <div class="dropdown-content">
+      <a href="index.html">Home</a>
+      <a href="phoenix.html">Phoenix Roster</a>
+      <a href="phoenixmatch.html">Phoenix Game Schedule</a>
+      <a href="cobras.html">Cobras Roster</a>
+      <a href="cobrasmatch.html">Cobra Game Schedule</a>
+      <a href="bears.html">Bears Roster</a>
+      <a href="bearsmatchs.html">Bears Game Schedule</a>
+      <a href="socials.html">Socials</a>
+      <a href="about.html">About</a>
+    </div>
+
+<!-- HEADER -->
 <div class="header">
     <h1>FOLLOW EXOTIC ESPORTS</h1>
     <p>Stay connected with us across all platforms</p>
 </div>
 
+<!-- SOCIALS -->
 <div class="social-container">
 
-    <!-- YOUTUBE -->
     <div class="social-box youtube">
-        <img src="youtube.png" alt="YouTube">
+        <img src="youtube.png">
         <br>
-        <a href="https://youtube.com" target="_blank" class="social-btn">
-            YOUTUBE
-        </a>
+        <a href="https://youtube.com" target="_blank" class="social-btn">YOUTUBE</a>
     </div>
 
-    <!-- TIKTOK -->
     <div class="social-box tiktok">
-        <img src="tiktok.png" alt="TikTok">
+        <img src="tiktok.png">
         <br>
-        <a href="https://tiktok.com" target="_blank" class="social-btn">
-            TIKTOK
-        </a>
+        <a href="https://tiktok.com" target="_blank" class="social-btn">TIKTOK</a>
     </div>
 
-    <!-- TWITTER / X -->
     <div class="social-box twitter">
-        <img src="x.png" alt="X">
+        <img src="x.png">
         <br>
-        <a href="https://x.com" target="_blank" class="social-btn">
-            TWITTER (X)
-        </a>
+        <a href="https://x.com" target="_blank" class="social-btn">TWITTER (X)</a>
     </div>
 
 </div>
+
+<!-- SCRIPT -->
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("dropdown");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+</script>
 
 </body>
 </html>
