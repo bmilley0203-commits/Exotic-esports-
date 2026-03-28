@@ -81,47 +81,35 @@
     }
 
     .team-logo {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  transform: scale(1.2);
+      width:60px;
+      height:60px;
+      object-fit:contain;
+      border-radius:50%;
+      background:#111;
+      padding:5px;
     }
 
-    .score .maps .map {
-  font-size: 11px !important;
-  font-weight: 400 !important;
-  padding: 2px 6px !important;
-  border-radius: 6px;
-}
-
     .maps {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 6px;
-}
+      display:flex;
+      justify-content:center;
+      gap:6px;
+      margin-top:6px;
+    }
 
-}
     .maps .map {
-  color: #ffffff !important;
-  background: #555 !important;
-  padding: 3px 6px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: normal
+      background:#555;
+      padding:3px 6px;
+      border-radius:6px;
+      font-size:11px;
+    }
 
-}
+    .maps .map.win {
+      background:#4CAF50;
+    }
 
-.maps .map.win {
-  background: #4CAF50 !important;
-  color: #fff !important;
-}
-
-.maps .map.loss {
-  background: #ff4d4d !important;
-  color: #fff !important;
-}
+    .maps .map.loss {
+      background:#ff4d4d;
+    }
 
     .winner .team-logo {
       box-shadow: 0 0 15px #4CAF50, 0 0 30px #4CAF50;
@@ -130,7 +118,7 @@
 
     .loser .team-logo {
       box-shadow: 0 0 10px #f44336;
-      opacity:0.0;
+      opacity:0.4;
     }
 
     @keyframes glowPulse {
@@ -142,6 +130,7 @@
     .loss { color:#f44336; }
 
     .vod {
+      display:none;
       margin-top:15px;
     }
 
@@ -180,9 +169,9 @@
       <a href="phoenix.html">Phoenix Roster</a>
       <a href="cobras.html">Cobras Roster</a>
       <a href="bears.html">Bears Roster</a>
-       <a href="phoenixmatch.html">Phoenix Game Schedule</a>
-       <a href="cobrasmatch.html">Cobra Game Schedule</a>
-       <a href="bearsmatchs.html">Bears Game Schedule</a>
+      <a href="phoenixmatch.html">Phoenix Game Schedule</a>
+      <a href="cobrasmatch.html">Cobra Game Schedule</a>
+      <a href="bearsmatchs.html">Bears Game Schedule</a>
       <a href="socials.html">Socials</a>
       <a href="about.html">About</a>
     </div>
@@ -191,13 +180,12 @@
 
 <h1>Phoenix Matches</h1>
 
-<!-- 🔮 UPCOMING -->
+<!-- UPCOMING -->
 <div class="section">
   <h2>Upcoming Matches</h2>
 
   <div class="match">
     <div class="teams">
-
       <div class="team">
         <img src="phoenix.png" class="team-logo">
         <p>Phoenix</p>
@@ -209,36 +197,31 @@
         <img src="reputation.png" class="team-logo">
         <p>OPM Reputation</p>
       </div>
-
     </div>
 
     <p>29 March - 8:30 PM</p>
     <p>Format: BO1</p>
 
-    <!-- Optional map pool -->
     <div class="maps">
       <div class="map">Kafe</div>
     </div>
   </div>
-
 </div>
 
-<!-- 🏆 RESULTS -->
+<!-- RESULTS -->
 <div class="section">
   <h2>Results</h2>
 
-  <!-- MATCH 1 -->
   <div class="match">
     <div class="teams">
 
-      <div class="team looser">
+      <div class="team loser">
         <img src="phoenix.png" class="team-logo">
         <p>Phoenix</p>
       </div>
 
       <div class="score">
         0 - 1
-
         <div class="maps">
           <div class="map loss">Clubhouse 0-7</div>
         </div>
@@ -251,56 +234,26 @@
 
     </div>
 
-    <p class="win">Winner: Zgg Venomous (BO1)</p>
+    <p class="win">Winner: ZGG Venomous (BO1)</p>
 
-    <button class="vod-btn" onclick="toggleVOD('vod1')">Watch VOD</button>
+    <button class="vod-btn" onclick="toggleVOD('vod1', this)">Watch VOD</button>
 
-    <iframe src="https://www.youtube.com/embed/Jbjy_wgpI-Q"></iframe>
+    <div id="vod1" class="vod">
+      <iframe src="https://www.youtube.com/embed/Jbjy_wgpI-Q" allowfullscreen></iframe>
+    </div>
   </div>
-
-  </div>
-  
 
 </div>
 
 <script>
-function toggleVOD(id) {
+function toggleVOD(id, btn) {
   const vod = document.getElementById(id);
-  vod.style.display = vod.style.display === "none" ? "block" : "none";
+  const isHidden = vod.style.display === "none" || vod.style.display === "";
+
+  vod.style.display = isHidden ? "block" : "none";
+  btn.innerText = isHidden ? "Hide VOD" : "Watch VOD";
 }
 </script>
-<script>
-function setupShowMore(sectionId) {
-  const section = document.getElementById(sectionId);
-  const matches = section.querySelectorAll(".match");
 
-  if (matches.length <= 1) return;
-
-  // Hide all except first
-  for (let i = 1; i < matches.length; i++) {
-    matches[i].style.display = "none";
-  }
-
-  // Create button
-  const btn = document.createElement("button");
-  btn.textContent = "Show More";
-
-  btn.onclick = () => {
-    const hidden = matches[1].style.display === "none";
-
-    for (let i = 1; i < matches.length; i++) {
-      matches[i].style.display = hidden ? "block" : "none";
-    }
-
-    btn.textContent = hidden ? "Show Less" : "Show More";
-  };
-
-  section.appendChild(btn);
-}
-
-// Run it
-setupShowMore("upcomingSection");
-setupShowMore("resultsSection");
-</script>
 </body>
-</html> 
+</html>
