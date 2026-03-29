@@ -9,79 +9,88 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: radial-gradient(circle at top, #001a26, #000);
     color: white;
+    background: linear-gradient(to bottom, #000814, #001d3d, #003566);
 }
 
-/* NAVBAR */
+/* NAVBAR (MATCHED TO ROSTER) */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 1000;
+
     backdrop-filter: blur(12px);
-    background: rgba(0, 20, 30, 0.6);
+    background: rgba(0, 8, 20, 0.6);
+
+    padding: 18px 20px;
     display: flex;
     justify-content: space-between;
-    padding: 15px 20px;
-    border-bottom: 1px solid rgba(0,255,255,0.2);
+    align-items: center;
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .menu-btn {
-    font-size: 22px;
+    font-size: 24px;
     cursor: pointer;
 }
 
 /* DROPDOWN */
 .dropdown {
     position: absolute;
-    right: 20px;
-    top: 60px;
-    background: rgba(0, 20, 40, 0.95);
+    top: 70px;
+    right: 15px;
+    background: #001d3d;
     border-radius: 12px;
-    overflow: hidden;
     display: none;
-    width: 220px;
+    flex-direction: column;
+    width: 200px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,200,255,0.25);
 }
 
 .dropdown a {
-    display: block;
     padding: 14px;
-    color: #bfefff;
     text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: white;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .dropdown a:hover {
-    background: rgba(0,255,255,0.1);
+    background: #003566;
 }
 
 /* HEADER */
 .header {
     text-align: center;
-    padding: 30px 10px 10px;
+    margin: 30px 0 10px;
 }
 
 .header h1 {
-    font-size: 36px;
-    color: #6feaff;
+    color: #4cc9f0;
 }
 
 /* SECTION TITLES */
 .section-title {
-    margin: 30px 20px 10px;
-    font-size: 22px;
-    color: #8befff;
-    border-left: 4px solid #00eaff;
+    margin: 25px 20px 10px;
+    font-size: 20px;
+    color: #90e0ef;
+    border-left: 4px solid #00b4d8;
     padding-left: 10px;
 }
 
 /* MATCH CARD */
 .match {
-    background: rgba(0, 30, 50, 0.6);
+    background: rgba(0, 20, 40, 0.7);
     margin: 15px 20px;
     padding: 20px;
     border-radius: 18px;
-    box-shadow: 0 0 25px rgba(0,255,255,0.08);
+    box-shadow: 0 0 25px rgba(0, 200, 255, 0.15);
     text-align: center;
 }
 
@@ -94,60 +103,49 @@ body {
 
 .team {
     width: 40%;
-    text-align: center;
 }
 
-/* LOGO */
+/* LOGO BIGGER THAN CIRCLE */
 .logo {
     width: 90px;
     height: 90px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
     margin: auto;
-    overflow: visible;
-    background: radial-gradient(circle, rgba(0,0,0,0.5), rgba(0,0,0,0.9));
-    box-shadow: 0 0 15px rgba(0,255,255,0.2);
+    background: rgba(0,0,0,0.6);
 }
 
 .logo img {
-    width: 115%;
-    height: 115%;
+    width: 130%;
+    height: 130%;
     object-fit: cover;
+    transform: scale(1.1);
     border-radius: 50%;
 }
 
 /* SCORE */
-.vs, .score {
+.score, .vs {
     width: 20%;
     font-size: 20px;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .date {
-    margin-top: 12px;
+    margin-top: 10px;
     opacity: 0.8;
 }
 
-/* WIN LOSS */
-.win {
-    color: #00ff9d;
-    text-shadow: 0 0 10px #00ff9d;
-}
-
-.loss {
-    color: #ff4d6d;
-    text-shadow: 0 0 10px #ff4d6d;
-}
+/* WIN / LOSS */
+.win { color: #00ff9d; }
+.loss { color: #ff4d6d; }
 
 /* MAP SERIES */
 .map-series {
     margin-top: 15px;
     display: flex;
     justify-content: center;
-    gap: 8px;
     flex-wrap: wrap;
+    gap: 8px;
 }
 
 .map-box {
@@ -155,9 +153,7 @@ body {
     border-radius: 8px;
     font-size: 12px;
     min-width: 70px;
-    text-align: center;
     background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
 }
 
 .map-win {
@@ -178,10 +174,8 @@ body {
 
 /* MVP */
 .mvp {
-    margin-top: 15px;
-    font-size: 14px;
+    margin-top: 12px;
     color: #ffd700;
-    text-shadow: 0 0 8px #ffd700;
 }
 
 /* BUTTON */
@@ -189,24 +183,18 @@ body {
     margin-top: 12px;
     padding: 10px 20px;
     border-radius: 10px;
-    background: #00cfff;
+    background: #00b4d8;
     border: none;
     cursor: pointer;
     color: black;
     font-weight: bold;
-    transition: 0.2s;
 }
 
-.btn:hover {
-    box-shadow: 0 0 15px #00cfff;
-    transform: scale(1.05);
-}
-
-/* VOD DROPDOWN */
+/* VOD */
 .vod-container {
     max-height: 0;
     overflow: hidden;
-    transition: all 0.4s ease;
+    transition: 0.4s;
     margin-top: 10px;
 }
 
@@ -220,16 +208,6 @@ body {
 .vod-container.active {
     max-height: 300px;
 }
-
-/* WIN PULSE */
-.win-logo {
-    animation: winPulse 1.2s infinite alternate;
-}
-
-@keyframes winPulse {
-    from { box-shadow: 0 0 10px #00ff9d; }
-    to { box-shadow: 0 0 25px #00ff9d; }
-}
 </style>
 </head>
 
@@ -237,20 +215,21 @@ body {
 
 <!-- NAVBAR -->
 <div class="navbar">
-    <div>Exotic Esports</div>
+    <div class="logo-text">Exotic Esports</div>
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
 </div>
+
 <div class="dropdown" id="menu">
-        <a href="index.html">Home</a>
-        <a href="phoenix.html">Phoenix Roster</a>
-        <a href="phoenixmatch.html">Phoenix Game Schedule</a>
-        <a href="cobras.html">Cobras Roster</a>
-        <a href="cobrasmatch.html">Cobra Game Schedule</a>
-        <a href="bears.html">Bears Roster</a>
-        <a href="bearsmatchs.html">Bears Game Schedule</a>
-        <a href="socials.html">Socials</a>
-        <a href="about.html">About</a>
-    </div>
+    <a href="index.html">Home</a>
+    <a href="phoenix.html">Phoenix Roster</a>
+    <a href="phoenixmatch.html">Phoenix Game Schedule</a>
+    <a href="cobras.html">Cobras Roster</a>
+    <a href="cobrasmatch.html">Cobra Game Schedule</a>
+    <a href="bears.html">Bears Roster</a>
+    <a href="bearsmatchs.html">Bears Game Schedule</a>
+    <a href="socials.html">Socials</a>
+    <a href="about.html">About</a>
+</div>
 
 <!-- HEADER -->
 <div class="header">
@@ -281,6 +260,8 @@ body {
         <div class="map-box map-pending">Clubhouse</div>
         <div class="map-box map-pending">Oregon</div>
         <div class="map-box map-pending">Bank</div>
+        <div class="map-box map-pending">Kafe</div>
+        <div class="map-box map-pending">Chalet</div>
     </div>
 </div>
 
@@ -297,7 +278,7 @@ body {
         <div class="score loss">2 - 3</div>
 
         <div class="team">
-            <div class="logo win-logo"><img src="zgg.png"></div>
+            <div class="logo"><img src="zgg.png"></div>
             <p>ZGG Venomous</p>
         </div>
     </div>
@@ -310,11 +291,10 @@ body {
         <div class="map-box map-loss">Chalet<br>4-7</div>
     </div>
 
-    <div class="winner win">Winner: ZGG Venomous (BO5)</div>
+    <div class="win">Winner: ZGG Venomous (BO5)</div>
 
-    <div class="mvp">🏆 Match MVP: Spadeonics (12-5 KD)</div>
+    <div class="mvp">🏆 Match MVP: Spadeonics (12-5)</div>
 
-    <!-- VOD BUTTON -->
     <button class="btn" onclick="toggleVOD(this, 'https://www.youtube.com/embed/YOUR_VIDEO_ID')">
         Watch VOD
     </button>
@@ -326,8 +306,8 @@ body {
 
 <script>
 function toggleMenu() {
-    let menu = document.getElementById("menu");
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
+    const menu = document.getElementById("menu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
 
 function toggleVOD(button, link) {
@@ -337,7 +317,6 @@ function toggleVOD(button, link) {
     if (container.classList.contains("active")) {
         container.classList.remove("active");
         iframe.src = "";
-        button.innerText = "Watch VOD";
     } else {
         document.querySelectorAll(".vod-container").forEach(v => {
             v.classList.remove("active");
@@ -346,10 +325,9 @@ function toggleVOD(button, link) {
 
         container.classList.add("active");
         iframe.src = link;
-        button.innerText = "Close VOD";
     }
 }
 </script>
 
 </body>
-</html>
+</html>            
