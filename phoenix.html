@@ -9,51 +9,36 @@ body{
   color:white;
 }
 
-/* NAVBAR (MATCH HOME STYLE) */
+/* NAVBAR */
 .navbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  display:flex;justify-content:space-between;align-items:center;
   padding:15px 20px;
   background:linear-gradient(90deg,#001f2b,#003b5c);
 }
-
 .menu-toggle{font-size:22px;cursor:pointer}
-
 .nav-links{
-  display:none;
-  flex-direction:column;
-  position:absolute;
-  top:60px;
-  right:0;
-  background:#000814;
-  width:220px;
+  display:none;flex-direction:column;position:absolute;top:60px;right:0;
+  background:#000814;width:220px
 }
-
-.nav-links a{
-  padding:12px;
-  text-decoration:none;
-  color:white;
-}
-
+.nav-links a{padding:12px;text-decoration:none;color:white}
 .nav-links a:hover{color:#00cfff}
-
 .nav-links.active{display:flex}
 
-/* TITLES */
-h1{
-  text-align:center;
-  margin:25px 0;
-  color:#e6faff;
-}
+h1{text-align:center;margin:20px 0;color:#e6faff}
+h2{color:#cfeeff;margin-bottom:10px}
+.section{padding:20px}
 
-h2{
-  color:#cfeeff;
-  margin-bottom:10px;
+/* STARTING LINEUP FEATURE */
+.lineup{
+  display:flex;
+  gap:15px;
+  overflow-x:auto;
+  padding:15px;
 }
-
-.section{
-  padding:20px;
+.lineup .card{
+  min-width:160px;
+  border:1px solid rgba(0,255,200,0.3);
+  box-shadow:0 0 20px rgba(0,255,200,0.2);
 }
 
 /* GRID */
@@ -63,7 +48,7 @@ h2{
   gap:15px;
 }
 
-/* CARDS (CLEAN LIKE HOME, NOT BLOCKY) */
+/* CARD */
 .card{
   background:rgba(255,255,255,0.03);
   padding:15px;
@@ -71,44 +56,44 @@ h2{
   text-align:center;
   border:1px solid rgba(0,200,255,0.15);
   transition:0.3s;
+  position:relative;
+}
+.card:hover{
+  transform:translateY(-6px) scale(1.03);
+  box-shadow:0 0 20px rgba(0,200,255,0.4);
 }
 
-.card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 0 15px rgba(0,200,255,0.3);
-}
+/* ROLE COLORS */
+.entry{border-color:#ff4d4d}
+.igl{border-color:#ffd700}
+.flex{border-color:#00cfff}
+.support{border-color:#7cffc4}
 
 /* IMAGE */
 .card img{
-  width:80px;
-  height:80px;
-  border-radius:50%;
-  object-fit:cover;
-  margin-bottom:10px;
-  border:2px solid rgba(0,200,255,0.5);
+  width:80px;height:80px;border-radius:50%;object-fit:cover;
+  margin-bottom:10px;border:2px solid rgba(255,255,255,0.5)
 }
 
 .card b{color:#e6faff}
-.card p{color:#9fb3c8;margin:4px 0}
+.card p{color:#9fb3c8;margin:3px 0}
+
+/* STATS */
+.stats{
+  font-size:12px;
+  opacity:0.8;
+}
 
 /* MODAL */
 .modal{
-  display:none;
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  background:rgba(0,0,0,0.8);
-  justify-content:center;
-  align-items:center;
+  display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.85);
+  justify-content:center;align-items:center;
 }
-
 .modal-content{
-  background:#0b1f2a;
-  padding:20px;
-  border-radius:10px;
-  text-align:center;
+  background:#0b1f2a;padding:20px;border-radius:10px;text-align:center;
+  box-shadow:0 0 20px #00cfff
 }
-
 .close{cursor:pointer;float:right}
 
 </style></head><body><div class="navbar">
@@ -116,40 +101,29 @@ h2{
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 </div><div class="nav-links" id="navMenu">
   <a href="index.html">Home</a>
-  <a href="phoenix.html">Phoenix Roster</a>
-  <a href="phoenixmatch.html">Phoenix Schedule</a>
+  <a href="phoenix.html">Phoenix</a>
+  <a href="phoenixmatch.html">Schedule</a>
   <a href="cobras.html">Cobras</a>
-  <a href="cobrasmatch.html">Cobras Schedule</a>
   <a href="bears.html">Bears</a>
-  <a href="bearsmatchs.html">Bears Schedule</a>
   <a href="socials.html">Socials</a>
-  <a href="about.html">About</a>
-</div><h1>Phoenix Console Roster</h1><div class="section">
-<h2>Coach</h2>
-<div class="grid">
-<div class="card" onclick="openModal('coach')">
-<img src="coach.png">
-<p><b>Thekidrambo</b></p>
-<p>Coach</p>
+</div><h1>Phoenix Roster</h1><!-- STARTING LINEUP --><div class="section">
+<h2>Starting Lineup</h2>
+<div class="lineup">
+<div class="card igl" onclick="openModal('p1')"><img src="soadeonics.png"><b>Spadeonics</b><p>IGL</p><p class="stats">KD: 1.2</p></div>
+<div class="card entry" onclick="openModal('p2')"><img src="xef.png"><b>Xef</b><p>Entry</p><p class="stats">KD: 1.4</p></div>
+<div class="card entry" onclick="openModal('p3')"><img src="dalton.png"><b>Dalton</b><p>Entry</p><p class="stats">KD: 1.3</p></div>
+<div class="card flex" onclick="openModal('p4')"><img src="golden.png"><b>Golden</b><p>Flex</p><p class="stats">KD: 1.1</p></div>
+<div class="card flex" onclick="openModal('p5')"><img src="chubbs.png"><b>Chubbs</b><p>Flex</p><p class="stats">KD: 1.0</p></div>
 </div>
-</div>
-</div><div class="section">
-<h2>Starters</h2>
+</div><!-- FULL TEAM --><div class="section">
+<h2>Full Roster</h2>
 <div class="grid">
-<div class="card" onclick="openModal('p1')"><img src="soadeonics.png"><p><b>Spadeonics</b></p><p>IGL</p></div>
-<div class="card" onclick="openModal('p2')"><img src="xef.png"><p><b>Xef</b></p><p>Entry</p></div>
-<div class="card" onclick="openModal('p3')"><img src="dalton.png"><p><b>Dalton</b></p><p>Entry</p></div>
-<div class="card" onclick="openModal('p4')"><img src="golden.png"><p><b>Golden</b></p><p>Flex</p></div>
-<div class="card" onclick="openModal('p5')"><img src="chubbs.png"><p><b>Chubbs</b></p><p>Flex</p></div>
-</div>
-</div><div class="section">
-<h2>Subs</h2>
-<div class="grid">
-<div class="card" onclick="openModal('s1')"><img src="nicheorange.png"><p><b>Nicheorange</b></p><p>IGL/Entry</p></div>
-<div class="card" onclick="openModal('s2')"><img src="vursed.png"><p><b>Vursed</b></p><p>Entry</p></div>
-<div class="card" onclick="openModal('s3')"><img src="bambaby.png"><p><b>BAMbaby</b></p><p>Flex</p></div>
-<div class="card" onclick="openModal('s4')"><img src="bonezys.png"><p><b>Bonezys</b></p><p>Flex</p></div>
-<div class="card" onclick="openModal('s5')"><img src="fax.png"><p><b>Fax</b></p><p>Support</p></div>
+<div class="card igl"><img src="soadeonics.png"><b>Spadeonics</b><p>IGL</p></div>
+<div class="card entry"><img src="xef.png"><b>Xef</b><p>Entry</p></div>
+<div class="card entry"><img src="dalton.png"><b>Dalton</b><p>Entry</p></div>
+<div class="card flex"><img src="golden.png"><b>Golden</b><p>Flex</p></div>
+<div class="card flex"><img src="chubbs.png"><b>Chubbs</b><p>Flex</p></div>
+<div class="card support"><img src="fax.png"><b>Fax</b><p>Support</p></div>
 </div>
 </div><div id="modal" class="modal" onclick="closeModal()">
 <div class="modal-content" onclick="event.stopPropagation()">
@@ -164,17 +138,11 @@ function toggleMenu(){document.getElementById('navMenu').classList.toggle('activ
 function openModal(id){
  document.getElementById('modal').style.display='flex';
  const data={
-  coach:{name:'Thekidrambo',role:'Coach',bio:'Coach'},
-  p1:{name:'Spadeonics',role:'IGL',bio:''},
-  p2:{name:'Xef',role:'Entry',bio:''},
-  p3:{name:'Dalton',role:'Entry',bio:''},
-  p4:{name:'Golden',role:'Flex',bio:''},
-  p5:{name:'Chubbs',role:'Flex',bio:''},
-  s1:{name:'Nicheorange',role:'IGL/Entry',bio:''},
-  s2:{name:'Vursed',role:'Entry',bio:''},
-  s3:{name:'BAMbaby',role:'Flex',bio:''},
-  s4:{name:'Bonezys',role:'Flex',bio:''},
-  s5:{name:'Fax',role:'Support',bio:''}
+  p1:{name:'Spadeonics',role:'IGL',bio:'Team leader'},
+  p2:{name:'Xef',role:'Entry',bio:'Aggressive fragger'},
+  p3:{name:'Dalton',role:'Entry',bio:'Entry fragger'},
+  p4:{name:'Golden',role:'Flex',bio:'Versatile player'},
+  p5:{name:'Chubbs',role:'Flex',bio:'Support flex'}
  }
  document.getElementById('modalName').innerText=data[id].name;
  document.getElementById('modalRole').innerText=data[id].role;
