@@ -2,170 +2,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exotic Esports</title><style>
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: white;
-  overflow-x: hidden;
+<title>Phoenix Roster</title><style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial;
+  color:white;
+  overflow-x:hidden;
 }
 
-/* ANIMATED BACKGROUND */
-body::before {
-  content: "";
-  position: fixed;
-  width: 200%;
-  height: 200%;
-  top: -50%;
-  left: -50%;
-  background: radial-gradient(circle, #00cfff22, transparent 60%),
-              radial-gradient(circle, #0077ff22, transparent 60%),
-              #000814;
-  animation: moveBg 15s linear infinite;
-  z-index: -1;
+/* BACKGROUND */
+body::before{
+  content:"";
+  position:fixed;
+  width:200%;height:200%;
+  top:-50%;left:-50%;
+  background:radial-gradient(circle,#00cfff22,transparent 60%),
+             radial-gradient(circle,#0077ff22,transparent 60%),
+             #000814;
+  animation:moveBg 15s linear infinite;
+  z-index:-1;
 }
-
-@keyframes moveBg {
-  0% { transform: translate(0,0); }
-  50% { transform: translate(10%, 10%); }
-  100% { transform: translate(0,0); }
-}
+@keyframes moveBg{50%{transform:translate(10%,10%)}}
 
 /* NAVBAR */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  transition: 0.3s;
+.navbar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:15px 20px;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(10px);
+  position:sticky;top:0;z-index:1000;
 }
-
-.navbar.scrolled {
-  background: linear-gradient(90deg, #001f2b, #003b5c);
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-}
-
-.nav-links a:hover { color: #00cfff; }
-
-@media(max-width:768px) {
-  .menu-toggle { display:block; }
-  .nav-links {
-    position:absolute;
-    top:60px;
-    right:0;
-    background:#000814;
-    flex-direction:column;
-    width:220px;
-    display:none;
+.menu-toggle{display:none;font-size:22px;cursor:pointer}
+.nav-links{display:flex;gap:20px}
+.nav-links a{color:white;text-decoration:none}
+.nav-links a:hover{color:#00cfff}
+@media(max-width:768px){
+  .menu-toggle{display:block}
+  .nav-links{
+    position:absolute;top:60px;right:0;
+    flex-direction:column;background:#000814;
+    width:220px;display:none;padding:10px
   }
-  .nav-links.active { display:flex; }
+  .nav-links.active{display:flex}
 }
 
-/* HERO */
-.hero {
-  text-align:center;
-  padding:80px 20px;
-}
+/* TITLE */
+h1{text-align:center;margin:30px 0;color:#e6faff}
 
-.hero img {
-  width:180px;
-  filter: drop-shadow(0 0 20px #00cfff);
-  animation: float 3s ease-in-out infinite;
-}
+/* FADE */
+.fade{opacity:0;transform:translateY(20px);transition:.6s}
+.fade.show{opacity:1;transform:translateY(0)}
 
-@keyframes float {
-  50% { transform: translateY(-10px); }
-}
-
-/* FADE-IN */
-.fade {
-  opacity:0;
-  transform: translateY(20px);
-  transition:0.6s;
-}
-
-.fade.show {
-  opacity:1;
-  transform: translateY(0);
-}
-
-/* CARDS */
-.section { padding:40px 20px; }
-
-.cards {
+/* GRID */
+.section{padding:20px}
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:20px
 }
 
-.card {
+/* CARD */
+.card{
   background:#0b1f2a;
-  padding:20px;
-  border-radius:12px;
-  transition:0.3s;
-}
-
-.card:hover {
-  transform:translateY(-5px) scale(1.02);
-  box-shadow:0 0 20px rgba(0,200,255,0.4);
-}
-
-/* TEAM SECTION */
-.team {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:20px;
-}
-
-.player {
-  background:#06141c;
   padding:15px;
-  border-radius:10px;
+  border-radius:12px;
   text-align:center;
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-6px) scale(1.03);
+  box-shadow:0 0 20px rgba(0,200,255,.4)
 }
 
-.player img {
-  width:80px;
+/* IMAGE */
+.card img{
+  width:90px;height:90px;
   border-radius:50%;
-}
-
-/* BUTTON */
-.join-btn {
+  object-fit:cover;
   border:2px solid #00cfff;
-  color:#00cfff;
-  padding:12px 25px;
-  border-radius:10px;
-  text-decoration:none;
-  display:inline-block;
+  box-shadow:0 0 10px #00cfff;
+  margin-bottom:10px
 }
 
-.join-btn:hover {
-  background:#00cfff;
-  color:black;
-}
+.card b{color:#e6faff}
+.card p{margin:4px 0;color:#9fb3c8}
 
-</style></head><body><div class="navbar" id="navbar">
+/* MODAL */
+.modal{
+  display:none;position:fixed;
+  top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,.85);
+  justify-content:center;align-items:center
+}
+.modal-content{
+  background:#0b1f2a;
+  padding:20px;border-radius:10px;
+  text-align:center;
+  box-shadow:0 0 20px #00cfff
+}
+.close{cursor:pointer;color:#00cfff;float:right}
+
+</style></head><body><div class="navbar">
   <h2>Exotic Esports</h2>
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
   <div class="nav-links" id="navMenu">
@@ -179,39 +117,68 @@ body::before {
     <a href="socials.html">Socials</a>
     <a href="about.html">About</a>
   </div>
-</div><div class="hero fade">
-  <img src="logo.png">
-  <h2>Exotic Esports</h2>
-  <p>Dominating the competition with precision, power, and teamwork.</p>
+</div><h1 class="fade">Phoenix Console Roster</h1><div class="section fade">
+<h2>Coach</h2>
+<div class="grid">
+<div class="card" onclick="openModal('coach')">
+<img src="coach.png">
+<p><b>Thekidrambo</b></p>
+<p>Coach</p>
+</div>
+</div>
 </div><div class="section fade">
-  <h2>Why Join Us</h2>
-  <div class="cards">
-    <div class="card">Competitive Teams</div>
-    <div class="card">Active Community</div>
-    <div class="card">Content & Growth</div>
-  </div>
+<h2>Starters</h2>
+<div class="grid">
+<div class="card" onclick="openModal('p1')"><img src="soadeonics.png"><p><b>Spadeonics</b></p><p>IGL</p></div>
+<div class="card" onclick="openModal('p2')"><img src="xef.png"><p><b>Xef</b></p><p>Entry</p></div>
+<div class="card" onclick="openModal('p3')"><img src="dalton.png"><p><b>Dalton</b></p><p>Entry</p></div>
+<div class="card" onclick="openModal('p4')"><img src="golden.png"><p><b>Golden</b></p><p>Flex</p></div>
+<div class="card" onclick="openModal('p5')"><img src="chubbs.png"><p><b>Chubbs</b></p><p>Flex</p></div>
+</div>
 </div><div class="section fade">
-  <h2>Our Team</h2>
-  <div class="team">
-    <div class="player"><img src="p1.png"><p>Player 1</p></div>
-    <div class="player"><img src="p2.png"><p>Player 2</p></div>
-    <div class="player"><img src="p3.png"><p>Player 3</p></div>
-  </div>
-</div><div class="section fade">
-  <h2>Join Exotic Esports</h2>
-  <a href="https://discord.gg/" class="join-btn">Join Discord</a>
+<h2>Subs</h2>
+<div class="grid">
+<div class="card" onclick="openModal('s1')"><img src="nicheorange.png"><p><b>Nicheorange</b></p><p>IGL/Entry</p></div>
+<div class="card" onclick="openModal('s2')"><img src="vursed.png"><p><b>Vursed</b></p><p>Entry</p></div>
+<div class="card" onclick="openModal('s3')"><img src="bambaby.png"><p><b>BAMbaby</b></p><p>Flex</p></div>
+<div class="card" onclick="openModal('s4')"><img src="bonezys.png"><p><b>Bonezys</b></p><p>Flex</p></div>
+<div class="card" onclick="openModal('s5')"><img src="fax.png"><p><b>Fax</b></p><p>Support</p></div>
+</div>
+</div><div id="modal" class="modal" onclick="closeModal()">
+<div class="modal-content" onclick="event.stopPropagation()">
+<span class="close" onclick="closeModal()">X</span>
+<h2 id="modalName"></h2>
+<p id="modalRole"></p>
+<p id="modalBio"></p>
+</div>
 </div><script>
-function toggleMenu(){
- document.getElementById('navMenu').classList.toggle('active');
+function toggleMenu(){document.getElementById('navMenu').classList.toggle('active')}
+
+window.addEventListener('scroll',()=>{
+ document.querySelectorAll('.fade').forEach(el=>{
+  if(el.getBoundingClientRect().top<window.innerHeight-50){el.classList.add('show')}
+ })
+})
+
+function openModal(id){
+ document.getElementById('modal').style.display='flex';
+ const data={
+  coach:{name:'Thekidrambo',role:'Coach',bio:'Team leader'},
+  p1:{name:'Spadeonics',role:'IGL',bio:'Leader'},
+  p2:{name:'Xef',role:'Entry',bio:'Entry fragger'},
+  p3:{name:'Dalton',role:'Entry',bio:'Aggressive'},
+  p4:{name:'Golden',role:'Flex',bio:'Versatile'},
+  p5:{name:'Chubbs',role:'Flex',bio:'Support flex'},
+  s1:{name:'Nicheorange',role:'IGL/Entry',bio:'Backup leader'},
+  s2:{name:'Vursed',role:'Entry',bio:'Sub entry'},
+  s3:{name:'BAMbaby',role:'Flex',bio:'Flexible'},
+  s4:{name:'Bonezys',role:'Flex',bio:'Utility'},
+  s5:{name:'Fax',role:'Support',bio:'Support player'}
+ }
+ document.getElementById('modalName').innerText=data[id].name;
+ document.getElementById('modalRole').innerText=data[id].role;
+ document.getElementById('modalBio').innerText=data[id].bio;
 }
-
-window.addEventListener('scroll', () => {
- document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
-
- document.querySelectorAll('.fade').forEach(el => {
-   const rect = el.getBoundingClientRect();
-   if(rect.top < window.innerHeight - 50) el.classList.add('show');
- });
-});
+function closeModal(){document.getElementById('modal').style.display='none'}
 </script></body>
 </html>
