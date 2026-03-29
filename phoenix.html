@@ -13,20 +13,17 @@ body {
     background: linear-gradient(to bottom, #000814, #001d3d, #003566);
 }
 
-/* NAVBAR (GLASS) */
+/* NAVBAR */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 1000;
-
     backdrop-filter: blur(12px);
     background: rgba(0, 8, 20, 0.6);
-
     padding: 18px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
@@ -85,7 +82,7 @@ body {
     color: #90e0ef;
 }
 
-/* ROW SCROLL */
+/* ROW */
 .row {
     display: flex;
     gap: 14px;
@@ -114,24 +111,43 @@ body {
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 15px #00d4ff;
+    box-shadow: 0 0 20px #00d4ff;
 }
 
-.card img {
+/* 🔥 NEW PFP SYSTEM */
+.pfp {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     border: 2px solid #00b4d8;
 
-    object-fit: cover;
-    object-position: center;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    transform: scale(1.2);   /* THIS is the key */
+    /* DARK BLUE GLOW */
+    box-shadow: 0 0 10px #0077b6, 0 0 20px rgba(0,180,216,0.5);
+    transition: 0.3s;
 }
 
+.card:hover .pfp {
+    box-shadow: 0 0 15px #00b4d8, 0 0 30px #0077b6;
+}
+
+.pfp img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transform: scale(1.25);
+}
+
+/* TEXT */
 .name {
     font-size: 14px;
     font-weight: bold;
+    margin-top: 8px;
 }
 
 .role {
@@ -152,14 +168,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
-
     display: none;
     justify-content: center;
     align-items: center;
-
     z-index: 2000;
 }
 
@@ -170,7 +183,6 @@ body {
     width: 85%;
     max-width: 320px;
     text-align: center;
-
     box-shadow: 0 0 25px rgba(0,200,255,0.3);
 }
 
@@ -196,7 +208,6 @@ body {
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
     <div class="logo">Exotic Esports</div>
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
@@ -220,8 +231,8 @@ body {
 <div class="section">
     <h2>Coach</h2>
     <div class="center">
-        <div class="card" onclick="openPlayer('Thekidrambo','Team coach and strategist','coach.png')">
-            <img src="coach.png">
+        <div class="card" onclick="openPlayer('Thekidrambo','Team coach','coach.png')">
+            <div class="pfp"><img src="coach.png"></div>
             <div class="name">Thekidrambo</div>
             <div class="role">Coach</div>
         </div>
@@ -233,34 +244,22 @@ body {
     <h2>Starters</h2>
     <div class="row">
 
-        <div class="card" onclick="openPlayer('Spadeonics','IGL player and team leader','soadeonics.png')">
-            <img src="soadeonics.png">
+        <div class="card" onclick="openPlayer('Spadeonics','IGL','soadeonics.png')">
+            <div class="pfp"><img src="soadeonics.png"></div>
             <div class="name">Spadeonics</div>
             <div class="role">IGL</div>
         </div>
 
-        <div class="card" onclick="openPlayer('Xef','Aggressive entry fragger','xef.png')">
-            <img src="xef.png">
+        <div class="card" onclick="openPlayer('Xef','Entry','xef.png')">
+            <div class="pfp"><img src="xef.png"></div>
             <div class="name">Xef</div>
             <div class="role">Entry</div>
         </div>
 
-        <div class="card" onclick="openPlayer('Dalton','Fast paced entry player','dalton.png')">
-            <img src="dalton.png">
+        <div class="card" onclick="openPlayer('Dalton','Entry','dalton.png')">
+            <div class="pfp"><img src="dalton.png"></div>
             <div class="name">Dalton</div>
             <div class="role">Entry</div>
-        </div>
-
-        <div class="card" onclick="openPlayer('Golden','Flexible support and flex','golden.png')">
-            <img src="golden.png">
-            <div class="name">Golden</div>
-            <div class="role">Flex</div>
-        </div>
-
-        <div class="card" onclick="openPlayer('Chubbs','Versatile flex player','chubbs.png')">
-            <img src="chubbs.png">
-            <div class="name">Chubbs</div>
-            <div class="role">Flex</div>
         </div>
 
     </div>
@@ -271,34 +270,16 @@ body {
     <h2>Subs</h2>
     <div class="row">
 
-        <div class="card" onclick="openPlayer('Nicheorange','IGL and entry substitute','placeholder.png')">
-            <img src="placeholder.png">
+        <div class="card" onclick="openPlayer('Nicheorange','IGL/Entry','placeholder.png')">
+            <div class="pfp"><img src="placeholder.png"></div>
             <div class="name">Nicheorange</div>
             <div class="role">IGL/Entry</div>
         </div>
 
-        <div class="card" onclick="openPlayer('Vursed','Entry substitute player','vursed.png')">
-            <img src="vursed.png">
+        <div class="card" onclick="openPlayer('Vursed','Entry','vursed.png')">
+            <div class="pfp"><img src="vursed.png"></div>
             <div class="name">Vursed</div>
             <div class="role">Entry</div>
-        </div>
-
-        <div class="card" onclick="openPlayer('BAMbaby','Flex substitute','placeholder.png')">
-            <img src="placeholder.png">
-            <div class="name">BAMbaby</div>
-            <div class="role">Flex</div>
-        </div>
-
-        <div class="card" onclick="openPlayer('Bonezys','Flex substitute','placeholder.png')">
-            <img src="placeholder.png">
-            <div class="name">Bonezys</div>
-            <div class="role">Flex</div>
-        </div>
-
-        <div class="card" onclick="openPlayer('Fax','Support substitute','placeholder.png')">
-            <img src="placeholder.png">
-            <div class="name">Fax</div>
-            <div class="role">Support</div>
         </div>
 
     </div>
@@ -314,7 +295,6 @@ body {
     </div>
 </div>
 
-<!-- SCRIPT -->
 <script>
 function toggleMenu() {
     const menu = document.getElementById("menu");
@@ -325,7 +305,6 @@ function openPlayer(name, bio, img) {
     document.getElementById("overlayName").innerText = name;
     document.getElementById("overlayBio").innerText = bio;
     document.getElementById("overlayImg").src = img;
-
     document.getElementById("playerOverlay").style.display = "flex";
 }
 
@@ -335,5 +314,4 @@ function closeOverlay() {
 </script>
 
 </body>
-</html>
-                
+</html>         
