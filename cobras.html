@@ -39,7 +39,6 @@ body {
     display: none;
     flex-direction: column;
     width: 200px;
-    overflow: hidden;
 }
 
 .dropdown a {
@@ -64,12 +63,18 @@ body {
     background: rgba(0, 20, 40, 0.7);
 }
 
-/* SCROLL ROW */
+/* ROW */
 .row {
     display: flex;
     gap: 14px;
     overflow-x: auto;
     padding: 10px 2px;
+}
+
+/* CENTER */
+.center {
+    display: flex;
+    justify-content: center;
 }
 
 /* CARD */
@@ -88,7 +93,7 @@ body {
     box-shadow: 0 0 18px #00d4ff;
 }
 
-/* 🔥 PFP STYLE */
+/* 🔥 PFP */
 .card img {
     width: 72px;
     height: 72px;
@@ -149,7 +154,6 @@ body {
     color: #ccc;
     font-size: 14px;
     margin-top: 8px;
-    line-height: 1.4;
 }
 
 .close-btn {
@@ -180,36 +184,48 @@ body {
 
 <h1 class="title">Cobras PC Roster</h1>
 
+<!-- COACH -->
+<div class="section">
+<h2>Coach</h2>
+<div class="center">
+<div class="card" onclick="openPlayer('Thekidrambo','Coach','Leads strategy and team development','coach.png')">
+<img src="coach.png">
+<div class="name">Thekidrambo</div>
+<div class="role">Coach</div>
+</div>
+</div>
+</div>
+
 <!-- STARTERS -->
 <div class="section">
 <h2>Starters</h2>
 <div class="row">
 
-<div class="card" onclick="openPlayer('Shadow','Entry','Aggressive entry fragger who takes first fights','placeholder.png')">
+<div class="card" onclick="openPlayer('Shadow','Entry','Aggressive entry fragger','placeholder.png')">
 <img src="placeholder.png">
 <div class="name">Shadow</div>
 <div class="role">Entry</div>
 </div>
 
-<div class="card" onclick="openPlayer('Danny','Flex','Adaptable player who fills any role needed','placeholder.png')">
+<div class="card" onclick="openPlayer('Danny','Flex','Adaptable player','placeholder.png')">
 <img src="placeholder.png">
 <div class="name">Danny</div>
 <div class="role">Flex</div>
 </div>
 
-<div class="card" onclick="openPlayer('SuperNicer','Support','Keeps team alive and controls utility','placeholder.png')">
+<div class="card" onclick="openPlayer('SuperNicer','Support','Utility and support specialist','placeholder.png')">
 <img src="placeholder.png">
 <div class="name">SuperNicer</div>
 <div class="role">Support</div>
 </div>
 
-<div class="card" onclick="openPlayer('Grug','IGL','In-game leader controlling team strategy','placeholder.png')">
+<div class="card" onclick="openPlayer('Grug','IGL','In-game leader','placeholder.png')">
 <img src="placeholder.png">
 <div class="name">Grug</div>
 <div class="role">IGL</div>
 </div>
 
-<div class="card" onclick="openPlayer('Blox','Flex','Reliable player with strong mechanics','placeholder.png')">
+<div class="card" onclick="openPlayer('Blox','Flex','Consistent and reliable','placeholder.png')">
 <img src="placeholder.png">
 <div class="name">Blox</div>
 <div class="role">Flex</div>
@@ -223,13 +239,13 @@ body {
 <h2>Subs</h2>
 <div class="row">
 
-<div class="card" onclick="openPlayer('S1','Sub','Backup player ready to step in','placeholder.png')">
+<div class="card" onclick="openPlayer('S1','Sub','Ready to step in','placeholder.png')">
 <img src="placeholder.png">
 <div class="name">S1</div>
 <div class="role">Sub</div>
 </div>
 
-<div class="card" onclick="openPlayer('S2','Sub','Flexible substitute player','placeholder.png')">
+<div class="card" onclick="openPlayer('S2','Sub','Flexible substitute','placeholder.png')">
 <img src="placeholder.png">
 <div class="name">S2</div>
 <div class="role">Sub</div>
