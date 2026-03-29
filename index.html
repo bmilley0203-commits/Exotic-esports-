@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html>
 <head>
-  <title>Exotic Esports</title>
+  <title>Exotic Esports</title>  <style>
+    html {
+      scroll-behavior: smooth;
+    }
 
-  <style>
     body {
       margin: 0;
       font-family: Arial;
-      background: linear-gradient(to bottom, #000000, #050b14);
+      background: linear-gradient(to bottom, #000, #050b14);
       color: white;
     }
 
@@ -18,27 +19,26 @@
       align-items: center;
       padding: 12px 20px;
       background: #0a0f1c;
-      border-bottom: 1px solid #00bfff33;
+      border-bottom: 1px solid rgba(127, 211, 255, 0.15);
     }
 
     header h2 {
-      margin: 0;
       color: #7fd3ff;
-      text-shadow: 0 0 8px #00bfff44;
+      text-shadow: 0 0 6px rgba(127, 211, 255, 0.3);
     }
 
     /* DROPDOWN */
-    .dropdown {
-      position: relative;
-    }
-
     .dropbtn {
       background: transparent;
       color: #7fd3ff;
       padding: 8px 14px;
-      border: 1px solid #00bfff33;
+      border: 1px solid rgba(127, 211, 255, 0.25);
       border-radius: 6px;
       cursor: pointer;
+    }
+
+    .dropdown {
+      position: relative;
     }
 
     .dropdown-content {
@@ -47,56 +47,62 @@
       right: 0;
       background: #0a0f1c;
       min-width: 180px;
-      border: 1px solid #00bfff22;
+      border: 1px solid rgba(127, 211, 255, 0.15);
       border-radius: 6px;
     }
 
     .dropdown-content a {
       display: block;
       padding: 10px;
-      color: white;
+      color: #cfeeff;
       text-decoration: none;
     }
 
     .dropdown-content a:hover {
-      background: #00bfff22;
+      background: rgba(127, 211, 255, 0.1);
     }
 
     .dropdown:hover .dropdown-content {
       display: block;
     }
 
-    /* HERO */
+    /* HERO SECTION */
     .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 40px 20px 20px;
+      padding: 10px 20px 0;
     }
 
     .hero img {
-      width: 120px;
+      width: 130px;
       margin-bottom: 10px;
     }
 
     .hero h1 {
-      font-size: 32px;
+      font-size: 36px;
       margin: 10px 0;
       color: #e6faff;
-      text-shadow: 0 0 12px #00bfff55;
+      text-shadow: 0 0 15px rgba(127, 211, 255, 0.4);
     }
 
     .hero p {
       color: #9fb3c8;
       font-size: 14px;
+      max-width: 300px;
     }
 
-    /* JOIN US SECTION */
+    /* JOIN SECTION */
     .join {
-      text-align: center;
-      margin: 40px 20px;
-      padding: 25px;
+      margin: 0 20px 40px;
+      padding: 20px;
       background: #0a0f1c;
-      border: 1px solid #00bfff22;
       border-radius: 12px;
+      border: 1px solid rgba(127, 211, 255, 0.2);
+      text-align: center;
     }
 
     .join h2 {
@@ -106,62 +112,45 @@
 
     .join p {
       color: #9fb3c8;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .join a {
       display: inline-block;
       padding: 10px 20px;
-      color: white;
       background: #5865F2;
-      border-radius: 6px;
+      color: white;
       text-decoration: none;
-      font-weight: bold;
+      border-radius: 6px;
       transition: 0.2s;
     }
 
     .join a:hover {
       background: #4752c4;
-      box-shadow: 0 0 10px #5865F2aa;
     }
 
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <h2>Exotic Esports</h2>
-
-    <div class="dropdown">
-      <button class="dropbtn">Menu ▼</button>
-      <div class="dropdown-content">
-        <a href="index.html">Home</a>
-        <a href="phoenix.html">Phoenix Roster</a>
-        <a href="phoenixmatch.html">Phoenix Game Schedule</a>
-        <a href="cobras.html">Cobras Roster</a>
-        <a href="cobrasmatch.html">Cobra Game Schedule</a>
-        <a href="bears.html">Bears Roster</a>
-        <a href="bearsmatchs.html">Bears Game Schedule</a>
-        <a href="socials.html">Socials</a>
-        <a href="about.html">About</a>
-      </div>
+  </style></head><body><header>
+  <h2>Exotic Esports</h2>  <div class="dropdown">
+    <button class="dropbtn">Menu ▼</button>
+    <div class="dropdown-content">
+      <a href="index.html">Home</a>
+      <a href="phoenix.html">Phoenix Roster</a>
+      <a href="phoenixmatch.html">Phoenix Game Schedule</a>
+      <a href="cobras.html">Cobras Roster</a>
+      <a href="cobrasmatch.html">Cobra Game Schedule</a>
+      <a href="bears.html">Bears Roster</a>
+      <a href="bearsmatchs.html">Bears Game Schedule</a>
+      <a href="socials.html">Socials</a>
+      <a href="about.html">About</a>
     </div>
-  </header>
-
-  <!-- HERO -->
-  <div class="hero">
-    <img src="logo.png">
-    <h1>Exotic Esports</h1>
-    <p>Dominating the competition with precision, power, and teamwork.</p>
   </div>
-
-  <!-- JOIN US -->
-  <div class="join">
-    <h2>Join Exotic Esports</h2>
-    <p>Want to compete, improve, and be part of the team? Join our Discord and get involved.</p>
-    <a href="https://discord.gg/YOUR-LINK-HERE" target="_blank">Join Here</a>
-  </div>
-
-</body>
+</header><!-- HERO --><div class="hero">
+  <img src="logo.png">
+  <h1>Exotic Esports</h1>
+  <p>Dominating the competition with precision, power, and teamwork.</p>
+</div><!-- JOIN SECTION --><div class="join">
+  <h2>Join Exotic Esports</h2>
+  <p>Want to compete, improve, and be part of the team? Join our Discord and get involved.</p>
+  <a href="https://discord.gg/YOUR-LINK" target="_blank">Join Here</a>
+</div></body>
 </html>
