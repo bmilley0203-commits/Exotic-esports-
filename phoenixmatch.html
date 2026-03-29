@@ -98,25 +98,27 @@ body {
     text-align: center;
 }
 
-/* LOGO FIXED */
 .logo {
     width: 90px;
     height: 90px;
     border-radius: 50%;
-    background: black;
+    background: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
     display: flex;
     align-items: center;
     justify-content: center;
     margin: auto;
-    overflow: hidden;
+    overflow: visible; /* 🔥 key change */
 
-    /* OPTIONAL GLOW */
-    box-shadow: 0 0 15px rgba(0,255,255,0.25);
-    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(0,255,255,0.2);
 }
 
-.logo:hover {
-    transform: scale(1.05);
+/* MAKE LOGO OVERFLOW */
+.logo img {
+    width: 115%;   /* 🔥 bigger than container */
+    height: 115%;
+    object-fit: cover;
+    border-radius: 50%;
+}
 }
 
 /* IMAGE FIT FIX */
