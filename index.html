@@ -1,207 +1,155 @@
- <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exotic Esports</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-html { scroll-behavior: smooth; }
-
+<title>Exotic Esports</title><style>
 body {
   margin: 0;
-  font-family: 'Orbitron', sans-serif;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at center, #001a22, #000814);
   color: white;
-  background: radial-gradient(circle at top, #0a1624, #02060d);
-  background-size: 200% 200%;
-  animation: bgMove 12s ease infinite;
-}
-
-/* BACKGROUND MOVE */
-@keyframes bgMove {
-  0% { background-position: 50% 0%; }
-  50% { background-position: 50% 100%; }
-  100% { background-position: 50% 0%; }
-}
-
-/* MOUSE LIGHT */
-.mouse-glow {
-  position: fixed;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(0,191,255,0.2), transparent 60%);
-  pointer-events: none;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 0;
 }
 
 /* NAVBAR */
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 15px 25px;
-  background: rgba(5,10,20,0.6);
+  align-items: center;
+  padding: 15px 20px;
+  background: rgba(0,0,0,0.7);
   backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: 0.3s;
+  overflow: visible;
 }
 
-.navbar.scrolled {
-  background: rgba(5,10,20,0.95);
-  box-shadow: 0 0 15px rgba(0,191,255,0.3);
+.navbar h1 {
+  font-size: 20px;
 }
 
-/* DROPDOWN */
-.dropdown { position: relative; }
+.dropdown {
+  position: relative;
+}
+
 .dropbtn {
-  color: #bfe9ff;
   background: transparent;
-  border: 1px solid rgba(0,191,255,0.4);
-  padding: 10px;
+  border: 1px solid #00cfff;
+  color: #00cfff;
+  padding: 10px 15px;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   right: 0;
-  background: #0a1624;
+  background: #0a0a0a;
+  min-width: 220px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,200,255,0.3);
+  z-index: 9999;
 }
-.dropdown:hover .dropdown-content { display: block; }
+
+.dropdown-content a {
+  display: block;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background: #00cfff;
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 /* HERO */
 .hero {
   text-align: center;
-  padding: 100px 20px 20px;
-  position: relative;
-  z-index: 1;
+  padding: 60px 20px;
 }
 
 .hero img {
-  width: 150px;
-  animation: pulseGlow 2.5s infinite alternate;
+  width: 180px;
+  filter: drop-shadow(0 0 20px #00cfff);
 }
 
-/* LOGO PULSE */
-@keyframes pulseGlow {
-  from { filter: drop-shadow(0 0 10px rgba(0,191,255,0.4)); }
-  to { filter: drop-shadow(0 0 35px rgba(0,191,255,0.9)); }
+.hero h2 {
+  font-size: 42px;
+  margin-top: 20px;
 }
 
-/* TEXT */
-.hero h1 { font-size: 2.8rem; color: #d9f6ff; }
-.hero p { color: #8fbfd4; }
-
-/* FEATURES */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 20px;
+.hero p {
+  color: #aaa;
 }
 
-.feature-box {
-  background: #0f1c2e;
-  padding: 25px;
-  border-radius: 15px;
-  opacity: 0;
-  transition: 0.6s;
+/* SECTIONS */
+.section {
+  padding: 30px 20px;
 }
 
-/* DIFFERENT ANIMATIONS */
-.slide-up { transform: translateY(50px); }
-.slide-left { transform: translateX(-50px); }
-.slide-right { transform: translateX(50px); }
-
-.show {
-  transform: translate(0);
-  opacity: 1;
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.feature-box:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(0,191,255,0.4);
+.card {
+  background: #0b1f2a;
+  padding: 20px;
+  border-radius: 12px;
 }
 
-/* JOIN */
+/* BUTTON */
 .join-btn {
+  background: transparent;
+  border: 2px solid #00cfff;
+  color: #00cfff;
   padding: 12px 25px;
-  background: linear-gradient(45deg,#00bfff,#009acd);
   border-radius: 10px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
 }
 
-/* FOOTER */
-footer { text-align:center; padding:20px; }
-</style>
-</head>
+.join-btn:hover {
+  background: #00cfff;
+  color: black;
+}
 
-<body>
-
-<div class="mouse-glow" id="glow"></div>
-
-<nav class="navbar">
-  <div>Exotic Esports</div>
-  <div class="dropdown">
+</style></head><body><div class="navbar">
+  <h1>Exotic Esports</h1>  <div class="dropdown">
     <button class="dropbtn">Menu ▼</button>
     <div class="dropdown-content">
-      <a href="#">Home</a>
+      <a href="index.html">Home</a>
+      <a href="phoenix.html">Phoenix Roster</a>
+      <a href="phoenixmatch.html">Phoenix Game Schedule</a>
+      <a href="cobras.html">Cobras Roster</a>
+      <a href="cobrasmatch.html">Cobra Game Schedule</a>
+      <a href="bears.html">Bears Roster</a>
+      <a href="bearsmatchs.html">Bears Game Schedule</a>
+      <a href="socials.html">Socials</a>
+      <a href="about.html">About</a>
     </div>
   </div>
-</nav>
-
-<section class="hero">
-  <img src="./logo.png">
-  <h1>Exotic Esports</h1>
+</div><div class="hero">
+  <img src="logo.png" alt="logo">
+  <h2>Exotic Esports</h2>
   <p>Dominating the competition with precision, power, and teamwork.</p>
-</section>
-
-<section>
+</div><div class="section">
   <h2>Why Join Us</h2>
-  <div class="features">
-    <div class="feature-box slide-left">Competitive Teams</div>
-    <div class="feature-box slide-up">Active Community</div>
-    <div class="feature-box slide-right">Content & Growth</div>
+  <div class="cards">
+    <div class="card">Competitive Teams</div>
+    <div class="card">Active Community</div>
+    <div class="card">Content & Growth</div>
   </div>
-</section>
-
-<section>
+</div><div class="section">
   <h2>Join Exotic Esports</h2>
   <a href="#" class="join-btn">Join Here</a>
-</section>
-
-<footer>
-  <p>© 2026 Exotic Esports</p>
-</footer>
-
-<script>
-/* NAVBAR SCROLL */
-window.addEventListener("scroll", () => {
-  document.querySelector(".navbar")
-    .classList.toggle("scrolled", window.scrollY > 50);
-});
-
-/* SCROLL ANIMATIONS */
-const boxes = document.querySelectorAll(".feature-box");
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-  });
-});
-boxes.forEach(box => observer.observe(box));
-
-/* MOUSE GLOW */
-const glow = document.getElementById("glow");
-document.addEventListener("mousemove", e => {
-  glow.style.left = e.clientX + "px";
-  glow.style.top = e.clientY + "px";
-});
-</script>
-
-</body>
+</div></body>
 </html>
