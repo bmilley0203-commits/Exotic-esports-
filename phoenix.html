@@ -1,242 +1,212 @@
-<!DOCTYPE html><html>
+  <!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Phoenix Roster</title>  <style>
-    body {
-      background: radial-gradient(circle at top, #07384a, #02141c 70%);
-      color: white;
-      font-family: Arial;
-      margin: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phoenix Roster</title>
 
-    /* NAVBAR (EXACT MATCH HOME) */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 20px;
-      background: linear-gradient(90deg, #031e2b, #052c3a);
-    }
-
-    header h2 {
-      color: white;
-      font-size: 18px;
-    }
-
-    .dropbtn {
-      background: none;
-      color: white;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-    }
-
-    .dropdown { position: relative; }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      right: 0;
-      background: #062f40;
-      min-width: 200px;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 12px;
-      color: white;
-      text-decoration: none;
-    }
-
-    .dropdown-content a:hover { background: #0a4b63; }
-    .dropdown:hover .dropdown-content { display: block; }
-
-    /* TITLE */
-    h1 {
-      text-align: center;
-      margin: 20px 0 5px;
-      font-size: 28px;
-      color: #00e0ff;
-    }
-
-    h2 {
-      text-align: center;
-      color: #9fbcc7;
-      margin-bottom: 5px;
-      font-size: 16px;
-    }
-
-    .section { margin: 20px; }
-
-    /* GRID (SMALLER + CLEANER) */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-      gap: 14px;
-      margin-top: 10px;
-    }
-
-    /* CARD (REDUCED SIZE) */
-    .card {
-      background: rgba(6, 47, 64, 0.75);
-      padding: 12px;
-      text-align: center;
-      border-radius: 14px;
-      border: 1px solid rgba(0,255,255,0.15);
-      transition: 0.2s;
-      backdrop-filter: blur(4px);
-      cursor: pointer;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 15px rgba(0,255,255,0.2);
-    }
-
-    /* COACH CENTER */
-    .coach-card {
-      max-width: 180px;
-      margin: auto;
-    }
-
-    /* PROFILE IMAGE (SMALLER) */
-    .pfp {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      margin: 0 auto 8px;
-      background-size: cover;
-      background-position: center;
-      border: 2px solid rgba(255,255,255,0.2);
-      box-shadow: 0 0 8px rgba(0,255,255,0.2);
-    }
-
-    /* TEXT */
-    .card b { font-size: 13px; }
-    .card p { margin: 2px 0; font-size: 12px; }
-
-    /* MODAL */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.85);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background: #062f40;
-      padding: 18px;
-      border-radius: 12px;
-      border: 1px solid rgba(0,255,255,0.3);
-      text-align: center;
-      max-width: 260px;
-    }
-
-    .close {
-      cursor: pointer;
-      color: #00e0ff;
-      float: right;
-      font-weight: bold;
-    }
-
-  </style></head><body><header>
-  <h2>Exotic Esports</h2>  <div class="dropdown">
-    <button class="dropbtn">☰</button>
-    <div class="dropdown-content">
-      <a href="index.html">Home</a>
-      <a href="phoenix.html">Phoenix Roster</a>
-      <a href="phoenixmatch.html">Phoenix Game Schedule</a>
-      <a href="cobras.html">Cobras Roster</a>
-      <a href="cobrasmatch.html">Cobra Game Schedule</a>
-      <a href="bears.html">Bears Roster</a>
-      <a href="bearsmatchs.html">Bears Game Schedule</a>
-      <a href="socials.html">Socials</a>
-      <a href="about.html">About</a>
-    </div>
-  </div>
-</header><h1>Phoenix Console Roster</h1><!-- COACH --><div class="section">
-  <h2>Coach</h2>
-  <div class="grid">
-    <div class="card coach-card" onclick="openModal('coach1')">
-      <div class="pfp" style="background-image:url('coach.png')"></div>
-      <p><b>Thekidrambo</b></p>
-      <p>Coach</p>
-    </div>
-  </div>
-</div><!-- STARTERS --><div class="section">
-  <h2>Starters</h2>
-  <div class="grid"><div class="card" onclick="openModal('p1')">
-  <div class="pfp" style="background-image:url('soadeonics.png')"></div>
-  <p><b>Spadeonics</b></p>
-  <p>IGL</p>
-</div>
-
-<div class="card" onclick="openModal('p2')">
-  <div class="pfp" style="background-image:url('xef.png')"></div>
-  <p><b>Xef</b></p>
-  <p>Entry</p>
-</div>
-
-<div class="card" onclick="openModal('p3')">
-  <div class="pfp" style="background-image:url('dalton.png')"></div>
-  <p><b>Dalton</b></p>
-  <p>Entry</p>
-</div>
-
-<div class="card" onclick="openModal('p4')">
-  <div class="pfp" style="background-image:url('golden.png')"></div>
-  <p><b>Golden</b></p>
-  <p>Flex</p>
-</div>
-
-<div class="card" onclick="openModal('p5')">
-  <div class="pfp" style="background-image:url('chubbs.png')"></div>
-  <p><b>Chubbs</b></p>
-  <p>Flex</p>
-</div>
-
-  </div>
-</div><!-- SUBS --><div class="section">
-  <h2>Subs</h2>
-  <div class="grid"><div class="card" onclick="openModal('s1')">
-  <div class="pfp" style="background-image:url('nicheorange.png')"></div>
-  <p><b>Nicheorange</b></p>
-  <p>IGL/Entry</p>
-</div>
-
-<div class="card" onclick="openModal('s2')">
-  <div class="pfp" style="background-image:url('vursed.png')"></div>
-  <p><b>Vursed</b></p>
-  <p>Entry</p>
-</div>
-
-<div class="card" onclick="openModal('s3')">
-  <div class="pfp" style="background-image:url('bambaby.png')"></div>
-  <p><b>BAMbaby</b></p>
-  <p>Flex</p>
-</div>
-
-<div class="card" onclick="openModal('s4')">
-  <div class="pfp" style="background-image:url('bonezys.png')"></div>
-  <p><b>Bonezys</b></p>
-  <p>Flex</p>
-</div>
-
-<div class="card" onclick="openModal('s5')">
-  <div class="pfp" style="background-image:url('fax.png')"></div>
-  <p><b>Fax</b></p>
-  <p>Support</p>
-</div>
-
-  </div>
-</div><script>
-function openModal(id) {
-  document.getElementById('modal').style.display = 'flex';
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: linear-gradient(to bottom, #000814, #001d3d, #003566);
 }
-</script></body>
+
+/* NAVBAR (MATCH HOME) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #000814;
+    font-weight: bold;
+}
+
+.menu-icon {
+    font-size: 22px;
+}
+
+/* TITLE */
+.title {
+    text-align: center;
+    color: #4cc9f0;
+    margin: 25px 0 10px;
+}
+
+/* SECTION BLOCK */
+.section {
+    margin: 25px 10px;
+    padding: 15px;
+    border-radius: 15px;
+    background: rgba(0, 20, 40, 0.6);
+    box-shadow: 0 0 20px rgba(0, 200, 255, 0.15);
+}
+
+/* SECTION TITLE */
+.section h2 {
+    margin-bottom: 15px;
+    color: #90e0ef;
+}
+
+/* HORIZONTAL SCROLL */
+.row {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.row::-webkit-scrollbar {
+    height: 6px;
+}
+.row::-webkit-scrollbar-thumb {
+    background: #00b4d8;
+    border-radius: 10px;
+}
+
+/* PLAYER CARD */
+.card {
+    min-width: 110px;
+    background: rgba(0, 40, 70, 0.8);
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    flex-shrink: 0;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px #00d4ff;
+}
+
+/* IMAGE */
+.card img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    border: 2px solid #00b4d8;
+}
+
+/* NAME */
+.name {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* ROLE */
+.role {
+    font-size: 11px;
+    color: #aaa;
+}
+
+/* COACH CENTER */
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div>Exotic Esports</div>
+    <div class="menu-icon">☰</div>
+</div>
+
+<h1 class="title">Phoenix Console Roster</h1>
+
+<!-- COACH -->
+<div class="section">
+    <h2>Coach</h2>
+    <div class="center">
+        <div class="card">
+            <img src="coach.png">
+            <div class="name">Thekidrambo</div>
+            <div class="role">Coach</div>
+        </div>
+    </div>
+</div>
+
+<!-- STARTERS -->
+<div class="section">
+    <h2>Starters</h2>
+    <div class="row">
+
+        <div class="card">
+            <img src="spadeonics.png">
+            <div class="name">Spadeonics</div>
+            <div class="role">IGL</div>
+        </div>
+
+        <div class="card">
+            <img src="xef.png">
+            <div class="name">Xef</div>
+            <div class="role">Entry</div>
+        </div>
+
+        <div class="card">
+            <img src="dalton.png">
+            <div class="name">Dalton</div>
+            <div class="role">Entry</div>
+        </div>
+
+        <div class="card">
+            <img src="golden.png">
+            <div class="name">Golden</div>
+            <div class="role">Flex</div>
+        </div>
+
+        <div class="card">
+            <img src="chubbs.png">
+            <div class="name">Chubbs</div>
+            <div class="role">Flex</div>
+        </div>
+
+    </div>
+</div>
+
+<!-- SUBS -->
+<div class="section">
+    <h2>Subs</h2>
+    <div class="row">
+
+        <div class="card">
+            <img src="placeholder.png">
+            <div class="name">Nicheorange</div>
+            <div class="role">IGL/Entry</div>
+        </div>
+
+        <div class="card">
+            <img src="vursed.png">
+            <div class="name">Vursed</div>
+            <div class="role">Entry</div>
+        </div>
+
+        <div class="card">
+            <img src="placeholder.png">
+            <div class="name">BAMbaby</div>
+            <div class="role">Flex</div>
+        </div>
+
+        <div class="card">
+            <img src="placeholder.png">
+            <div class="name">Bonezys</div>
+            <div class="role">Flex</div>
+        </div>
+
+        <div class="card">
+            <img src="placeholder.png">
+            <div class="name">Fax</div>
+            <div class="role">Support</div>
+        </div>
+
+    </div>
+</div>
+
+</body>
 </html>
-          
