@@ -12,6 +12,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   color: white;
+  text-align: center;
 }
 
 /* BACKGROUND */
@@ -48,6 +49,69 @@ body::before {
   background: rgba(0, 8, 20, 0.65);
 }
 
+/* MATCH CARD */
+.match {
+  background: rgba(0, 20, 40, 0.75);
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 420px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+/* LIVE MATCH */
+.match.live {
+  border: 1px solid #ff2d2d;
+  box-shadow: 0 0 25px rgba(255,45,45,0.5);
+}
+
+/* TEAMS */
+.teams {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* LOGO FIX */
+.team-logo {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #00b4d8;
+  background: #000;
+}
+
+.team-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills properly */
+}
+
+/* TEXT */
+.match-time {
+  margin-top: 10px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.win {
+  color: #00ffae;
+  font-weight: bold;
+}
+
+.loss {
+  color: #ff4d4d;
+  font-weight: bold;
+}
+
 /* LIVE BADGE */
 .live-badge {
   display: inline-block;
@@ -64,46 +128,6 @@ body::before {
   50% { box-shadow: 0 0 20px #ff2d2d; }
   100% { box-shadow: 0 0 5px #ff2d2d; }
 }
-
-/* MATCH */
-.match {
-  background: rgba(0, 20, 40, 0.7);
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 420px;
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-}
-
-/* LIVE MATCH EFFECT */
-.match.live {
-  border: 1px solid #ff2d2d;
-  box-shadow: 0 0 25px rgba(255,45,45,0.5);
-}
-
-/* TEAMS */
-.teams {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.team { text-align: center; }
-
-/* LOGO */
-.team-logo {
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid #00b4d8;
-}
-
-.team-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 </style>
 </head>
 
@@ -113,10 +137,10 @@ body::before {
   <h2>Exotic Esports</h2>
 </div>
 
-<h1 style="text-align:center;">Phoenix Matches</h1>
+<h1>Phoenix Matches</h1>
 
-<div class="match" data-time="2026-03-29T20:30:00" id="match1">
-
+<!-- ✅ PAST MATCH -->
+<div class="match">
   <div class="teams">
     <div class="team">
       <div class="team-logo"><img src="phoenix.png"></div>
@@ -131,19 +155,37 @@ body::before {
     </div>
   </div>
 
-  <!-- THIS AUTO CHANGES -->
-  <p class="match-time">29 March - 8:30 PM</p>
+  <p class="match-time win">WIN 7-3</p>
+</div>
 
+<!-- ✅ FUTURE / LIVE MATCH -->
+<div class="match" data-time="2026-03-29T20:30:00">
+  <div class="teams">
+    <div class="team">
+      <div class="team-logo"><img src="phoenix.png"></div>
+      <p>Phoenix</p>
+    </div>
+
+    <div>VS</div>
+
+    <div class="team">
+      <div class="team-logo"><img src="venomous.png"></div>
+      <p>ZGG Venomous</p>
+    </div>
+  </div>
+
+  <p class="match-time">29 March - 8:30 PM</p>
 </div>
 
 <script>
-function updateLiveMatches() {
+function updateMatches() {
   const matches = document.querySelectorAll(".match");
 
   matches.forEach(match => {
+    if (!match.dataset.time) return;
+
     const matchTime = new Date(match.dataset.time).getTime();
     const now = new Date().getTime();
-
     const TWO_HOURS = 2 * 60 * 60 * 1000;
 
     const timeDisplay = match.querySelector(".match-time");
@@ -155,11 +197,9 @@ function updateLiveMatches() {
   });
 }
 
-updateLiveMatches();
-
-/* optional: keep checking every minute */
-setInterval(updateLiveMatches, 60000);
+updateMatches();
+setInterval(updateMatches, 60000);
 </script>
 
 </body>
-</html>     
+</html> 
