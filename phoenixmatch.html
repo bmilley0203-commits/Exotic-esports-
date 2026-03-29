@@ -98,7 +98,7 @@ body {
     text-align: center;
 }
 
-/* LOGO */
+/* LOGO FIXED */
 .logo {
     width: 90px;
     height: 90px;
@@ -108,12 +108,23 @@ body {
     align-items: center;
     justify-content: center;
     margin: auto;
+    overflow: hidden;
+
+    /* OPTIONAL GLOW */
+    box-shadow: 0 0 15px rgba(0,255,255,0.25);
+    transition: 0.3s;
 }
 
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* IMAGE FIT FIX */
 .logo img {
-    width: 85%;
-    height: 85%;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 /* VS / SCORE */
@@ -208,7 +219,7 @@ body {
         <div class="vs">VS</div>
 
         <div class="team">
-            <div class="logo"><img src="reputation.png"></div>
+            <div class="logo"><img src="opm.png"></div>
             <p>OPM Reputation</p>
         </div>
     </div>
@@ -246,4 +257,4 @@ function toggleMenu() {
 </script>
 
 </body>
-</html>
+</html>        
