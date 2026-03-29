@@ -86,15 +86,15 @@ body {
   display: block;
 }
 
-/* HERO (FIXED GAP) */
+/* HERO */
 .hero {
-  min-height: 60vh;
+  min-height: 55vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 40px 20px 20px;
+  padding: 60px 20px 20px;
 }
 
 .hero img {
@@ -113,6 +113,27 @@ body {
   color: #8fbfd4;
   max-width: 500px;
   margin: 0 0 10px;
+}
+
+/* DESKTOP FIX */
+@media (min-width: 768px) {
+  .hero {
+    min-height: 45vh;
+    justify-content: flex-start;
+    padding-top: 120px;
+  }
+
+  .hero img {
+    width: 140px;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
 }
 
 /* SECTION */
@@ -263,4 +284,3 @@ footer a:hover {
 
 </body>
 </html>
-  
