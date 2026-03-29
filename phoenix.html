@@ -1,179 +1,180 @@
-<!DOCTYPE html>
-<html>
+  <!DOCTYPE html><html lang="en">
 <head>
-<title>Phoenix Roster</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:linear-gradient(to bottom,#000814,#001f2b);
-  color:white;
+<title>Phoenix Roster - Exotic Esports</title><style>
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  background: radial-gradient(circle at top, #07384a, #02141c 70%);
 }
 
-/* NAVBAR */
-.navbar{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:15px 20px;
-  background:linear-gradient(90deg,#001f2b,#003b5c);
-}
-.menu-toggle{font-size:22px;cursor:pointer}
-.nav-links{
-  display:none;flex-direction:column;position:absolute;top:60px;right:0;
-  background:#000814;width:220px
-}
-.nav-links a{padding:12px;text-decoration:none;color:white}
-.nav-links a:hover{color:#00cfff}
-.nav-links.active{display:flex}
+h2, h3 { margin: 0; }
 
-h1{text-align:center;margin:20px 0;color:#e6faff}
-h2{color:#cfeeff;margin-bottom:10px}
-.section{padding:20px}
-
-/* STARTING LINEUP FEATURE */
-.lineup{
-  display:flex;
-  gap:15px;
-  overflow-x:auto;
-  padding:15px;
-}
-.lineup .card{
-  min-width:160px;
-  border:1px solid rgba(0,255,200,0.3);
-  box-shadow:0 0 20px rgba(0,255,200,0.2);
+/* ===== NAVBAR (MATCH HOME) ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #031e2b;
 }
 
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:15px;
+.navbar h1 { font-size: 20px; }
+
+.dropdown { position: relative; }
+
+.dropbtn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
 }
 
-/* CARD */
-.card{
-  background:rgba(255,255,255,0.03);
-  padding:15px;
-  border-radius:12px;
-  text-align:center;
-  border:1px solid rgba(0,200,255,0.15);
-  transition:0.3s;
-  position:relative;
-}
-.card:hover{
-  transform:translateY(-6px) scale(1.03);
-  box-shadow:0 0 20px rgba(0,200,255,0.4);
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: #062f40;
+  min-width: 220px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
-/* ROLE COLORS */
-.entry{border-color:#ff4d4d}
-.igl{border-color:#ffd700}
-.flex{border-color:#00cfff}
-.support{border-color:#7cffc4}
-
-/* IMAGE */
-.card img{
-  width:80px;height:80px;border-radius:50%;object-fit:cover;
-  margin-bottom:10px;border:2px solid rgba(255,255,255,0.5)
+.dropdown-content a {
+  display: block;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
 }
 
-.card b{color:#e6faff}
-.card p{color:#9fb3c8;margin:3px 0}
+.dropdown-content a:hover { background: #0a4b63; }
+.dropdown:hover .dropdown-content { display: block; }
 
-/* STATS */
-.stats{
-  font-size:12px;
-  opacity:0.8;
+/* ===== HEADER ===== */
+.header {
+  text-align: center;
+  padding: 40px 20px 20px;
 }
 
-/* MODAL */
-.modal{
-  display:none;position:fixed;top:0;left:0;width:100%;height:100%;
-  background:rgba(0,0,0,0.85);
-  justify-content:center;align-items:center;
-}
-.modal-content{
-  background:#0b1f2a;padding:20px;border-radius:10px;text-align:center;
-  box-shadow:0 0 20px #00cfff
-}
-.close{cursor:pointer;float:right}
-
-</style>
-</head>
-
-<body>
-
-<div class="navbar">
-  <h2>Exotic Esports</h2>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-</div>
-
-<div class="nav-links" id="navMenu">
-  <a href="index.html">Home</a>
-  <a href="phoenix.html">Phoenix</a>
-  <a href="phoenixmatch.html">Schedule</a>
-  <a href="cobras.html">Cobras</a>
-  <a href="bears.html">Bears</a>
-  <a href="socials.html">Socials</a>
-</div>
-
-<h1>Phoenix Roster</h1>
-
-<!-- STARTING LINEUP -->
-<div class="section">
-<h2>Starting Lineup</h2>
-<div class="lineup">
-<div class="card igl" onclick="openModal('p1')"><img src="soadeonics.png"><b>Spadeonics</b><p>IGL</p><p class="stats">KD: 1.2</p></div>
-<div class="card entry" onclick="openModal('p2')"><img src="xef.png"><b>Xef</b><p>Entry</p><p class="stats">KD: 1.4</p></div>
-<div class="card entry" onclick="openModal('p3')"><img src="dalton.png"><b>Dalton</b><p>Entry</p><p class="stats">KD: 1.3</p></div>
-<div class="card flex" onclick="openModal('p4')"><img src="golden.png"><b>Golden</b><p>Flex</p><p class="stats">KD: 1.1</p></div>
-<div class="card flex" onclick="openModal('p5')"><img src="chubbs.png"><b>Chubbs</b><p>Flex</p><p class="stats">KD: 1.0</p></div>
-</div>
-</div>
-
-<!-- FULL TEAM -->
-<div class="section">
-<h2>Full Roster</h2>
-<div class="grid">
-<div class="card igl"><img src="soadeonics.png"><b>Spadeonics</b><p>IGL</p></div>
-<div class="card entry"><img src="xef.png"><b>Xef</b><p>Entry</p></div>
-<div class="card entry"><img src="dalton.png"><b>Dalton</b><p>Entry</p></div>
-<div class="card flex"><img src="golden.png"><b>Golden</b><p>Flex</p></div>
-<div class="card flex"><img src="chubbs.png"><b>Chubbs</b><p>Flex</p></div>
-<div class="card support"><img src="fax.png"><b>Fax</b><p>Support</p></div>
-</div>
-</div>
-
-<div id="modal" class="modal" onclick="closeModal()">
-<div class="modal-content" onclick="event.stopPropagation()">
-<span class="close" onclick="closeModal()">X</span>
-<h2 id="modalName"></h2>
-<p id="modalRole"></p>
-<p id="modalBio"></p>
-</div>
-</div>
-
-<script>
-function toggleMenu(){document.getElementById('navMenu').classList.toggle('active')}
-
-function openModal(id){
- document.getElementById('modal').style.display='flex';
- const data={
-  p1:{name:'Spadeonics',role:'IGL',bio:'Team leader'},
-  p2:{name:'Xef',role:'Entry',bio:'Aggressive fragger'},
-  p3:{name:'Dalton',role:'Entry',bio:'Entry fragger'},
-  p4:{name:'Golden',role:'Flex',bio:'Versatile player'},
-  p5:{name:'Chubbs',role:'Flex',bio:'Support flex'}
- }
- document.getElementById('modalName').innerText=data[id].name;
- document.getElementById('modalRole').innerText=data[id].role;
- document.getElementById('modalBio').innerText=data[id].bio;
+.header h2 {
+  font-size: 34px;
+  background: linear-gradient(90deg, #00e0ff, #6be6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-function closeModal(){document.getElementById('modal').style.display='none'}
-</script>
+.section-title {
+  padding: 10px 20px;
+  font-size: 22px;
+  opacity: 0.9;
+}
 
-</body>
-</html>
+/* ===== GRID ===== */
+.roster {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px;
+  padding: 10px 20px 30px;
+}
 
+/* ===== PLAYER CARD ===== */
+.player-card {
+  background: rgba(6, 47, 64, 0.8);
+  border-radius: 18px;
+  padding: 18px 12px;
+  text-align: center;
+  border: 1px solid rgba(0,255,255,0.15);
+  transition: all 0.25s ease;
+  backdrop-filter: blur(6px);
+}
+
+.player-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0,255,255,0.25);
+}
+
+.player-card img {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.player-card h3 {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.role {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.kd {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+/* ROLE COLORS (subtle, not harsh) */
+.igl { border-color: rgba(255, 200, 0, 0.6); }
+.entry { border-color: rgba(255, 70, 70, 0.6); }
+.flex { border-color: rgba(0, 200, 255, 0.6); }
+.support { border-color: rgba(0, 255, 150, 0.6); }
+.sub { border-color: rgba(200,200,200,0.4); }
+.coach { border-color: rgba(180,100,255,0.5); }
+
+</style></head><body><!-- NAVBAR --><div class="navbar">
+  <h1>Exotic Esports</h1>
+  <div class="dropdown">
+    <button class="dropbtn">☰</button>
+    <div class="dropdown-content">
+      <a href="index.html">Home</a>
+      <a href="phoenix.html">Phoenix Roster</a>
+      <a href="phoenixmatch.html">Phoenix Game Schedule</a>
+      <a href="cobras.html">Cobras Roster</a>
+      <a href="cobrasmatch.html">Cobra Game Schedule</a>
+      <a href="bears.html">Bears Roster</a>
+      <a href="bearsmatchs.html">Bears Game Schedule</a>
+      <a href="socials.html">Socials</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</div><!-- HEADER --><div class="header">
+  <h2>Phoenix Roster</h2>
+</div><!-- MAIN TEAM --><h3 class="section-title">Main Team</h3>
+<div class="roster">  <div class="player-card flex">
+    <img src="">
+    <h3>Golden</h3>
+    <p class="role">Flex</p>
+    <p class="kd">KD: 1.1</p>
+  </div>  <div class="player-card flex">
+    <img src="">
+    <h3>Chubbs</h3>
+    <p class="role">Flex</p>
+    <p class="kd">KD: 1.0</p>
+  </div>  <div class="player-card igl">
+    <img src="">
+    <h3>Spadeonics</h3>
+    <p class="role">IGL</p>
+  </div>  <div class="player-card entry">
+    <img src="">
+    <h3>Xef</h3>
+    <p class="role">Entry</p>
+  </div></div><!-- SUBS --><h3 class="section-title">Substitutes</h3>
+<div class="roster">  <div class="player-card sub">
+    <img src="">
+    <h3>Sub Player 1</h3>
+    <p class="role">Sub</p>
+  </div></div><!-- COACH --><h3 class="section-title">Coach</h3>
+<div class="roster">  <div class="player-card coach">
+    <img src="">
+    <h3>Coach Name</h3>
+    <p class="role">Coach</p>
+  </div></div></body>
+  </html>
