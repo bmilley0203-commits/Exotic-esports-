@@ -101,8 +101,8 @@ body {
 
 /* 🔥 PFP */
 .card img {
-    width: 110px;
-    height: 110px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
 
     display: block;
@@ -111,15 +111,12 @@ body {
     object-fit: cover;
     object-position: center;
 
-    /* thinner ring so image is actually bigger */
-    padding: 2px;
-    background: radial-gradient(circle, #00d4ff, #0077ff);
+    background: none;
+    padding: 0;
 
-    box-sizing: border-box;
-
-    box-shadow:
-        0 0 12px #00d4ff,
-        0 0 25px rgba(0, 212, 255, 0.7);
+    box-shadow: 0 0 0 4px #00d4ff,
+                0 0 15px #00d4ff,
+                0 0 30px rgba(0, 212, 255, 0.7);
 }
 
 .card:hover img {
