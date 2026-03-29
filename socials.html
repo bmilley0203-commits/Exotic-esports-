@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -9,27 +9,31 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: black;
     color: white;
+
+    /* 🔥 SAME GLOW STYLE AS HOME PAGE */
+    background: radial-gradient(circle at center, #0a2a3a 0%, #000 70%);
 }
 
-/* NAVBAR (MATCHES OTHER PAGES) */
+/* NAVBAR (MATCH PHOENIX STYLE) */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #0a0a0a;
     padding: 15px 20px;
-    border-bottom: 1px solid #222;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .logo {
     font-weight: bold;
     font-size: 18px;
     letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(0,150,255,0.6);
 }
 
-/* LINKS */
+/* NAV LINKS */
 .nav-links {
     display: flex;
     gap: 20px;
@@ -42,17 +46,16 @@ body {
 }
 
 .nav-links a:hover {
-    color: gold;
+    color: #00c3ff;
 }
 
 /* MOBILE MENU */
 .menu-btn {
     display: none;
-    background: #111;
-    color: white;
+    font-size: 22px;
+    background: none;
     border: none;
-    padding: 8px 12px;
-    font-size: 18px;
+    color: white;
     cursor: pointer;
 }
 
@@ -62,8 +65,9 @@ body {
         flex-direction: column;
         position: absolute;
         top: 60px;
-        right: 10px;
-        background: #111;
+        right: 15px;
+        background: rgba(0,0,0,0.95);
+        backdrop-filter: blur(10px);
         padding: 15px;
         border-radius: 10px;
         width: 200px;
@@ -74,14 +78,14 @@ body {
     }
 }
 
-/* HEADER (MATCH HOME STYLE) */
+/* HEADER */
 .header {
     text-align: center;
-    padding: 40px 20px 20px;
+    padding: 60px 20px 30px;
 }
 
 .header h1 {
-    font-size: 28px;
+    font-size: 32px;
     margin-bottom: 10px;
 }
 
@@ -92,24 +96,27 @@ body {
 /* SOCIAL GRID */
 .social-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
     padding: 20px;
 }
 
-/* BOX STYLE (MATCH HOME SECTIONS) */
+/* GLOW BOX STYLE */
 .box {
-    background: #111;
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(10px);
     padding: 30px;
     text-align: center;
-    border-radius: 15px;
+    border-radius: 20px;
     transition: 0.3s;
-    border: 1px solid #222;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 0 20px rgba(0,150,255,0.15);
 }
 
 .box:hover {
     transform: translateY(-5px);
-    border-color: gold;
+    border-color: #00c3ff;
+    box-shadow: 0 0 25px rgba(0,150,255,0.4);
 }
 
 /* ICONS */
@@ -180,4 +187,4 @@ function toggleMenu() {
 </script>
 
 </body>
-</html>  
+</html>
