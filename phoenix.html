@@ -1,137 +1,166 @@
-  <!DOCTYPE html><html lang="en">
+  <!DOCTYPE html><html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Phoenix Roster - Exotic Esports</title><style>
-/* ===== GLOBAL ===== */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: white;
-  background: radial-gradient(circle at top, #07384a, #02141c 70%);
-}
+  <title>Phoenix Roster</title>  <style>
+    body {
+      background: radial-gradient(circle at top, #07384a, #02141c 70%);
+      color: white;
+      font-family: Arial;
+      margin: 0;
+    }
 
-h2, h3 { margin: 0; }
+    /* NAVBAR (MATCH HOME EXACTLY) */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      background: #031e2b;
+      border-bottom: 1px solid rgba(0,255,255,0.15);
+    }
 
-/* ===== NAVBAR (MATCH HOME) ===== */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background: #031e2b;
-}
+    header h2 {
+      color: #e6faff;
+      font-weight: 600;
+    }
 
-.navbar h1 { font-size: 20px; }
+    /* DROPDOWN */
+    .dropbtn {
+      background: none;
+      color: white;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+    }
 
-.dropdown { position: relative; }
+    .dropdown { position: relative; }
 
-.dropbtn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-}
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background: #062f40;
+      min-width: 200px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  right: 0;
-  background: #062f40;
-  min-width: 220px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-}
+    .dropdown-content a {
+      display: block;
+      padding: 12px;
+      color: white;
+      text-decoration: none;
+    }
 
-.dropdown-content a {
-  display: block;
-  padding: 12px;
-  color: white;
-  text-decoration: none;
-}
+    .dropdown-content a:hover {
+      background: #0a4b63;
+    }
 
-.dropdown-content a:hover { background: #0a4b63; }
-.dropdown:hover .dropdown-content { display: block; }
+    .dropdown:hover .dropdown-content { display: block; }
 
-/* ===== HEADER ===== */
-.header {
-  text-align: center;
-  padding: 40px 20px 20px;
-}
+    /* TITLE */
+    h1 {
+      text-align: center;
+      margin: 25px 0 5px;
+      font-size: 34px;
+      background: linear-gradient(90deg, #00e0ff, #6be6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.header h2 {
-  font-size: 34px;
-  background: linear-gradient(90deg, #00e0ff, #6be6ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    h2 {
+      text-align: center;
+      color: #9fbcc7;
+      margin-bottom: 10px;
+    }
 
-.section-title {
-  padding: 10px 20px;
-  font-size: 22px;
-  opacity: 0.9;
-}
+    .section {
+      margin: 25px;
+    }
 
-/* ===== GRID ===== */
-.roster {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 18px;
-  padding: 10px 20px 30px;
-}
+    /* GRID (UNCHANGED STRUCTURE, CLEANED LOOK) */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 18px;
+      margin-top: 15px;
+    }
 
-/* ===== PLAYER CARD ===== */
-.player-card {
-  background: rgba(6, 47, 64, 0.8);
-  border-radius: 18px;
-  padding: 18px 12px;
-  text-align: center;
-  border: 1px solid rgba(0,255,255,0.15);
-  transition: all 0.25s ease;
-  backdrop-filter: blur(6px);
-}
+    /* CARD (UPGRADED BUT SAME LAYOUT) */
+    .card {
+      background: rgba(6, 47, 64, 0.75);
+      padding: 16px;
+      text-align: center;
+      border-radius: 16px;
+      border: 1px solid rgba(0,255,255,0.15);
+      transition: all 0.25s ease;
+      backdrop-filter: blur(6px);
+      cursor: pointer;
+    }
 
-.player-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 25px rgba(0,255,255,0.25);
-}
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 25px rgba(0,255,255,0.25);
+      border-color: rgba(0,255,255,0.4);
+    }
 
-.player-card img {
-  width: 85px;
-  height: 85px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-  border: 2px solid rgba(255,255,255,0.2);
-}
+    /* COACH CENTER */
+    .coach-card {
+      max-width: 280px;
+      margin: auto;
+    }
 
-.player-card h3 {
-  font-size: 16px;
-  margin: 5px 0;
-}
+    /* PROFILE IMAGE */
+    .pfp {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+      background-size: cover;
+      background-position: center;
+      border: 2px solid rgba(255,255,255,0.2);
+      box-shadow: 0 0 12px rgba(0,255,255,0.25);
+    }
 
-.role {
-  font-size: 13px;
-  opacity: 0.7;
-}
+    /* TEXT */
+    .card b { color: #e6faff; }
+    .card p { margin: 4px 0; }
 
-.kd {
-  font-size: 12px;
-  opacity: 0.5;
-}
+    /* ROLE TAGS (SUBTLE COLOUR SYSTEM) */
+    .card p:last-child { opacity: 0.7; font-size: 13px; }
 
-/* ROLE COLORS (subtle, not harsh) */
-.igl { border-color: rgba(255, 200, 0, 0.6); }
-.entry { border-color: rgba(255, 70, 70, 0.6); }
-.flex { border-color: rgba(0, 200, 255, 0.6); }
-.support { border-color: rgba(0, 255, 150, 0.6); }
-.sub { border-color: rgba(200,200,200,0.4); }
-.coach { border-color: rgba(180,100,255,0.5); }
+    /* MODAL (UPGRADED) */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+    }
 
-</style></head><body><!-- NAVBAR --><div class="navbar">
-  <h1>Exotic Esports</h1>
-  <div class="dropdown">
+    .modal-content {
+      background: #062f40;
+      padding: 20px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,255,255,0.3);
+      text-align: center;
+      max-width: 300px;
+      box-shadow: 0 0 30px rgba(0,255,255,0.25);
+    }
+
+    .close {
+      cursor: pointer;
+      color: #00e0ff;
+      float: right;
+      font-weight: bold;
+    }
+
+    .close:hover { color: red; }
+
+  </style></head><body><header>
+  <h2>Exotic Esports</h2>  <div class="dropdown">
     <button class="dropbtn">☰</button>
     <div class="dropdown-content">
       <a href="index.html">Home</a>
@@ -145,36 +174,114 @@ h2, h3 { margin: 0; }
       <a href="about.html">About</a>
     </div>
   </div>
-</div><!-- HEADER --><div class="header">
-  <h2>Phoenix Roster</h2>
-</div><!-- MAIN TEAM --><h3 class="section-title">Main Team</h3>
-<div class="roster">  <div class="player-card flex">
-    <img src="">
-    <h3>Golden</h3>
-    <p class="role">Flex</p>
-    <p class="kd">KD: 1.1</p>
-  </div>  <div class="player-card flex">
-    <img src="">
-    <h3>Chubbs</h3>
-    <p class="role">Flex</p>
-    <p class="kd">KD: 1.0</p>
-  </div>  <div class="player-card igl">
-    <img src="">
-    <h3>Spadeonics</h3>
-    <p class="role">IGL</p>
-  </div>  <div class="player-card entry">
-    <img src="">
-    <h3>Xef</h3>
-    <p class="role">Entry</p>
-  </div></div><!-- SUBS --><h3 class="section-title">Substitutes</h3>
-<div class="roster">  <div class="player-card sub">
-    <img src="">
-    <h3>Sub Player 1</h3>
-    <p class="role">Sub</p>
-  </div></div><!-- COACH --><h3 class="section-title">Coach</h3>
-<div class="roster">  <div class="player-card coach">
-    <img src="">
-    <h3>Coach Name</h3>
-    <p class="role">Coach</p>
-  </div></div></body>
+</header><h1>Phoenix Console Roster</h1><!-- COACH --><div class="section">
+  <h2>Coach</h2>
+  <div class="grid">
+    <div class="card coach-card" onclick="openModal('coach1')">
+      <div class="pfp" style="background-image:url('coach.png')"></div>
+      <p><b>Thekidrambo</b></p>
+      <p>Coach</p>
+    </div>
+  </div>
+</div><!-- STARTERS --><div class="section">
+  <h2>Starters</h2>
+  <div class="grid"><div class="card" onclick="openModal('p1')">
+  <div class="pfp" style="background-image:url('soadeonics.png')"></div>
+  <p><b>Spadeonics</b></p>
+  <p>IGL</p>
+</div>
+
+<div class="card" onclick="openModal('p2')">
+  <div class="pfp" style="background-image:url('xef.png')"></div>
+  <p><b>Xef</b></p>
+  <p>Entry</p>
+</div>
+
+<div class="card" onclick="openModal('p3')">
+  <div class="pfp" style="background-image:url('dalton.png')"></div>
+  <p><b>Dalton</b></p>
+  <p>Entry</p>
+</div>
+
+<div class="card" onclick="openModal('p4')">
+  <div class="pfp" style="background-image:url('golden.png')"></div>
+  <p><b>Golden</b></p>
+  <p>Flex</p>
+</div>
+
+<div class="card" onclick="openModal('p5')">
+  <div class="pfp" style="background-image:url('chubbs.png')"></div>
+  <p><b>Chubbs</b></p>
+  <p>Flex</p>
+</div>
+
+  </div>
+</div><!-- SUBS --><div class="section">
+  <h2>Subs</h2>
+  <div class="grid"><div class="card" onclick="openModal('s1')">
+  <div class="pfp" style="background-image:url('nicheorange.png')"></div>
+  <p><b>Nicheorange</b></p>
+  <p>IGL/Entry</p>
+</div>
+
+<div class="card" onclick="openModal('s2')">
+  <div class="pfp" style="background-image:url('vursed.png')"></div>
+  <p><b>Vursed</b></p>
+  <p>Entry</p>
+</div>
+
+<div class="card" onclick="openModal('s3')">
+  <div class="pfp" style="background-image:url('bambaby.png')"></div>
+  <p><b>BAMbaby</b></p>
+  <p>Flex</p>
+</div>
+
+<div class="card" onclick="openModal('s4')">
+  <div class="pfp" style="background-image:url('bonezys.png')"></div>
+  <p><b>Bonezys</b></p>
+  <p>Flex</p>
+</div>
+
+<div class="card" onclick="openModal('s5')">
+  <div class="pfp" style="background-image:url('fax.png')"></div>
+  <p><b>Fax</b></p>
+  <p>Support</p>
+</div>
+
+  </div>
+</div><!-- MODAL --><div id="modal" class="modal" onclick="closeModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close" onclick="closeModal()">X</span>
+    <h2 id="modalName">Player</h2>
+    <p id="modalRole">Role</p>
+    <p id="modalBio">Add bio here</p>
+  </div>
+</div><script>
+function openModal(id) {
+  document.getElementById('modal').style.display = 'flex';
+
+  const data = {
+    coach1: {name:'Thekidrambo', role:'Coach', bio:'Coach bio'},
+    p1: {name:'Spadeonics', role:'IGL', bio:'Bio'},
+    p2: {name:'Xef', role:'Entry', bio:'Bio'},
+    p3: {name:'Dalton', role:'Entry', bio:'Bio'},
+    p4: {name:'Golden', role:'Flex', bio:'Bio'},
+    p5: {name:'Chubbs', role:'Flex', bio:'Bio'},
+    s1: {name:'Nicheorange', role:'IGL/Entry', bio:'Bio'},
+    s2: {name:'Vursed', role:'Entry', bio:'Bio'},
+    s3: {name:'BAMbaby', role:'Flex', bio:'Bio'},
+    s4: {name:'Bonezys', role:'Flex', bio:'Bio'},
+    s5: {name:'Fax', role:'Support', bio:'Bio'}
+  };
+
+  document.getElementById('modalName').innerText = data[id].name;
+  document.getElementById('modalRole').innerText = data[id].role;
+  document.getElementById('modalBio').innerText = data[id].bio;
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+</script></body>
   </html>
+
