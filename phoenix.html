@@ -1,160 +1,179 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
+<title>Phoenix Roster</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Phoenix Roster - Exotic Esports</title><style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, #02141c, #052c3a);
-  color: white;
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:linear-gradient(to bottom,#000814,#001f2b);
+  color:white;
 }
 
-/* NAVBAR (MATCH HOME PAGE) */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background: #031e2b;
+/* NAVBAR */
+.navbar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:15px 20px;
+  background:linear-gradient(90deg,#001f2b,#003b5c);
+}
+.menu-toggle{font-size:22px;cursor:pointer}
+.nav-links{
+  display:none;flex-direction:column;position:absolute;top:60px;right:0;
+  background:#000814;width:220px
+}
+.nav-links a{padding:12px;text-decoration:none;color:white}
+.nav-links a:hover{color:#00cfff}
+.nav-links.active{display:flex}
+
+h1{text-align:center;margin:20px 0;color:#e6faff}
+h2{color:#cfeeff;margin-bottom:10px}
+.section{padding:20px}
+
+/* STARTING LINEUP FEATURE */
+.lineup{
+  display:flex;
+  gap:15px;
+  overflow-x:auto;
+  padding:15px;
+}
+.lineup .card{
+  min-width:160px;
+  border:1px solid rgba(0,255,200,0.3);
+  box-shadow:0 0 20px rgba(0,255,200,0.2);
 }
 
-.navbar h1 {
-  font-size: 20px;
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:15px;
 }
 
-/* DROPDOWN */
-.dropdown {
-  position: relative;
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.03);
+  padding:15px;
+  border-radius:12px;
+  text-align:center;
+  border:1px solid rgba(0,200,255,0.15);
+  transition:0.3s;
+  position:relative;
+}
+.card:hover{
+  transform:translateY(-6px) scale(1.03);
+  box-shadow:0 0 20px rgba(0,200,255,0.4);
 }
 
-.dropbtn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
+/* ROLE COLORS */
+.entry{border-color:#ff4d4d}
+.igl{border-color:#ffd700}
+.flex{border-color:#00cfff}
+.support{border-color:#7cffc4}
+
+/* IMAGE */
+.card img{
+  width:80px;height:80px;border-radius:50%;object-fit:cover;
+  margin-bottom:10px;border:2px solid rgba(255,255,255,0.5)
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  right: 0;
-  background: #062f40;
-  min-width: 200px;
-  border-radius: 10px;
-  overflow: hidden;
+.card b{color:#e6faff}
+.card p{color:#9fb3c8;margin:3px 0}
+
+/* STATS */
+.stats{
+  font-size:12px;
+  opacity:0.8;
 }
 
-.dropdown-content a {
-  display: block;
-  padding: 12px;
-  color: white;
-  text-decoration: none;
+/* MODAL */
+.modal{
+  display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.85);
+  justify-content:center;align-items:center;
+}
+.modal-content{
+  background:#0b1f2a;padding:20px;border-radius:10px;text-align:center;
+  box-shadow:0 0 20px #00cfff
+}
+.close{cursor:pointer;float:right}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+  <h2>Exotic Esports</h2>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</div>
+
+<div class="nav-links" id="navMenu">
+  <a href="index.html">Home</a>
+  <a href="phoenix.html">Phoenix</a>
+  <a href="phoenixmatch.html">Schedule</a>
+  <a href="cobras.html">Cobras</a>
+  <a href="bears.html">Bears</a>
+  <a href="socials.html">Socials</a>
+</div>
+
+<h1>Phoenix Roster</h1>
+
+<!-- STARTING LINEUP -->
+<div class="section">
+<h2>Starting Lineup</h2>
+<div class="lineup">
+<div class="card igl" onclick="openModal('p1')"><img src="soadeonics.png"><b>Spadeonics</b><p>IGL</p><p class="stats">KD: 1.2</p></div>
+<div class="card entry" onclick="openModal('p2')"><img src="xef.png"><b>Xef</b><p>Entry</p><p class="stats">KD: 1.4</p></div>
+<div class="card entry" onclick="openModal('p3')"><img src="dalton.png"><b>Dalton</b><p>Entry</p><p class="stats">KD: 1.3</p></div>
+<div class="card flex" onclick="openModal('p4')"><img src="golden.png"><b>Golden</b><p>Flex</p><p class="stats">KD: 1.1</p></div>
+<div class="card flex" onclick="openModal('p5')"><img src="chubbs.png"><b>Chubbs</b><p>Flex</p><p class="stats">KD: 1.0</p></div>
+</div>
+</div>
+
+<!-- FULL TEAM -->
+<div class="section">
+<h2>Full Roster</h2>
+<div class="grid">
+<div class="card igl"><img src="soadeonics.png"><b>Spadeonics</b><p>IGL</p></div>
+<div class="card entry"><img src="xef.png"><b>Xef</b><p>Entry</p></div>
+<div class="card entry"><img src="dalton.png"><b>Dalton</b><p>Entry</p></div>
+<div class="card flex"><img src="golden.png"><b>Golden</b><p>Flex</p></div>
+<div class="card flex"><img src="chubbs.png"><b>Chubbs</b><p>Flex</p></div>
+<div class="card support"><img src="fax.png"><b>Fax</b><p>Support</p></div>
+</div>
+</div>
+
+<div id="modal" class="modal" onclick="closeModal()">
+<div class="modal-content" onclick="event.stopPropagation()">
+<span class="close" onclick="closeModal()">X</span>
+<h2 id="modalName"></h2>
+<p id="modalRole"></p>
+<p id="modalBio"></p>
+</div>
+</div>
+
+<script>
+function toggleMenu(){document.getElementById('navMenu').classList.toggle('active')}
+
+function openModal(id){
+ document.getElementById('modal').style.display='flex';
+ const data={
+  p1:{name:'Spadeonics',role:'IGL',bio:'Team leader'},
+  p2:{name:'Xef',role:'Entry',bio:'Aggressive fragger'},
+  p3:{name:'Dalton',role:'Entry',bio:'Entry fragger'},
+  p4:{name:'Golden',role:'Flex',bio:'Versatile player'},
+  p5:{name:'Chubbs',role:'Flex',bio:'Support flex'}
+ }
+ document.getElementById('modalName').innerText=data[id].name;
+ document.getElementById('modalRole').innerText=data[id].role;
+ document.getElementById('modalBio').innerText=data[id].bio;
 }
 
-.dropdown-content a:hover {
-  background: #0a4b63;
-}
+function closeModal(){document.getElementById('modal').style.display='none'}
+</script>
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* HEADER */
-.header {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.header h2 {
-  font-size: 32px;
-}
-
-/* ROSTER GRID */
-.roster {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
-.player-card {
-  background: #062f40;
-  border-radius: 15px;
-  padding: 15px;
-  text-align: center;
-  border: 1px solid rgba(0,255,255,0.2);
-  transition: 0.3s;
-}
-
-.player-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(0,255,255,0.3);
-}
-
-.player-card img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-
-.role {
-  font-size: 14px;
-  opacity: 0.7;
-}
-
-.section-title {
-  padding: 0 20px;
-  font-size: 22px;
-}
-
-</style></head><body><div class="navbar">
-  <h1>Exotic Esports</h1>
-  <div class="dropdown">
-    <button class="dropbtn">☰</button>
-    <div class="dropdown-content">
-      <a href="index.html">Home</a>
-      <a href="phoenix.html">Phoenix Roster</a>
-      <a href="phoenixmatch.html">Phoenix Game Schedule</a>
-      <a href="cobras.html">Cobras Roster</a>
-      <a href="cobrasmatch.html">Cobra Game Schedule</a>
-      <a href="bears.html">Bears Roster</a>
-      <a href="bearsmatchs.html">Bears Game Schedule</a>
-      <a href="socials.html">Socials</a>
-      <a href="about.html">About</a>
-    </div>
-  </div>
-</div><div class="header">
-  <h2>Phoenix Roster</h2>
-</div><h3 class="section-title">Full Team</h3><div class="roster">  <!-- MAIN PLAYERS -->  <div class="player-card">
-    <img src="">
-    <h3>Golden</h3>
-    <p class="role">Flex</p>
-  </div>  <div class="player-card">
-    <img src="">
-    <h3>Chubbs</h3>
-    <p class="role">Flex</p>
-  </div>  <div class="player-card">
-    <img src="">
-    <h3>Spadeonics</h3>
-    <p class="role">IGL</p>
-  </div>  <div class="player-card">
-    <img src="">
-    <h3>Xef</h3>
-    <p class="role">Entry</p>
-  </div></div><h3 class="section-title">Substitutes</h3><div class="roster">
-  <div class="player-card">
-    <img src="">
-    <h3>Sub Player</h3>
-    <p class="role">Sub</p>
-  </div>
-</div><h3 class="section-title">Coach</h3><div class="roster">
-  <div class="player-card">
-    <img src="">
-    <h3>Coach Name</h3>
-    <p class="role">Coach</p>
-  </div>
-</div></body>
+</body>
 </html>
+
