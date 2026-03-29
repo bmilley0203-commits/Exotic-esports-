@@ -113,7 +113,6 @@ h1, h2 { text-align: center; }
   width: 35%;
 }
 
-/* 🔥 LOGO FINAL FIX */
 .team-logo {
   width: 75px;
   height: 75px;
@@ -130,6 +129,21 @@ h1, h2 { text-align: center; }
   position: relative;
 
   animation: idleGlow 3s ease-in-out infinite;
+}
+
+.team-logo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;   /* fills circle */
+  object-position: center;
+
+  padding: 0;          /* 🔥 REMOVE spacing */
+  margin: 0;
+
+  display: block;      /* removes inline gaps */
+
+  filter: drop-shadow(0 0 6px rgba(0,229,255,0.6));
 }
 
 .team-logo img {
