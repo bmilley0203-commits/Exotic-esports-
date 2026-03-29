@@ -99,33 +99,32 @@ body {
     box-shadow: 0 0 18px #00d4ff;
 }
 
-/* 🔥 PFP */
-.card img {
-    width: 110px;   /* 🔥 bigger image */
+/* 🔥 NEW PFP SYSTEM */
+.pfp {
+    width: 110px;
     height: 110px;
     border-radius: 50%;
 
-    display: block;
     margin: 0 auto 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 3px solid #00d4ff;
+
+    box-shadow:
+        0 0 15px #00d4ff,
+        0 0 30px rgba(0, 212, 255, 0.6);
+}
+
+.pfp img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 
     object-fit: cover;
     object-position: center;
-
-    /* ❌ remove thick ring */
-    box-shadow: none;
-
-    /* ✅ thin clean ring */
-    outline: 3px solid #00d4ff;
-    outline-offset: 2px;
-
-    /* subtle glow only */
-    filter: drop-shadow(0 0 10px #00d4ff);
-}
-
-.card:hover img {
-    box-shadow:
-        0 0 15px #00d4ff,
-        0 0 30px #0077ff;
 }
 
 .name { font-size: 14px; font-weight: bold; }
@@ -206,7 +205,7 @@ body {
 <h2>Coach</h2>
 <div class="center">
 <div class="card" onclick="openPlayer('DxrkWars','Coach','Leads strategy and team development','dxrk.png')">
-<img src="dxrk.png">
+<div class="pfp"><img src="dxrk.png"></div>
 <div class="name">DxrkWars</div>
 <div class="role">Coach</div>
 </div>
@@ -219,31 +218,31 @@ body {
 <div class="row">
 
 <div class="card" onclick="openPlayer('Shadow','Entry','Aggressive entry fragger','shadow.png')">
-<img src="shadow.png">
+<div class="pfp"><img src="shadow.png"></div>
 <div class="name">Shadow</div>
 <div class="role">Entry</div>
 </div>
 
 <div class="card" onclick="openPlayer('Grug','Flex','Adaptable player','grug.png')">
-<img src="grug.png">
+<div class="pfp"><img src="grug.png"></div>
 <div class="name">Grug</div>
 <div class="role">Flex</div>
 </div>
 
 <div class="card" onclick="openPlayer('SuperNicer','Support','Utility and support specialist','super.png')">
-<img src="super.png">
+<div class="pfp"><img src="super.png"></div>
 <div class="name">SuperNicer</div>
 <div class="role">Support</div>
 </div>
 
 <div class="card" onclick="openPlayer('Danny','IGL','In-game leader','danny.png')">
-<img src="danny.png">
+<div class="pfp"><img src="danny.png"></div>
 <div class="name">danny</div>
 <div class="role">IGL</div>
 </div>
 
 <div class="card" onclick="openPlayer('Blox','Flex','Consistent and reliable','blox.png')">
-<img src="blox.png">
+<div class="pfp"><img src="blox.png"></div>
 <div class="name">Blox</div>
 <div class="role">Flex</div>
 </div>
@@ -257,13 +256,13 @@ body {
 <div class="row">
 
 <div class="card" onclick="openPlayer('S1','Sub','Ready to step in','placeholder.png')">
-<img src="placeholder.png">
+<div class="pfp"><img src="placeholder.png"></div>
 <div class="name">S1</div>
 <div class="role">Sub</div>
 </div>
 
 <div class="card" onclick="openPlayer('S2','Sub','Flexible substitute','placeholder.png')">
-<img src="placeholder.png">
+<div class="pfp"><img src="placeholder.png"></div>
 <div class="name">S2</div>
 <div class="role">Sub</div>
 </div>
