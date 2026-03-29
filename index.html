@@ -1,215 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exotic Esports</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exotic Esports</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
+<style>
+html {
+  scroll-behavior: smooth;
+}
 
-    body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: #050505;
-      color: white;
-    }
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: radial-gradient(circle at top, #0a0f1a, #000);
+  color: white;
+}
 
-    /* NAVBAR */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
-      background: #0a0a0a;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #0a0a0a;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0,191,255,0.2);
+}
 
-    .logo-text {
-      font-weight: bold;
-    }
+.logo-text {
+  font-weight: bold;
+  text-shadow: 0 0 10px #00bfff;
+}
 
-    .dropbtn {
-      background: #111;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      cursor: pointer;
-      border-radius: 8px;
-    }
+/* DROPDOWN */
+.dropbtn {
+  background: #111;
+  color: white;
+  padding: 10px 15px;
+  border: 1px solid rgba(0,191,255,0.3);
+  cursor: pointer;
+  border-radius: 8px;
+}
 
-    .dropdown {
-      position: relative;
-    }
+.dropdown {
+  position: relative;
+}
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      right: 0;
-      background: #111;
-      min-width: 200px;
-      border-radius: 10px;
-      overflow: hidden;
-    }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: #111;
+  min-width: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(0,191,255,0.2);
+}
 
-    .dropdown-content a {
-      display: block;
-      padding: 12px;
-      color: white;
-      text-decoration: none;
-    }
+.dropdown-content a {
+  display: block;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+}
 
-    .dropdown-content a:hover {
-      background: #1a1a1a;
-    }
+.dropdown-content a:hover {
+  background: #00bfff;
+  color: black;
+}
 
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-    /* HERO */
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
 
-    .hero img {
-      width: 160px;
-      margin-bottom: 20px;
-    }
+.hero img {
+  width: 170px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 25px rgba(0,191,255,0.5));
+}
 
-    .hero h1 {
-      font-size: 3rem;
-    }
+.hero h1 {
+  font-size: 3rem;
+  text-shadow: 0 0 20px rgba(0,191,255,0.6);
+}
 
-    .hero p {
-      color: #aaa;
-      max-width: 500px;
-    }
+.hero p {
+  color: #aaa;
+  max-width: 500px;
+}
 
-    /* JOIN */
-    .join {
-      text-align: center;
-      padding: 60px 20px;
-      background: #0a0a0a;
-    }
+/* JOIN */
+.join {
+  text-align: center;
+  padding: 60px 20px;
+  background: #0a0a0a;
+  border-top: 1px solid rgba(0,191,255,0.2);
+}
 
-    .join p {
-      max-width: 500px;
-      margin: 10px auto 20px;
-      color: #aaa;
-    }
+.join p {
+  max-width: 500px;
+  margin: 10px auto 20px;
+  color: #aaa;
+}
 
-    .join-btn {
-      display: inline-block;
-      padding: 12px 25px;
-      background: #00bfff;
-      color: black;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+.join-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #00bfff;
+  color: black;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(0,191,255,0.4);
+}
 
-    .join-btn:hover {
-      background: #009acd;
-    }
+.join-btn:hover {
+  background: #009acd;
+  transform: scale(1.05);
+}
 
-    /* ROSTER */
-    .roster {
-      padding: 80px 20px;
-      text-align: center;
-    }
+/* ROSTER */
+.roster {
+  padding: 80px 20px;
+  text-align: center;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
 
-    .card {
-      background: #111;
-      padding: 20px;
-      border-radius: 15px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+.card {
+  background: #111;
+  padding: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid rgba(0,191,255,0.2);
+}
 
-    .card:hover {
-      transform: scale(1.05);
-      background: #1a1a1a;
-    }
+.card:hover {
+  transform: scale(1.05);
+  background: #1a1a1a;
+  border-color: #00bfff;
+  box-shadow: 0 0 15px rgba(0,191,255,0.3);
+}
 
-    .avatar {
-      width: 80px;
-      height: 80px;
-      background: #333;
-      border-radius: 50%;
-      margin: 0 auto 15px;
-    }
+.avatar {
+  width: 80px;
+  height: 80px;
+  background: #333;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  border: 2px solid #00bfff;
+}
 
-    /* MODAL */
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      display: none;
-      align-items: center;
-      justify-content: center;
-    }
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
 
-    .modal-content {
-      background: #111;
-      padding: 30px;
-      border-radius: 15px;
-      max-width: 400px;
-      text-align: center;
-    }
+.modal-content {
+  background: #111;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid rgba(0,191,255,0.3);
+}
 
-    .close {
-      margin-top: 15px;
-      cursor: pointer;
-      color: #00bfff;
-    }
+.close {
+  margin-top: 15px;
+  cursor: pointer;
+  color: #00bfff;
+}
 
-    /* FOOTER */
-    footer {
-      background: #0a0a0a;
-      padding: 20px;
-      text-align: center;
-    }
+/* FOOTER */
+footer {
+  background: #0a0a0a;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid rgba(0,191,255,0.2);
+}
 
-    footer a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: white;
-    }
+footer a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: white;
+}
 
-    footer a:hover {
-      color: #00bfff;
-    }
-  </style>
+footer a:hover {
+  color: #00bfff;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="logo-text">Exotic Esports</div>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo-text">Exotic Esports</div>
 
-<div class="dropdown">
+  <div class="dropdown">
     <button class="dropbtn">Menu ▼</button>
     <div class="dropdown-content">
       <a href="index.html">Home</a>
@@ -222,56 +239,57 @@
       <a href="socials.html">Socials</a>
       <a href="about.html">About</a>
     </div>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <img src="./logo.png" alt="Exotic Esports Logo">
-    <h1>Exotic Esports</h1>
-    <p>Dominating the competition with precision, power, and teamwork.</p>
-  </section>
-
-  <!-- JOIN -->
-  <section class="join">
-    <h2>Join Exotic Esports</h2>
-    <p>Want to compete at the highest level? Join our community and become part of the team.</p>
-    <a href="https://discord.gg/skQgeWAG" class="join-btn">Join Here</a>
-  </section>
-
-  <!-- MODAL -->
-  <div id="modal" class="modal" onclick="closeModal()">
-    <div class="modal-content" onclick="event.stopPropagation()">
-      <h2 id="modalName"></h2>
-      <p id="modalRole"></p>
-      <p id="modalBio"></p>
-      <div class="close" onclick="closeModal()">Close</div>
-    </div>
   </div>
+</nav>
 
-  <!-- FOOTER -->
-  <footer id="socials">
-    <p>Follow us</p>
-    <div>
-      <a href="#">X</a>
-      <a href="#https://www.tiktok.com/@team.exotic.esports?_r=1&_t=ZS-950uOJ7IgvR">TikTok</a>
-      <a href="#">YouTube</a>
-    </div>
-    <p style="color: gray; margin-top: 10px;">© 2026 Exotic Esports</p>
-  </footer>
+<!-- HERO -->
+<section class="hero">
+  <img src="./logo.png" alt="Exotic Esports Logo">
+  <h1>Exotic Esports</h1>
+  <p>Dominating the competition with precision, power, and teamwork.</p>
+</section>
 
-  <script>
-    function openModal(name, role, bio) {
-      document.getElementById('modal').style.display = 'flex';
-      document.getElementById('modalName').innerText = name;
-      document.getElementById('modalRole').innerText = role;
-      document.getElementById('modalBio').innerText = bio;
-    }
+<!-- JOIN -->
+<section class="join">
+  <h2>Join Exotic Esports</h2>
+  <p>Want to compete at the highest level? Join our community and become part of the team.</p>
+  <a href="https://discord.gg/skQgeWAG" class="join-btn">Join Here</a>
+</section>
 
-    function closeModal() {
-      document.getElementById('modal').style.display = 'none';
-    }
-  </script>
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="closeModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <h2 id="modalName"></h2>
+    <p id="modalRole"></p>
+    <p id="modalBio"></p>
+    <div class="close" onclick="closeModal()">Close</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Follow us</p>
+  <div>
+    <a href="#">X</a>
+    <a href="https://www.tiktok.com/@team.exotic.esports">TikTok</a>
+    <a href="#">YouTube</a>
+  </div>
+  <p style="color: gray; margin-top: 10px;">© 2026 Exotic Esports</p>
+</footer>
+
+<script>
+function openModal(name, role, bio) {
+  document.getElementById('modal').style.display = 'flex';
+  document.getElementById('modalName').innerText = name;
+  document.getElementById('modalRole').innerText = role;
+  document.getElementById('modalBio').innerText = bio;
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+</script>
 
 </body>
 </html>
+
