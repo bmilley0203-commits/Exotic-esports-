@@ -101,22 +101,25 @@ body {
 
 /* 🔥 PFP */
 .card img {
-    width: 100px;
-    height: 100px;
+    width: 110px;   /* 🔥 bigger image */
+    height: 110px;
     border-radius: 50%;
 
     display: block;
     margin: 0 auto 10px;
 
-    object-fit: cover;          /* 🔑 fills the circle */
-    object-position: center;    /* 🔑 keeps it centered */
+    object-fit: cover;
+    object-position: center;
 
-    background-color: transparent; /* removes black background */
+    /* ❌ remove thick ring */
+    box-shadow: none;
 
-    box-shadow: 
-        0 0 0 4px #00d4ff,
-        0 0 15px #00d4ff,
-        0 0 30px rgba(0, 212, 255, 0.7);
+    /* ✅ thin clean ring */
+    outline: 3px solid #00d4ff;
+    outline-offset: 2px;
+
+    /* subtle glow only */
+    filter: drop-shadow(0 0 10px #00d4ff);
 }
 
 .card:hover img {
