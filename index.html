@@ -1,14 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Exotic Esports</title><style>
+/* RESET */
+* { box-sizing: border-box; }
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: radial-gradient(circle at center, #001a22, #000814);
   color: white;
+  overflow-x: hidden;
+}
+
+/* 🔥 ANIMATED BACKGROUND */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, #00cfff22, transparent 60%),
+              radial-gradient(circle, #0077ff22, transparent 60%),
+              #000814;
+  animation: moveBg 15s linear infinite;
+  z-index: -1;
+}
+
+@keyframes moveBg {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(10%, 10%); }
+  100% { transform: translate(0,0); }
 }
 
 /* NAVBAR */
@@ -22,100 +44,102 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  overflow: visible;
 }
 
-.navbar h1 {
-  font-size: 20px;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropbtn {
-  background: transparent;
-  border: 1px solid #00cfff;
-  color: #00cfff;
-  padding: 10px 15px;
-  border-radius: 8px;
+.menu-toggle {
+  display: none;
+  font-size: 22px;
   cursor: pointer;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  right: 0;
-  background: #0a0a0a;
-  min-width: 220px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,200,255,0.3);
-  z-index: 9999;
+.nav-links {
+  display: flex;
+  gap: 20px;
 }
 
-.dropdown-content a {
-  display: block;
-  padding: 12px;
+.nav-links a {
   color: white;
   text-decoration: none;
+  transition: 0.3s;
 }
 
-.dropdown-content a:hover {
-  background: #00cfff;
-  color: black;
+.nav-links a:hover {
+  color: #00cfff;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
+/* MOBILE MENU */
+@media(max-width: 768px) {
+  .menu-toggle { display: block; }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #000814;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    padding: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
 }
 
 /* HERO */
 .hero {
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
 
 .hero img {
   width: 180px;
   filter: drop-shadow(0 0 20px #00cfff);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .hero h2 {
   font-size: 42px;
-  margin-top: 20px;
 }
 
-.hero p {
-  color: #aaa;
-}
+.hero p { color: #aaa; }
 
-/* SECTIONS */
-.section {
-  padding: 30px 20px;
-}
+/* CARDS */
+.section { padding: 40px 20px; }
 
 .cards {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
 .card {
   background: #0b1f2a;
   padding: 20px;
   border-radius: 12px;
+  transition: 0.3s;
 }
 
-/* BUTTON */
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 0 20px rgba(0,200,255,0.4);
+}
+
+/* JOIN BUTTON */
 .join-btn {
-  background: transparent;
   border: 2px solid #00cfff;
   color: #00cfff;
   padding: 12px 25px;
   border-radius: 10px;
   text-decoration: none;
   display: inline-block;
-  margin-top: 20px;
+  transition: 0.3s;
 }
 
 .join-btn:hover {
@@ -124,22 +148,19 @@ body {
 }
 
 </style></head><body><div class="navbar">
-  <h1>Exotic Esports</h1>  <div class="dropdown">
-    <button class="dropbtn">Menu ▼</button>
-    <div class="dropdown-content">
-      <a href="index.html">Home</a>
-      <a href="phoenix.html">Phoenix Roster</a>
-      <a href="phoenixmatch.html">Phoenix Game Schedule</a>
-      <a href="cobras.html">Cobras Roster</a>
-      <a href="cobrasmatch.html">Cobra Game Schedule</a>
-      <a href="bears.html">Bears Roster</a>
-      <a href="bearsmatchs.html">Bears Game Schedule</a>
-      <a href="socials.html">Socials</a>
-      <a href="about.html">About</a>
-    </div>
+  <h2>Exotic Esports</h2>  <div class="menu-toggle" onclick="toggleMenu()">☰</div>  <div class="nav-links" id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="phoenix.html">Phoenix</a>
+    <a href="phoenixmatch.html">Phoenix Schedule</a>
+    <a href="cobras.html">Cobras</a>
+    <a href="cobrasmatch.html">Cobras Schedule</a>
+    <a href="bears.html">Bears</a>
+    <a href="bearsmatchs.html">Bears Schedule</a>
+    <a href="socials.html">Socials</a>
+    <a href="about.html">About</a>
   </div>
 </div><div class="hero">
-  <img src="logo.png" alt="logo">
+  <img src="logo.png">
   <h2>Exotic Esports</h2>
   <p>Dominating the competition with precision, power, and teamwork.</p>
 </div><div class="section">
@@ -152,5 +173,9 @@ body {
 </div><div class="section">
   <h2>Join Exotic Esports</h2>
   <a href="#" class="join-btn">Join Here</a>
-</div></body>
-</html>
+</div><script>
+function toggleMenu() {
+  document.getElementById("navMenu").classList.toggle("active");
+}
+</script></body>
+</html> 
