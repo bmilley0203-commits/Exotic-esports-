@@ -18,27 +18,16 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-
     backdrop-filter: blur(12px);
     background: rgba(0, 8, 20, 0.6);
-
     padding: 18px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.logo {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-}
+.logo { font-size: 20px; font-weight: bold; }
+.menu-icon { font-size: 24px; cursor: pointer; }
 
 /* DROPDOWN */
 .dropdown {
@@ -51,20 +40,14 @@ body {
     flex-direction: column;
     width: 200px;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0,200,255,0.25);
-    z-index: 9999;
 }
 
 .dropdown a {
     padding: 14px;
     text-decoration: none;
     color: white;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-
-.dropdown a:hover {
-    background: #003566;
-}
+.dropdown a:hover { background: #003566; }
 
 /* TITLE */
 .title {
@@ -79,28 +62,14 @@ body {
     padding: 18px;
     border-radius: 18px;
     background: rgba(0, 20, 40, 0.7);
-    box-shadow: 0 0 25px rgba(0, 200, 255, 0.15);
 }
 
-.section h2 {
-    color: #90e0ef;
-}
-
-/* SCROLL ROW (PHOENIX STYLE) */
+/* SCROLL ROW */
 .row {
     display: flex;
     gap: 14px;
     overflow-x: auto;
     padding: 10px 2px;
-    scroll-snap-type: x mandatory;
-}
-
-.row::-webkit-scrollbar {
-    height: 6px;
-}
-.row::-webkit-scrollbar-thumb {
-    background: #00b4d8;
-    border-radius: 10px;
 }
 
 /* CARD */
@@ -111,9 +80,6 @@ body {
     padding: 14px 10px;
     text-align: center;
     flex-shrink: 0;
-
-    scroll-snap-align: start;
-
     transition: 0.3s;
 }
 
@@ -122,53 +88,31 @@ body {
     box-shadow: 0 0 18px #00d4ff;
 }
 
-/* 🔥 PHOENIX PFP STYLE */
+/* 🔥 PFP STYLE */
 .card img {
     width: 72px;
     height: 72px;
     border-radius: 50%;
-
     object-fit: cover;
-    object-position: center;
-
     display: block;
     margin: 0 auto 10px;
 
-    /* INNER RING */
     padding: 3px;
     background: radial-gradient(circle, #00d4ff, #0077ff);
 
-    box-sizing: border-box;
-
-    /* OUTER GLOW */
     box-shadow:
         0 0 10px #00d4ff,
         0 0 20px rgba(0, 212, 255, 0.6);
 }
 
-/* EXTRA GLOW ON HOVER */
 .card:hover img {
     box-shadow:
         0 0 15px #00d4ff,
-        0 0 30px #0077ff,
-        0 0 45px rgba(0, 212, 255, 0.8);
+        0 0 30px #0077ff;
 }
 
-.name {
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.role {
-    font-size: 11px;
-    color: #aaa;
-}
-
-/* CENTER */
-.center {
-    display: flex;
-    justify-content: center;
-}
+.name { font-size: 14px; font-weight: bold; }
+.role { font-size: 11px; color: #aaa; }
 
 /* OVERLAY */
 .overlay {
@@ -177,15 +121,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-
+    background: rgba(0,0,0,0.7);
     display: none;
     justify-content: center;
     align-items: center;
-
-    z-index: 2000;
 }
 
 .overlay-content {
@@ -195,8 +134,6 @@ body {
     width: 85%;
     max-width: 320px;
     text-align: center;
-
-    box-shadow: 0 0 25px rgba(0,200,255,0.3);
 }
 
 .overlay img {
@@ -205,8 +142,14 @@ body {
     border-radius: 50%;
     padding: 4px;
     background: radial-gradient(circle, #00d4ff, #0077ff);
-    box-shadow: 0 0 20px #00d4ff;
     object-fit: cover;
+}
+
+#overlayBio {
+    color: #ccc;
+    font-size: 14px;
+    margin-top: 8px;
+    line-height: 1.4;
 }
 
 .close-btn {
@@ -223,70 +166,86 @@ body {
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
     <div class="logo">Exotic Esports</div>
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
     <div class="dropdown" id="menu">
         <a href="index.html">Home</a>
-        <a href="phoenix.html">Phoenix Roster</a>
-        <a href="phoenixmatch.html">Phoenix Game Schedule</a>
-        <a href="cobras.html">Cobras Roster</a>
-        <a href="cobrasmatch.html">Cobra Game Schedule</a>
-        <a href="bears.html">Bears Roster</a>
-        <a href="bearsmatchs.html">Bears Game Schedule</a>
-        <a href="socials.html">Socials</a>
-        <a href="about.html">About</a>
+        <a href="phoenix.html">Phoenix</a>
+        <a href="cobras.html">Cobras</a>
+        <a href="bears.html">Bears</a>
     </div>
 </div>
 
 <h1 class="title">Cobras PC Roster</h1>
 
-<!-- COACH -->
+<!-- STARTERS -->
 <div class="section">
-    <h2>Coach</h2>
-    <div class="center">
-        <div class="card" onclick="openPlayer('Thekidrambo','Coach bio','coach.png')">
-            <img src="coach.png">
-            <div class="name">Thekidrambo</div>
-            <div class="role">Coach</div>
-        </div>
-    </div>
+<h2>Starters</h2>
+<div class="row">
+
+<div class="card" onclick="openPlayer('Shadow','Entry','Aggressive entry fragger who takes first fights','placeholder.png')">
+<img src="placeholder.png">
+<div class="name">Shadow</div>
+<div class="role">Entry</div>
 </div>
 
-<!-- STARTERS (5) -->
-<div class="section">
-    <h2>Starters</h2>
-    <div class="row">
-        <div class="card" onclick="openPlayer('Shadow','Role','placeholder.png')"><img src="placeholder.png"><div class="name">Shadow</div><div class="role">Role</div></div>
-        <div class="card" onclick="openPlayer('Danny','Role','placeholder.png')"><img src="placeholder.png"><div class="name">Danny</div><div class="role">Role</div></div>
-        <div class="card" onclick="openPlayer('SuperNicer','Role','placeholder.png')"><img src="placeholder.png"><div class="name">SuperNicer</div><div class="role">Role</div></div>
-        <div class="card" onclick="openPlayer('Grug','Role','placeholder.png')"><img src="placeholder.png"><div class="name">Grug</div><div class="role">Role</div></div>
-        <div class="card" onclick="openPlayer('Blox','Role','placeholder.png')"><img src="placeholder.png"><div class="name">Blox</div><div class="role">Role</div></div>
-    </div>
+<div class="card" onclick="openPlayer('Danny','Flex','Adaptable player who fills any role needed','placeholder.png')">
+<img src="placeholder.png">
+<div class="name">Danny</div>
+<div class="role">Flex</div>
 </div>
 
-<!-- SUBS (UP TO 5) -->
+<div class="card" onclick="openPlayer('SuperNicer','Support','Keeps team alive and controls utility','placeholder.png')">
+<img src="placeholder.png">
+<div class="name">SuperNicer</div>
+<div class="role">Support</div>
+</div>
+
+<div class="card" onclick="openPlayer('Grug','IGL','In-game leader controlling team strategy','placeholder.png')">
+<img src="placeholder.png">
+<div class="name">Grug</div>
+<div class="role">IGL</div>
+</div>
+
+<div class="card" onclick="openPlayer('Blox','Flex','Reliable player with strong mechanics','placeholder.png')">
+<img src="placeholder.png">
+<div class="name">Blox</div>
+<div class="role">Flex</div>
+</div>
+
+</div>
+</div>
+
+<!-- SUBS -->
 <div class="section">
-    <h2>Subs</h2>
-    <div class="row">
-        <div class="card" onclick="openPlayer('S1','Role','placeholder.png')"><img src="placeholder.png"><div class="name">S1</div><div class="role">Role</div></div>
-        <div class="card" onclick="openPlayer('S2','Role','placeholder.png')"><img src="placeholder.png"><div class="name">S2</div><div class="role">Role</div></div>
-        <div class="card" onclick="openPlayer('S3','Role','placeholder.png')"><img src="placeholder.png"><div class="name">S3</div><div class="role">Role</div></div>
-        <div class="card" onclick="openPlayer('S4','Role','placeholder.png')"><img src="placeholder.png"><div class="name">S4</div><div class="role">Role</div></div>
-        <div class="card" onclick="openPlayer('S5','Role','placeholder.png')"><img src="placeholder.png"><div class="name">S5</div><div class="role">Role</div></div>
-    </div>
+<h2>Subs</h2>
+<div class="row">
+
+<div class="card" onclick="openPlayer('S1','Sub','Backup player ready to step in','placeholder.png')">
+<img src="placeholder.png">
+<div class="name">S1</div>
+<div class="role">Sub</div>
+</div>
+
+<div class="card" onclick="openPlayer('S2','Sub','Flexible substitute player','placeholder.png')">
+<img src="placeholder.png">
+<div class="name">S2</div>
+<div class="role">Sub</div>
+</div>
+
+</div>
 </div>
 
 <!-- OVERLAY -->
 <div class="overlay" id="playerOverlay">
-    <div class="overlay-content">
-        <img id="overlayImg" src="">
-        <h2 id="overlayName"></h2>
-        <p id="overlayBio"></p>
-        <button class="close-btn" onclick="closeOverlay()">Close</button>
-    </div>
+<div class="overlay-content">
+<img id="overlayImg">
+<h2 id="overlayName"></h2>
+<p id="overlayBio"></p>
+<button class="close-btn" onclick="closeOverlay()">Close</button>
+</div>
 </div>
 
 <script>
@@ -295,9 +254,9 @@ function toggleMenu() {
     menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
 
-function openPlayer(name, bio, img) {
+function openPlayer(name, role, bio, img) {
     document.getElementById("overlayName").innerText = name;
-    document.getElementById("overlayBio").innerText = bio;
+    document.getElementById("overlayBio").innerText = role + " • " + bio;
     document.getElementById("overlayImg").src = img;
     document.getElementById("playerOverlay").style.display = "flex";
 }
