@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -13,37 +13,47 @@ body {
     color: white;
 }
 
-/* NAVBAR */
+/* NAVBAR (MATCHES OTHER PAGES) */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #0a0a0a;
-    padding: 15px;
+    padding: 15px 20px;
+    border-bottom: 1px solid #222;
 }
 
 .logo {
     font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
 }
 
 /* LINKS */
 .nav-links {
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
+    transition: 0.3s;
 }
 
-/* MOBILE */
+.nav-links a:hover {
+    color: gold;
+}
+
+/* MOBILE MENU */
 .menu-btn {
     display: none;
     background: #111;
     color: white;
     border: none;
-    padding: 8px;
+    padding: 8px 12px;
+    font-size: 18px;
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -51,10 +61,12 @@ body {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 55px;
+        top: 60px;
         right: 10px;
         background: #111;
-        padding: 10px;
+        padding: 15px;
+        border-radius: 10px;
+        width: 200px;
     }
 
     .menu-btn {
@@ -62,23 +74,53 @@ body {
     }
 }
 
-/* HEADER */
+/* HEADER (MATCH HOME STYLE) */
 .header {
     text-align: center;
+    padding: 40px 20px 20px;
+}
+
+.header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: #aaa;
+}
+
+/* SOCIAL GRID */
+.social-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
     padding: 20px;
 }
 
-/* BOXES */
+/* BOX STYLE (MATCH HOME SECTIONS) */
 .box {
     background: #111;
-    margin: 20px;
     padding: 30px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 15px;
+    transition: 0.3s;
+    border: 1px solid #222;
 }
 
+.box:hover {
+    transform: translateY(-5px);
+    border-color: gold;
+}
+
+/* ICONS */
 .box img {
-    width: 80px;
+    width: 70px;
+    margin-bottom: 10px;
+}
+
+.box p {
+    margin: 0;
+    font-size: 16px;
 }
 </style>
 </head>
@@ -107,22 +149,27 @@ body {
 <!-- HEADER -->
 <div class="header">
     <h1>FOLLOW EXOTIC ESPORTS</h1>
+    <p>Stay connected with us across all platforms</p>
 </div>
 
 <!-- SOCIALS -->
-<div class="box">
-    <img src="youtube.png">
-    <p>YouTube</p>
-</div>
+<div class="social-container">
 
-<div class="box">
-    <img src="tiktok.png">
-    <p>TikTok</p>
-</div>
+    <div class="box">
+        <img src="youtube.png">
+        <p>YouTube</p>
+    </div>
 
-<div class="box">
-    <img src="x.png">
-    <p>Twitter (X)</p>
+    <div class="box">
+        <img src="tiktok.png">
+        <p>TikTok</p>
+    </div>
+
+    <div class="box">
+        <img src="x.png">
+        <p>Twitter (X)</p>
+    </div>
+
 </div>
 
 <script>
@@ -133,4 +180,4 @@ function toggleMenu() {
 </script>
 
 </body>
-</html>
+</html>  
