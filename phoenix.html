@@ -27,15 +27,8 @@ body {
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.logo {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-}
+.logo { font-size: 20px; font-weight: bold; }
+.menu-icon { font-size: 24px; cursor: pointer; }
 
 /* DROPDOWN */
 .dropdown {
@@ -49,6 +42,7 @@ body {
     width: 200px;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0,200,255,0.25);
+    z-index: 9999;
 }
 
 .dropdown a {
@@ -82,7 +76,7 @@ body {
     color: #90e0ef;
 }
 
-/* ROW */
+/* ROW SCROLL */
 .row {
     display: flex;
     gap: 14px;
@@ -90,12 +84,20 @@ body {
     padding-bottom: 10px;
 }
 
+.row::-webkit-scrollbar {
+    height: 6px;
+}
+.row::-webkit-scrollbar-thumb {
+    background: #00b4d8;
+    border-radius: 10px;
+}
+
 /* CARD */
 .card {
-    min-width: 130px;
+    min-width: 120px;
     background: rgba(0, 40, 70, 0.85);
     border-radius: 14px;
-    padding: 14px;
+    padding: 12px;
     text-align: center;
     flex-shrink: 0;
     transition: 0.3s;
@@ -103,38 +105,33 @@ body {
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 20px #00d4ff;
+    box-shadow: 0 0 15px #00d4ff;
 }
 
-/* PFP */
+/* PFP (FIXED PERFECTLY) */
 .pfp {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    border: 2px solid #00b4d8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
-    margin: 0 auto;
-    box-shadow: 0 0 12px #0077b6, 0 0 25px rgba(0,180,216,0.6);
+    margin: 0 auto 8px;
+
+    border: 2px solid #00b4d8;
+    box-shadow: 0 0 10px rgba(0,180,216,0.6);
 }
 
 .pfp img {
-    width: 130%;
-    height: 130%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-}
-
-.card:hover .pfp {
-    box-shadow: 0 0 18px #00b4d8, 0 0 35px #0077b6;
+    object-position: center;
+    display: block;
 }
 
 /* TEXT */
 .name {
     font-size: 14px;
     font-weight: bold;
-    margin-top: 10px;
 }
 
 .role {
@@ -174,8 +171,8 @@ body {
 }
 
 .overlay img {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     border: 2px solid #00b4d8;
     margin-bottom: 10px;
@@ -195,6 +192,7 @@ body {
 
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
     <div class="logo">Exotic Esports</div>
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
@@ -218,7 +216,7 @@ body {
 <div class="section">
     <h2>Coach</h2>
     <div class="center">
-        <div class="card" onclick="openPlayer('Thekidrambo','Team coach','coach.png')">
+        <div class="card" onclick="openPlayer('Thekidrambo','Coach','coach.png')">
             <div class="pfp"><img src="coach.png"></div>
             <div class="name">Thekidrambo</div>
             <div class="role">Coach</div>
@@ -228,88 +226,38 @@ body {
 
 <!-- STARTERS -->
 <div class="section">
-    <h2>Starters</h2>
-    <div class="row">
+<h2>Starters</h2>
+<div class="row">
 
-        <div class="card" onclick="openPlayer('Spadeonics','IGL','soadeonics.png')">
-            <div class="pfp"><img src="soadeonics.png"></div>
-            <div class="name">Spadeonics</div>
-            <div class="role">IGL</div>
-        </div>
+<div class="card"><div class="pfp"><img src="soadeonics.png"></div><div class="name">Spadeonics</div><div class="role">IGL</div></div>
 
-        <div class="card" onclick="openPlayer('Xef','Entry','xef.png')">
-            <div class="pfp"><img src="xef.png"></div>
-            <div class="name">Xef</div>
-            <div class="role">Entry</div>
-        </div>
+<div class="card"><div class="pfp"><img src="xef.png"></div><div class="name">Xef</div><div class="role">Entry</div></div>
 
-        <div class="card" onclick="openPlayer('Dalton','Entry','dalton.png')">
-            <div class="pfp"><img src="dalton.png"></div>
-            <div class="name">Dalton</div>
-            <div class="role">Entry</div>
-        </div>
+<div class="card"><div class="pfp"><img src="dalton.png"></div><div class="name">Dalton</div><div class="role">Entry</div></div>
 
-        <div class="card" onclick="openPlayer('Golden','Flex','golden.png')">
-            <div class="pfp"><img src="golden.png"></div>
-            <div class="name">Golden</div>
-            <div class="role">Flex</div>
-        </div>
+<div class="card"><div class="pfp"><img src="golden.png"></div><div class="name">Golden</div><div class="role">Flex</div></div>
 
-        <div class="card" onclick="openPlayer('Chubbs','Support','chubbs.png')">
-            <div class="pfp"><img src="chubbs.png"></div>
-            <div class="name">Chubbs</div>
-            <div class="role">Support</div>
-        </div>
+<div class="card"><div class="pfp"><img src="chubbs.png"></div><div class="name">Chubbs</div><div class="role">Support</div></div>
 
-    </div>
+</div>
 </div>
 
 <!-- SUBS -->
 <div class="section">
-    <h2>Subs</h2>
-    <div class="row">
+<h2>Subs</h2>
+<div class="row">
 
-        <div class="card" onclick="openPlayer('Nicheorange','IGL/Entry','placeholder.png')">
-            <div class="pfp"><img src="placeholder.png"></div>
-            <div class="name">Nicheorange</div>
-            <div class="role">IGL/Entry</div>
-        </div>
+<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">Nicheorange</div><div class="role">IGL/Entry</div></div>
 
-        <div class="card" onclick="openPlayer('Vursed','Entry','vursed.png')">
-            <div class="pfp"><img src="vursed.png"></div>
-            <div class="name">Vursed</div>
-            <div class="role">Entry</div>
-        </div>
+<div class="card"><div class="pfp"><img src="vursed.png"></div><div class="name">Vursed</div><div class="role">Entry</div></div>
 
-        <div class="card" onclick="openPlayer('Sub3','Flex','placeholder.png')">
-            <div class="pfp"><img src="placeholder.png"></div>
-            <div class="name">Sub3</div>
-            <div class="role">Flex</div>
-        </div>
+<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">Sub3</div><div class="role">Flex</div></div>
 
-        <div class="card" onclick="openPlayer('Sub4','Support','placeholder.png')">
-            <div class="pfp"><img src="placeholder.png"></div>
-            <div class="name">Sub4</div>
-            <div class="role">Support</div>
-        </div>
+<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">Sub4</div><div class="role">Support</div></div>
 
-        <div class="card" onclick="openPlayer('Sub5','Entry','placeholder.png')">
-            <div class="pfp"><img src="placeholder.png"></div>
-            <div class="name">Sub5</div>
-            <div class="role">Entry</div>
-        </div>
+<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">Sub5</div><div class="role">Entry</div></div>
 
-    </div>
 </div>
-
-<!-- OVERLAY -->
-<div class="overlay" id="playerOverlay">
-    <div class="overlay-content">
-        <img id="overlayImg" src="">
-        <h2 id="overlayName"></h2>
-        <p id="overlayBio"></p>
-        <button class="close-btn" onclick="closeOverlay()">Close</button>
-    </div>
 </div>
 
 <script>
@@ -317,19 +265,7 @@ function toggleMenu() {
     const menu = document.getElementById("menu");
     menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
-
-function openPlayer(name, bio, img) {
-    document.getElementById("overlayName").innerText = name;
-    document.getElementById("overlayBio").innerText = bio;
-    document.getElementById("overlayImg").src = img;
-    document.getElementById("playerOverlay").style.display = "flex";
-}
-
-function closeOverlay() {
-    document.getElementById("playerOverlay").style.display = "none";
-}
 </script>
 
 </body>
-</html>
-          
+</html> 
