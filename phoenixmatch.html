@@ -13,21 +13,17 @@ body {
     background: linear-gradient(to bottom, #000814, #001d3d, #003566);
 }
 
-/* NAVBAR (MATCHED TO ROSTER) */
+/* NAVBAR */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 10000;
-
     backdrop-filter: blur(12px);
     background: rgba(0, 8, 20, 0.6);
-
     padding: 18px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .logo-text {
@@ -52,13 +48,13 @@ body {
     width: 200px;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0,200,255,0.25);
-    z-index: 9999; /* 🔥 THIS FIXES IT */
+    z-index: 9999;
 }
+
 .dropdown a {
     padding: 14px;
     text-decoration: none;
     color: white;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .dropdown a:hover {
@@ -75,7 +71,7 @@ body {
     color: #4cc9f0;
 }
 
-/* SECTION TITLES */
+/* SECTION */
 .section-title {
     margin: 25px 20px 10px;
     font-size: 20px;
@@ -84,7 +80,7 @@ body {
     padding-left: 10px;
 }
 
-/* MATCH CARD */
+/* MATCH */
 .match {
     background: rgba(0, 20, 40, 0.7);
     margin: 15px 20px;
@@ -92,6 +88,11 @@ body {
     border-radius: 18px;
     box-shadow: 0 0 25px rgba(0, 200, 255, 0.15);
     text-align: center;
+}
+
+/* HIDE EXTRA RESULTS */
+.hidden {
+    display: none;
 }
 
 /* TEAMS */
@@ -112,7 +113,6 @@ body {
     overflow: hidden;
     margin: auto;
     background: rgba(0,0,0,0.6);
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -124,7 +124,6 @@ body {
     width: 115%;
     height: 115%;
     object-fit: cover;
-
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -134,19 +133,17 @@ body {
 .score, .vs {
     width: 20%;
     font-size: 20px;
-    opacity: 0.9;
 }
 
 .date {
     margin-top: 10px;
-    opacity: 0.8;
 }
 
-/* WIN / LOSS */
+/* COLORS */
 .win { color: #00ff9d; }
 .loss { color: #ff4d6d; }
 
-/* MAP SERIES */
+/* MAPS */
 .map-series {
     margin-top: 15px;
     display: flex;
@@ -163,26 +160,10 @@ body {
     background: rgba(255,255,255,0.05);
 }
 
-.map-win {
-    background: rgba(0,255,157,0.15);
-    border: 1px solid #00ff9d;
-    color: #00ff9d;
-}
-
 .map-loss {
     background: rgba(255,77,109,0.15);
     border: 1px solid #ff4d6d;
     color: #ff4d6d;
-}
-
-.map-pending {
-    opacity: 0.5;
-}
-
-/* MVP */
-.mvp {
-    margin-top: 12px;
-    color: #ffd700;
 }
 
 /* BUTTON */
@@ -193,7 +174,6 @@ body {
     background: #00b4d8;
     border: none;
     cursor: pointer;
-    color: black;
     font-weight: bold;
 }
 
@@ -202,7 +182,6 @@ body {
     max-height: 0;
     overflow: hidden;
     transition: 0.4s;
-    margin-top: 10px;
 }
 
 .vod-container iframe {
@@ -215,12 +194,17 @@ body {
 .vod-container.active {
     max-height: 300px;
 }
+
+/* SHOW MORE BUTTON */
+.show-more {
+    display: block;
+    margin: 20px auto;
+}
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
     <div class="logo-text">Exotic Esports</div>
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
@@ -232,108 +216,89 @@ body {
     <a href="phoenixmatch.html">Phoenix Game Schedule</a>
     <a href="cobras.html">Cobras Roster</a>
     <a href="cobrasmatch.html">Cobra Game Schedule</a>
-    <a href="bears.html">Bears Roster</a>
-    <a href="bearsmatchs.html">Bears Game Schedule</a>
     <a href="socials.html">Socials</a>
     <a href="about.html">About</a>
 </div>
 
-<!-- HEADER -->
 <div class="header">
     <h1>Phoenix Matches</h1>
 </div>
 
-<!-- UPCOMING -->
-<div class="section-title">Upcoming Matches</div>
-
-<div class="match">
-    <div class="teams">
-        <div class="team">
-            <div class="logo"><img src="phoenix.png"></div>
-            <p>Phoenix</p>
-        </div>
-
-        <div class="vs">VS</div>
-
-        <div class="team">
-            <div class="logo"><img src="astromyx.png"></div>
-            <p>ZGG Astromyx</p>
-        </div>
-    </div>
-
-    <div class="date">29 March - 8:30 PM</div>
-
-    <div class="map-series">
-        <div class="map-box map-pending">Clubhouse</div>
-        
-    </div>
-</div>
-
-<!-- RESULTS -->
 <div class="section-title">Results</div>
 
-<div class="match">
-    <div class="teams">
-        <div class="team">
-            <div class="logo"><img src="phoenix.png"></div>
-            <p>Phoenix</p>
+<!-- RESULTS WRAPPER -->
+<div id="results">
+
+    <!-- MATCH 1 -->
+    <div class="match">
+        <div class="teams">
+            <div class="team">
+                <div class="logo"><img src="phoenix.png"></div>
+                <p>Phoenix</p>
+            </div>
+
+            <div class="score loss">0 - 1</div>
+
+            <div class="team">
+                <div class="logo"><img src="zgg.png"></div>
+                <p>ZGG Venomous</p>
+            </div>
         </div>
 
-        <div class="score loss">0 - 1</div>
-
-        <div class="team">
-            <div class="logo"><img src="zgg.png"></div>
-            <p>ZGG Venomous</p>
-        </div>
-    </div>
-
-    <div class="map-series">
-        <div class="map-box map-loss">Clubhouse<br>0-7</div>
-    </div>
-
-    <div class="win">Winner: ZGG Venomous (BO5)</div>
-
-    <div class="mvp">🏆 Match MVP: Dalton (5-6)</div>
-
-    <button class="btn" onclick="toggleVOD(this, 'https://www.youtube.com/embed/Jbjy_wgpI-Q')">
-        Watch VOD
-    </button>
-
-    <div class="vod-container">
-        <iframe src="" allowfullscreen></iframe>
-    </div>
-    
-<div class="match">
-    <div class="teams">
-        <div class="team">
-            <div class="logo"><img src="phoenix.png"></div>
-            <p>Phoenix</p>
+        <div class="map-series">
+            <div class="map-box map-loss">Clubhouse<br>0-7</div>
         </div>
 
-        <div class="score loss">0 - 1</div>
+        <div class="mvp">🏆 Dalton (5-6)</div>
 
-        <div class="team">
-            <div class="logo"><img src="Reputation.png"></div>
-            <p>OPM Reputation</p>
+        <button class="btn" onclick="toggleVOD(this, 'https://www.youtube.com/embed/Jbjy_wgpI-Q')">
+            Watch VOD
+        </button>
+
+        <div class="vod-container">
+            <iframe src=""></iframe>
         </div>
     </div>
 
-    <div class="map-series">
-        <div class="map-box map-loss">Kafe<br>2-7</div>
+    <!-- MATCH 2 -->
+    <div class="match">
+        <div class="teams">
+            <div class="team">
+                <div class="logo"><img src="phoenix.png"></div>
+                <p>Phoenix</p>
+            </div>
+
+            <div class="score loss">0 - 1</div>
+
+            <div class="team">
+                <div class="logo"><img src="Reputation.png"></div>
+                <p>OPM Reputation</p>
+            </div>
+        </div>
+
+        <div class="map-series">
+            <div class="map-box map-loss">Kafe<br>2-7</div>
+        </div>
+
+        <div class="mvp">🏆 Niche Orange (9-9)</div>
+
+        <button class="btn" onclick="toggleVOD(this, 'https://www.youtube.com/embed/Jbjy_wgpI-Q')">
+            Watch VOD
+        </button>
+
+        <div class="vod-container">
+            <iframe src=""></iframe>
+        </div>
     </div>
 
-    <div class="win">Winner: OPM Reputation (BO1)</div>
-
-    <div class="mvp">🏆 Match MVP: Niche Orange (9-9)</div>
-
-    <button class="btn" onclick="toggleVOD(this, 'https://www.youtube.com/embed/Jbjy_wgpI-Q')">
-        Watch VOD
-    </button>
-
-    <div class="vod-container">
-        <iframe src="" allowfullscreen></iframe>
+    <!-- MATCH 3 (HIDDEN) -->
+    <div class="match hidden">
+        <p>Extra match example</p>
     </div>
+
 </div>
+
+<button class="btn show-more" onclick="showMore()">Show More</button>
 
 <script>
 function toggleMenu() {
@@ -357,6 +322,13 @@ function toggleVOD(button, link) {
         container.classList.add("active");
         iframe.src = link;
     }
+}
+
+function showMore() {
+    document.querySelectorAll(".hidden").forEach(el => {
+        el.classList.remove("hidden");
+    });
+    document.querySelector(".show-more").style.display = "none";
 }
 </script>
 
