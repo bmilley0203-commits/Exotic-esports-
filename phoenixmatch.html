@@ -155,7 +155,7 @@ body {
 /* MAPS */
 .map-series {
     margin-top: 15px;
-    margin-bottom: 5px; /* ✅ added spacing */
+    margin-bottom: 5px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -178,7 +178,7 @@ body {
 
 /* MVP */
 .mvp {
-    margin-top: 14px; /* ✅ added spacing */
+    margin-top: 14px;
     font-size: 15px;
     opacity: 0.9;
 }
@@ -228,20 +228,19 @@ body {
 <body>
 
 <div class="navbar">
-    <div class="logo">Exotic Esports</div>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="logo-text">Exotic Esports</div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+</div>
 
-    <div class="dropdown" id="menu">
-        <a href="index.html">Home</a>
-        <a href="phoenix.html">Phoenix Roster</a>
-        <a href="phoenixmatch.html">Phoenix Game Schedule</a>
-        <a href="cobras.html">Cobras Roster</a>
-        <a href="cobrasmatch.html">Cobra Game Schedule</a>
-        <a href="bears.html">Bears Roster</a>
-        <a href="bearsmatchs.html">Bears Game Schedule</a>
-        <a href="socials.html">Socials</a>
-        <a href="about.html">About</a>
-    </div>
+<div class="dropdown" id="menu">
+    <a href="index.html">Home</a>
+    <a href="phoenix.html">Phoenix Roster</a>
+    <a href="phoenixmatch.html">Phoenix Matches</a>
+    <a href="cobras.html">Cobras Roster</a>
+    <a href="cobrasmatch.html">Cobras Matches</a>
+    <a href="socials.html">Socials</a>
+    <a href="about.html">About</a>
+</div>
 
 <div class="header">
     <h1>Phoenix Matches</h1>
@@ -266,6 +265,11 @@ body {
     </div>
 
     <div class="date">April 2nd • 7:00 PM</div>
+
+    <!-- ✅ ADDED MAP INFO -->
+    <div class="map-series">
+        <div class="map-box">BO1 • Map TBD</div>
+    </div>
 </div>
 
 <!-- RESULTS -->
