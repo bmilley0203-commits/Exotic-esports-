@@ -91,7 +91,7 @@ body {
     position: relative;
 }
 
-/* FIXTURE STYLE (UPCOMING) */
+/* FIXTURE */
 .fixture {
     border: 1px solid rgba(0, 200, 255, 0.25);
 }
@@ -113,7 +113,7 @@ body {
     width: 40%;
 }
 
-/* LOGO CIRCLE */
+/* LOGO */
 .logo {
     width: 90px;
     height: 90px;
@@ -148,7 +148,6 @@ body {
     font-weight: bold;
 }
 
-/* COLORS */
 .win { color: #00ff9d; }
 .loss { color: #ff4d6d; }
 
@@ -212,12 +211,11 @@ body {
     max-height: 300px;
 }
 
-/* HIDE EXTRA RESULTS */
+/* HIDDEN */
 .hidden {
     display: none;
 }
 
-/* SHOW MORE BUTTON */
 .show-more {
     display: block;
     margin: 20px auto;
@@ -232,12 +230,15 @@ body {
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
 </div>
 
+<!-- ✅ UPDATED NAVBAR -->
 <div class="dropdown" id="menu">
     <a href="index.html">Home</a>
     <a href="phoenix.html">Phoenix Roster</a>
-    <a href="phoenixmatch.html">Phoenix Matches</a>
+    <a href="phoenixmatch.html">Phoenix Game Schedule</a>
     <a href="cobras.html">Cobras Roster</a>
-    <a href="cobrasmatch.html">Cobras Matches</a>
+    <a href="cobrasmatch.html">Cobra Game Schedule</a>
+    <a href="bears.html">Bears Roster</a>
+    <a href="bearsmatchs.html">Bears Game Schedule</a>
     <a href="socials.html">Socials</a>
     <a href="about.html">About</a>
 </div>
@@ -266,7 +267,6 @@ body {
 
     <div class="date">April 2nd • 7:00 PM</div>
 
-    <!-- ✅ ADDED MAP INFO -->
     <div class="map-series">
         <div class="map-box">BO1 • Map TBD</div>
     </div>
@@ -305,40 +305,6 @@ body {
         <div class="vod-container">
             <iframe src=""></iframe>
         </div>
-    </div>
-
-    <div class="match">
-        <div class="teams">
-            <div class="team">
-                <div class="logo"><img src="phoenix.png"></div>
-                <p>Phoenix</p>
-            </div>
-
-            <div class="score loss">0 - 1</div>
-
-            <div class="team">
-                <div class="logo"><img src="reputation.png"></div>
-                <p>OPM Reputation</p>
-            </div>
-        </div>
-
-        <div class="map-series">
-            <div class="map-box map-loss">Kafe<br>2-7</div>
-        </div>
-
-        <div class="mvp">🏆 Niche Orange (9-9)</div>
-
-        <button class="btn" onclick="toggleVOD(this, 'https://www.youtube.com/embed/Jbjy_wgpI-Q')">
-            Watch VOD
-        </button>
-
-        <div class="vod-container">
-            <iframe src=""></iframe>
-        </div>
-    </div>
-
-    <div class="match hidden">
-        <p>Extra match</p>
     </div>
 
 </div>
