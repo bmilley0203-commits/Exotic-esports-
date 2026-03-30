@@ -13,7 +13,7 @@ body {
     background: linear-gradient(to bottom, #000814, #001d3d, #003566);
 }
 
-/* ✅ PHOENIX NAVBAR (IDENTICAL) */
+/* NAVBAR (EXACT PHOENIX) */
 .navbar {
     position: sticky;
     top: 0;
@@ -27,9 +27,17 @@ body {
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.logo { font-size: 20px; font-weight: bold; }
-.menu-icon { font-size: 24px; cursor: pointer; }
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
 
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* DROPDOWN */
 .dropdown {
     position: absolute;
     top: 70px;
@@ -57,4 +65,96 @@ body {
 
 /* TITLE */
 .title {
-    text-align
+    text-align: center;
+    color: #4cc9f0;
+    margin: 30px 0 10px;
+}
+
+/* SECTIONS */
+.section {
+    margin: 20px 12px;
+    padding: 20px;
+    border-radius: 18px;
+    background: rgba(0, 20, 40, 0.7);
+    box-shadow: 0 0 25px rgba(0, 200, 255, 0.15);
+}
+
+.section h2 {
+    color: #90e0ef;
+    margin-bottom: 10px;
+}
+
+.section p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* CENTER TEXT */
+.center {
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">Exotic Esports</div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+    <div class="dropdown" id="menu">
+        <a href="index.html">Home</a>
+        <a href="phoenix.html">Phoenix Roster</a>
+        <a href="phoenixmatch.html">Phoenix Game Schedule</a>
+        <a href="cobras.html">Cobras Roster</a>
+        <a href="cobrasmatch.html">Cobra Game Schedule</a>
+        <a href="bears.html">Bears Roster</a>
+        <a href="bearsmatchs.html">Bears Game Schedule</a>
+        <a href="socials.html">Socials</a>
+        <a href="about.html">About</a>
+    </div>
+</div>
+
+<h1 class="title">About Exotic Esports</h1>
+
+<!-- CONTENT -->
+<div class="section center">
+    <h2>Who We Are</h2>
+    <p>
+        Exotic Esports is a competitive gaming organisation focused on teamwork,
+        skill, and high-level performance across multiple rosters.
+    </p>
+</div>
+
+<div class="section">
+    <h2>Our Goal</h2>
+    <p>
+        Our goal is to build strong teams, compete at a high level, and create
+        opportunities for players to improve and succeed.
+    </p>
+</div>
+
+<div class="section">
+    <h2>Why Join Us</h2>
+    <p>
+        • Competitive teams<br>
+        • Active community<br>
+        • Opportunities to improve<br>
+        • Regular matches and events
+    </p>
+</div>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    if (menu.style.display === "flex") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "flex";
+    }
+}
+</script>
+
+</body>
+</html>
