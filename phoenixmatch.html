@@ -230,7 +230,6 @@ body {
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
 </div>
 
-<!-- ✅ UPDATED NAVBAR -->
 <div class="dropdown" id="menu">
     <a href="index.html">Home</a>
     <a href="phoenix.html">Phoenix Roster</a>
@@ -277,6 +276,7 @@ body {
 
 <div id="results">
 
+    <!-- MATCH 1 -->
     <div class="match">
         <div class="teams">
             <div class="team">
@@ -297,6 +297,37 @@ body {
         </div>
 
         <div class="mvp">🏆 Dalton (5-6)</div>
+
+        <button class="btn" onclick="toggleVOD(this, 'https://www.youtube.com/embed/Jbjy_wgpI-Q')">
+            Watch VOD
+        </button>
+
+        <div class="vod-container">
+            <iframe src=""></iframe>
+        </div>
+    </div>
+
+    <!-- ✅ MATCH 2 RESTORED -->
+    <div class="match">
+        <div class="teams">
+            <div class="team">
+                <div class="logo"><img src="phoenix.png"></div>
+                <p>Phoenix</p>
+            </div>
+
+            <div class="score loss">0 - 1</div>
+
+            <div class="team">
+                <div class="logo"><img src="reputation.png"></div>
+                <p>OPM Reputation</p>
+            </div>
+        </div>
+
+        <div class="map-series">
+            <div class="map-box map-loss">Kafe<br>2-7</div>
+        </div>
+
+        <div class="mvp">🏆 Niche Orange (9-9)</div>
 
         <button class="btn" onclick="toggleVOD(this, 'https://www.youtube.com/embed/Jbjy_wgpI-Q')">
             Watch VOD
