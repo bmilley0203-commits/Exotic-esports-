@@ -155,6 +155,7 @@ body {
 /* MAPS */
 .map-series {
     margin-top: 15px;
+    margin-bottom: 5px; /* ✅ added spacing */
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -173,6 +174,13 @@ body {
     background: rgba(255,77,109,0.15);
     border: 1px solid #ff4d6d;
     color: #ff4d6d;
+}
+
+/* MVP */
+.mvp {
+    margin-top: 14px; /* ✅ added spacing */
+    font-size: 15px;
+    opacity: 0.9;
 }
 
 /* BUTTON */
@@ -238,7 +246,7 @@ body {
     <h1>Phoenix Matches</h1>
 </div>
 
-<!-- ✅ UPCOMING -->
+<!-- UPCOMING -->
 <div class="section-title">Upcoming Matches</div>
 
 <div class="match fixture">
@@ -251,20 +259,19 @@ body {
         <div class="vs">VS</div>
 
         <div class="team">
-            <div class="logo"><img src="opponent.png"></div>
-            <p>Opponent</p>
+            <div class="logo"><img src="astromyx.png"></div>
+            <p>ZGG Astromyx</p>
         </div>
     </div>
 
     <div class="date">April 2nd • 7:00 PM</div>
 </div>
 
-<!-- ✅ RESULTS -->
+<!-- RESULTS -->
 <div class="section-title">Results</div>
 
 <div id="results">
 
-    <!-- MATCH 1 -->
     <div class="match">
         <div class="teams">
             <div class="team">
@@ -295,7 +302,6 @@ body {
         </div>
     </div>
 
-    <!-- MATCH 2 -->
     <div class="match">
         <div class="teams">
             <div class="team">
@@ -326,7 +332,6 @@ body {
         </div>
     </div>
 
-    <!-- HIDDEN -->
     <div class="match hidden">
         <p>Extra match</p>
     </div>
