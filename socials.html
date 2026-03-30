@@ -6,194 +6,178 @@
 <title>Exotic Esports - Socials</title>
 
 <style>
-* { box-sizing: border-box; }
-
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: white;
-  overflow-x: hidden;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: linear-gradient(to bottom, #000814, #001d3d, #003566);
 }
 
-/* 🔥 SAME ANIMATED BACKGROUND AS HOME */
-body::before {
-  content: "";
-  position: fixed;
-  width: 200%;
-  height: 200%;
-  top: -50%;
-  left: -50%;
-  background: radial-gradient(circle, #00cfff22, transparent 60%),
-              radial-gradient(circle, #0077ff22, transparent 60%),
-              #000814;
-  animation: moveBg 15s linear infinite;
-  z-index: -1;
-}
-
-@keyframes moveBg {
-  0% { transform: translate(0,0); }
-  50% { transform: translate(10%, 10%); }
-  100% { transform: translate(0,0); }
-}
-
-/* 🔥 NAVBAR (IDENTICAL TO HOME) */
+/* ✅ PHOENIX NAVBAR (EXACT MATCH) */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 20px;
-
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-
-  backdrop-filter: blur(12px);
-  background: rgba(0, 8, 20, 0.6);
-
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(12px);
+    background: rgba(0, 8, 20, 0.6);
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.menu-toggle {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
-}
+.logo { font-size: 20px; font-weight: bold; }
+.menu-icon { font-size: 24px; cursor: pointer; }
 
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.nav-links a:hover {
-  color: #00cfff;
-}
-
-/* MOBILE */
-@media(max-width: 768px) {
-  .menu-toggle { display: block; }
-
-  .nav-links {
+/* DROPDOWN (SAME AS PHOENIX) */
+.dropdown {
     position: absolute;
     top: 70px;
-    right: 10px;
-
-    background: rgba(0, 29, 61, 0.85);
-    backdrop-filter: blur(12px);
-
+    right: 15px;
+    background: #001d3d;
+    border-radius: 12px;
+    display: none;
     flex-direction: column;
     width: 200px;
-    display: none;
-    padding: 10px;
-
-    border-radius: 12px;
+    overflow: hidden;
     box-shadow: 0 0 20px rgba(0,200,255,0.25);
-  }
+    z-index: 9999;
+}
 
-  .nav-links.active {
-    display: flex;
-  }
+.dropdown a {
+    padding: 14px;
+    text-decoration: none;
+    color: white;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.dropdown a:hover {
+    background: #003566;
 }
 
 /* HEADER */
 .header {
-  text-align: center;
-  padding: 80px 20px 40px;
+    text-align: center;
+    padding: 60px 20px 30px;
 }
 
 .header h1 {
-  font-size: 36px;
+    font-size: 32px;
 }
 
 .header p {
-  color: #aaa;
+    color: #aaa;
 }
 
-/* SOCIAL CARDS (MATCH HOME STYLE) */
+/* SOCIAL SECTION (MATCH ROSTER PANELS) */
+.section {
+    margin: 20px 12px;
+    padding: 18px;
+    border-radius: 18px;
+    background: rgba(0, 20, 40, 0.7);
+    box-shadow: 0 0 25px rgba(0, 200, 255, 0.15);
+}
+
+/* GRID */
 .social-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
 }
 
-.social-container a {
-  text-decoration: none;
-  color: inherit;
-}
-
+/* CARD */
 .box {
-  background: #0b1f2a;
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  transition: 0.3s;
+    background: rgba(0, 40, 70, 0.85);
+    border-radius: 14px;
+    padding: 25px;
+    text-align: center;
+    transition: 0.3s;
 }
 
 .box:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 0 20px rgba(0,200,255,0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px #00d4ff;
 }
 
 .box img {
-  width: 70px;
-  margin-bottom: 15px;
+    width: 70px;
+    margin-bottom: 10px;
 }
 
 .box p {
-  font-size: 18px;
+    font-size: 18px;
+}
+
+/* LINK RESET */
+a {
+    text-decoration: none;
+    color: inherit;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- ✅ PHOENIX NAVBAR -->
 <div class="navbar">
-  <h2>Exotic Esports</h2>
+    <div class="logo">Exotic Esports</div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-  <div class="nav-links" id="navMenu">
-    <a href="index.html">Home</a>
-    <a href="phoenix.html">Phoenix</a>
-    <a href="phoenixmatch.html">Phoenix Schedule</a>
-    <a href="cobras.html">Cobras</a>
-    <a href="cobrasmatch.html">Cobras Schedule</a>
-    <a href="bears.html">Bears</a>
-    <a href="bearsmatchs.html">Bears Schedule</a>
-    <a href="socials.html">Socials</a>
-    <a href="about.html">About</a>
-  </div>
+    <div class="dropdown" id="menu">
+        <a href="index.html">Home</a>
+        <a href="phoenix.html">Phoenix Roster</a>
+        <a href="phoenixmatch.html">Phoenix Game Schedule</a>
+        <a href="cobras.html">Cobras Roster</a>
+        <a href="cobrasmatch.html">Cobra Game Schedule</a>
+        <a href="bears.html">Bears Roster</a>
+        <a href="bearsmatchs.html">Bears Game Schedule</a>
+        <a href="socials.html">Socials</a>
+        <a href="about.html">About</a>
+    </div>
 </div>
 
 <!-- HEADER -->
 <div class="header">
-  <h1>FOLLOW EXOTIC ESPORTS</h1>
-  <p>Stay connected with us across all platforms</p>
+    <h1>FOLLOW EXOTIC ESPORTS</h1>
+    <p>Stay connected with us across all platforms</p>
 </div>
 
 <!-- SOCIALS -->
+<div class="section">
 <div class="social-container">
 
-  <a href="https://youtube.com/YOURCHANNEL" target="_blank">
-    <div class="box">
-      <img src="youtube.png">
-      <p>YouTube</p>
-    </div>
-  </a>
+    <a href="https://youtube.com/YOURCHANNEL" target="_blank">
+        <div class="box">
+            <img src="youtube.png">
+            <p>YouTube</p>
+        </div>
+    </a>
 
-  <a href="https://tiktok.com/@YOURNAME" target="_blank">
-    <div class="box">
-      <img src="tiktok.png">
-      <p>TikTok</p>
-    </div>
-  </a>
+    <a href="https://tiktok.com/@YOURNAME" target="_blank">
+        <div class="box">
+            <img src="tiktok.png">
+            <p>TikTok</p>
+        </div>
+    </a>
 
-  <a href="https://twitter.com/YOURNAME" target="_blank">
-    <div class="box">
+    <!-- ✅ FIXED MISSING X -->
+    <a href="https://twitter.com/YOURNAME" target="_blank">
+        <div class="box">
+            <img src="x.png">
+            <p>Twitter / X</p>
+        </div>
+    </a>
+
+</div>
+</div>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+</script>
+
+</body>
+</html>
