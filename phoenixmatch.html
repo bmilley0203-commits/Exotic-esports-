@@ -307,7 +307,7 @@ body {
         </div>
     </div>
 
-    <!-- ✅ MATCH 2 RESTORED -->
+    <!-- MATCH 2 WITH TWITCH EMBED -->
     <div class="match">
         <div class="teams">
             <div class="team">
@@ -329,7 +329,7 @@ body {
 
         <div class="mvp">🏆 Niche Orange (9-9)</div>
 
-        <button class="btn" onclick="toggleVOD(this, 'https://www.twitch.tv/videos/2735224995')">
+        <button class="btn" onclick="toggleVOD(this, 'twitch:2735224995')">
             Watch VOD
         </button>
 
@@ -362,7 +362,14 @@ function toggleVOD(button, link) {
         });
 
         container.classList.add("active");
-        iframe.src = link;
+
+        // Twitch embed
+        if (link.startsWith("twitch:")) {
+            const videoId = link.split(":")[1];
+            iframe.src = `https://player.twitch.tv/?video=${videoId}&parent=exoticesports.vercel.app&autoplay=false`;
+        } else {
+            iframe.src = link;
+        }
     }
 }
 
