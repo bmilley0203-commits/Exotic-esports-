@@ -1,278 +1,325 @@
-  <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Cobras Matches - Exotic Esports</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cobras Matches</title>
 
-  <style>
-    body {
-      margin:0;
-      font-family:Arial;
-      background:#111;
-      color:white;
-    }
-
-    header {
-      display:flex;
-      justify-content:space-between;
-      padding:15px 20px;
-      background:#000;
-    }
-
-    .dropbtn {
-      background:#222;
-      color:white;
-      padding:10px;
-      border:none;
-      cursor:pointer;
-    }
-
-    .dropdown { position:relative; }
-
-    .dropdown-content {
-      display:none;
-      position:absolute;
-      right:0;
-      background:#111;
-      min-width:160px;
-    }
-
-    .dropdown-content a {
-      display:block;
-      padding:10px;
-      color:white;
-      text-decoration:none;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display:block;
-    }
-
-    h1, h2 {
-      text-align:center;
-    }
-
-    .section {
-      text-align:center;
-      margin-top:30px;
-    }
-
-    .match {
-      margin:20px auto;
-      padding:20px;
-      width:400px;
-      border-radius:12px;
-      transition:0.2s;
-      border:2px solid #222; /* was gold */
-    }
-
-    /* RESULT BACKGROUNDS */
-    .win-bg { background:#1f5e2b; }
-    .loss-bg { background:#5e1f1f; }
-    .neutral-bg { background:#222; }
-
-    .teams {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-
-    .team {
-      text-align:center;
-      width:35%;
-    }
-
-.team-logo {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  transform: scale(1.2);
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: linear-gradient(to bottom, #000814, #001d3d, #003566);
 }
+
+/* NAVBAR */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    backdrop-filter: blur(12px);
+    background: rgba(0, 8, 20, 0.6);
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.logo-text {
+    font-size: 20px;
+    font-weight: bold;
 }
-    }
-    }
 
-    .score {
-      text-align:center;
-      font-size:18px;
-      font-weight:bold;
-    }
+.menu-btn {
+    font-size: 24px;
+    cursor: pointer;
+}
 
-    .maps {
-      display:flex;
-      justify-content:center;
-      gap:6px;
-      margin-top:8px;
-    }
+/* DROPDOWN */
+.dropdown {
+    position: absolute;
+    top: 70px;
+    right: 15px;
+    background: #001d3d;
+    border-radius: 12px;
+    display: none;
+    flex-direction: column;
+    width: 200px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,200,255,0.25);
+    z-index: 9999;
+}
 
-    .map {
-      padding:4px 8px;
-      border-radius:6px;
-      font-size:12px;
-      background:#555;
-    }
+.dropdown a {
+    padding: 14px;
+    text-decoration: none;
+    color: white;
+}
 
-    .map.win { background:#4CAF50; }
-    .map.loss { background:#f44336; }
-    .map.unplayed { background:#777; }
+.dropdown a:hover {
+    background: #003566;
+}
 
-    .winner .team-logo {
-      box-shadow: 0 0 15px #4CAF50; /* was gold */
-    }
+/* HEADER */
+.header {
+    text-align: center;
+    margin: 30px 0 10px;
+}
 
-    .vod {
-      margin-top:15px;
-      display:none;
-    }
+.header h1 {
+    color: #4cc9f0;
+}
 
-    .vod iframe {
-      width:100%;
-      height:215px;
-      border-radius:10px;
-      border:none;
-    }
+/* SECTION */
+.section-title {
+    margin: 25px 20px 10px;
+    font-size: 20px;
+    color: #90e0ef;
+    border-left: 4px solid #00b4d8;
+    padding-left: 10px;
+}
 
-    .vod-btn {
-      background:#9146FF;
-      color:white;
-      padding:8px 12px;
-      border:none;
-      border-radius:6px;
-      cursor:pointer;
-      margin-top:10px;
-    }
-  </style>
+/* MATCH CARD */
+.match {
+    background: rgba(0, 20, 40, 0.75);
+    margin: 15px 20px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 200, 255, 0.12);
+    text-align: center;
+}
+
+/* FIXTURE */
+.fixture {
+    border: 1px solid rgba(0, 200, 255, 0.25);
+}
+
+.fixture .date {
+    margin-top: 12px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* TEAMS */
+.teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team {
+    width: 40%;
+}
+
+/* LOGO */
+.logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.logo img {
+    position: absolute;
+    width: 115%;
+    height: 115%;
+    object-fit: cover;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* VS / SCORE */
+.score, .vs {
+    width: 20%;
+    font-size: 20px;
+}
+
+.vs {
+    color: #00d4ff;
+    font-weight: bold;
+}
+
+.win { color: #00ff9d; }
+.loss { color: #ff4d6d; }
+
+/* MAPS */
+.map-series {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.map-box {
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    min-width: 70px;
+    background: rgba(255,255,255,0.05);
+}
+
+.map-win {
+    background: rgba(0,255,157,0.15);
+    border: 1px solid #00ff9d;
+}
+
+.map-loss {
+    background: rgba(255,77,109,0.15);
+    border: 1px solid #ff4d6d;
+}
+
+.map-unplayed {
+    background: rgba(200,200,200,0.1);
+}
+
+/* MVP */
+.mvp {
+    margin-top: 14px;
+}
+
+/* BUTTON */
+.btn {
+    margin-top: 12px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: #00b4d8;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* VOD */
+.vod-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.vod-container iframe {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    border: none;
+}
+
+.vod-container.active {
+    max-height: 300px;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <h2>Exotic Cobras</h2>
+<div class="navbar">
+    <div class="logo-text">Exotic Esports</div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+</div>
 
-<div class="dropdown">
-    <button class="dropbtn">Menu ▼</button>
-    <div class="dropdown-content">
-      <a href="index.html">Home</a>
-      <a href="phoenix.html">Phoenix Roster</a>
-      <a href="phoenixmatch.html">Phoenix Game Schedule</a>
-      <a href="cobras.html">Cobras Roster</a>
-      <a href="cobrasmatch.html">Cobra Game Schedule</a>
-      <a href="bears.html">Bears Roster</a>
-      <a href="bearsmatchs.html">Bears Game Schedule</a>
-      <a href="socials.html">Socials</a>
-      <a href="about.html">About</a>
-    </div>
-</header>
+<div class="dropdown" id="menu">
+    <a href="index.html">Home</a>
+    <a href="phoenix.html">Phoenix Roster</a>
+    <a href="phoenixmatch.html">Phoenix Game Schedule</a>
+    <a href="cobras.html">Cobras Roster</a>
+    <a href="cobrasmatch.html">Cobra Game Schedule</a>
+    <a href="bears.html">Bears Roster</a>
+    <a href="bearsmatchs.html">Bears Game Schedule</a>
+    <a href="socials.html">Socials</a>
+    <a href="about.html">About</a>
+</div>
 
-<h1>Cobras Matches</h1>
+<div class="header">
+    <h1>Cobras Matches</h1>
+</div>
 
 <!-- UPCOMING -->
-<div class="section">
-  <h2>Upcoming</h2>
+<div class="section-title">Upcoming Matches</div>
 
-  <div class="match neutral-bg">
+<div class="match fixture">
     <div class="teams">
+        <div class="team">
+            <div class="logo"><img src="cobras.png"></div>
+            <p>Cobras</p>
+        </div>
 
-      <div class="team">
-        <img src="cobras.png" class="team-logo">
-        <p>Cobras</p>
-      </div>
+        <div class="vs">VS</div>
 
-      <div class="score">VS</div>
-
-      <div class="team">
-        <img src="enemy.png" class="team-logo">
-        <p>Enemy</p>
-      </div>
-
+        <div class="team">
+            <div class="logo"><img src="enemy.png"></div>
+            <p>Enemy</p>
+        </div>
     </div>
 
-    <p>29 March - 8:30 PM</p>
-    <p>BO3</p>
+    <div class="date">March 29 • 8:30 PM</div>
 
-    <div class="maps">
-      <div class="map">Kafe</div>
-      <div class="map">Clubhouse</div>
-      <div class="map">Chalet</div>
+    <div class="map-series">
+        <div class="map-box">BO3 • Maps TBD</div>
     </div>
-  </div>
 </div>
 
 <!-- RESULTS -->
-<div class="section">
-  <h2>Results</h2>
+<div class="section-title">Results</div>
 
-  <!-- LOSS -->
-  <div class="match loss-bg">
+<div class="match">
     <div class="teams">
-
-      <div class="team">
-        <img src="cobras.png" class="team-logo">
-        <p>Cobras</p>
-      </div>
-
-      <div class="score">
-        1 - 2
-
-        <div class="maps">
-          <div class="map win">Kafe</div>
-          <div class="map loss">Bank</div>
-          <div class="map loss">Chalet</div>
+        <div class="team">
+            <div class="logo"><img src="cobras.png"></div>
+            <p>Cobras</p>
         </div>
-      </div>
 
-      <div class="team winner">
-        <img src="enemy.png" class="team-logo">
-        <p>Enemy</p>
-      </div>
+        <div class="score loss">0 - 1</div>
 
-    </div>
-
-    <p>Winner: Enemy (BO3)</p>
-
-    <button class="vod-btn" onclick="toggleVOD('vod1')">Watch VOD</button>
-
-    <div id="vod1" class="vod">
-      <iframe src="https://www.youtube.com/embed/Jbjy_wgpI-Q"></iframe>
-    </div>
-  </div>
-
-  <!-- WIN -->
-  <div class="match win-bg">
-    <div class="teams">
-
-      <div class="team winner">
-        <img src="cobras.png" class="team-logo">
-        <p>Cobras</p>
-      </div>
-
-      <div class="score">
-        2 - 0
-
-        <div class="maps">
-          <div class="map win">Oregon</div>
-          <div class="map win">Border</div>
-          <div class="map unplayed">—</div>
+        <div class="team">
+            <div class="logo"><img src="enemy.png"></div>
+            <p>OVE</p>
         </div>
-      </div>
-
-      <div class="team">
-        <img src="enemy.png" class="team-logo">
-        <p>Enemy</p>
-      </div>
-
     </div>
 
-    <p>Winner: Cobras (BO3)</p>
-  </div>
+    <div class="map-series">
+        <div class="map-box map-win">Kafe 4-7</div>
+    </div>
 
+    <div class="mvp">🏆 Danny </div>
+
+    <button class="btn" onclick="toggleVOD(this,'https://www.youtube.com/embed/Jbjy_wgpI-Q')">
+        Watch VOD
+    </button>
+
+    <div class="vod-container">
+        <iframe src=""></iframe>
+    </div>
 </div>
 
 <script>
-function toggleVOD(id) {
-  const vod = document.getElementById(id);
-  vod.style.display = vod.style.display === "block" ? "none" : "block";
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+
+function toggleVOD(button, link) {
+    const container = button.nextElementSibling;
+    const iframe = container.querySelector("iframe");
+
+    if (container.classList.contains("active")) {
+        container.classList.remove("active");
+        iframe.src = "";
+    } else {
+        document.querySelectorAll(".vod-container").forEach(v => {
+            v.classList.remove("active");
+            v.querySelector("iframe").src = "";
+        });
+
+        container.classList.add("active");
+        iframe.src = link;
+    }
 }
 </script>
 
