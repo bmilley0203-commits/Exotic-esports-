@@ -197,6 +197,16 @@ body {
     font-weight: bold;
 }
 
+/* SHOW MORE */
+.hidden {
+    display: none;
+}
+
+.show-more {
+    display: block;
+    margin: 20px auto;
+}
+
 /* VOD */
 .vod-container {
     max-height: 0;
@@ -227,11 +237,11 @@ body {
 <div class="dropdown" id="menu">
     <a href="index.html">Home</a>
     <a href="phoenix.html">Phoenix Roster</a>
-    <a href="phoenixmatch.html">Phoenix Schedule</a>
+    <a href="phoenixmatch.html">Phoenix Game Schedule</a>
     <a href="cobras.html">Cobras Roster</a>
-    <a href="cobrasmatch.html">Cobra Schedule</a>
+    <a href="cobrasmatch.html">Cobra Game Schedule</a>
     <a href="bears.html">Bears Roster</a>
-    <a href="bearsmatchs.html">Bears Schedule</a>
+    <a href="bearsmatchs.html">Bears Game Schedule</a>
     <a href="socials.html">Socials</a>
     <a href="about.html">About</a>
 </div>
@@ -268,6 +278,7 @@ body {
 <!-- RESULTS -->
 <div class="section-title">Results</div>
 
+<!-- VISIBLE MATCH -->
 <div class="match">
     <div class="teams">
         <div class="team">
@@ -278,7 +289,7 @@ body {
         <div class="score loss">0 - 1</div>
 
         <div class="team">
-            <div class="logo"><img src="enemy.png"></div>
+            <div class="logo"><img src="ove.png"></div>
             <p>OVE</p>
         </div>
     </div>
@@ -287,7 +298,7 @@ body {
         <div class="map-box map-loss">Kafe 4-7</div>
     </div>
 
-    <div class="mvp">🏆 Danny </div>
+    <div class="mvp">🏆 Danny</div>
 
     <button class="btn" onclick="toggleVOD(this,'https://www.youtube.com/embed/Jbjy_wgpI-Q')">
         Watch VOD
@@ -297,6 +308,31 @@ body {
         <iframe src=""></iframe>
     </div>
 </div>
+
+<!-- HIDDEN MATCH (example second result) -->
+<div class="match hidden">
+    <div class="teams">
+        <div class="team">
+            <div class="logo"><img src="cobras.png"></div>
+            <p>Cobras</p>
+        </div>
+
+        <div class="score win">1 - 0</div>
+
+        <div class="team">
+            <div class="logo"><img src="enemy.png"></div>
+            <p>Enemy</p>
+        </div>
+    </div>
+
+    <div class="map-series">
+        <div class="map-box map-win">Oregon 7-3</div>
+    </div>
+
+    <div class="mvp">🏆 Shadow</div>
+</div>
+
+<button class="btn show-more" onclick="showMore()">Show More</button>
 
 <script>
 function toggleMenu() {
@@ -320,6 +356,13 @@ function toggleVOD(button, link) {
         container.classList.add("active");
         iframe.src = link;
     }
+}
+
+function showMore() {
+    document.querySelectorAll(".hidden").forEach(el => {
+        el.classList.remove("hidden");
+    });
+    document.querySelector(".show-more").style.display = "none";
 }
 </script>
 
