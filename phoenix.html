@@ -122,13 +122,13 @@ body {
 }
 
 .pfp img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: translate(-50%, -50%) scale(1.3);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* TEXT */
@@ -173,13 +173,15 @@ body {
     box-shadow: 0 0 25px rgba(0,200,255,0.3);
 }
 
+/* Updated overlay image to fill circle and center */
 .overlay img {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     border: 2px solid #00b4d8;
-    margin-bottom: 10px;
-    transform: translate(-50%, -50%) scale(1.3);
+    margin: 0 auto 10px; /* centered horizontally */
+    display: block;
+    object-fit: cover; /* fills circle */
 }
 
 .close-btn {
