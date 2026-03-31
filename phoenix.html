@@ -10,8 +10,8 @@
 :root {
     --pfp-size: 60px;               /* Player card image circle size */
     --pfp-scale: 1.3;               /* Scale factor for player PFP images */
-    --overlay-size: 60px;           /* Blue circle size */
-    --overlay-img-scale: 1.3;       /* Scale factor for logo inside circle */
+    --overlay-size: 100px;          /* Blue circle size */
+    --overlay-img-scale: 0.7;       /* Scale factor for logo inside circle */
 }
 
 /* ===================== GENERAL ===================== */
@@ -189,24 +189,19 @@ body {
     width: var(--overlay-size);
     height: var(--overlay-size);
     border-radius: 50%;
-    border: 2px solid #00b4d8;
+    border: 3px solid #00b4d8;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto 10px;
-    position: relative;
 }
 
 .overlay-pfp img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
     width: auto;
-    height: auto;
-    max-width: none;
-    max-height: none;
-    transform: translate(-50%, -50%) scale(var(--overlay-img-scale));
+    height: 100%;
+    object-fit: contain;
+    transform: scale(var(--overlay-img-scale));
 }
 
 /* ===================== CLOSE BUTTON ===================== */
@@ -305,11 +300,11 @@ body {
 <!-- ===================== OVERLAY ===================== -->
 <div class="overlay" id="overlay">
 <div class="overlay-content">
-<div class="overlay-pfp"><img id="overlayImg"></div>
-<h2 id="overlayName"></h2>
-<p id="overlayRole"></p>
-<p id="overlayBio"></p>
-<button class="close-btn" onclick="closePlayer()">Close</button>
+  <div class="overlay-pfp"><img id="overlayImg"></div>
+  <h2 id="overlayName"></h2>
+  <p id="overlayRole"></p>
+  <p id="overlayBio"></p>
+  <button class="close-btn" onclick="closePlayer()">Close</button>
 </div>
 </div>
 
