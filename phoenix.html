@@ -132,9 +132,9 @@ body {
 }
 
 .pfp img {
-    width: auto;
-    height: 100%;
-    object-fit: cover;
+    width: auto;               /* let width scale naturally */
+    height: 100%;              /* fill the container height */
+    object-fit: cover;         /* crop to fill circle without squishing */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -182,15 +182,14 @@ body {
     text-align: center;
     box-shadow: 0 0 25px rgba(0,200,255,0.3);
 }
-
 .overlay img {
-    width: var(80);
-    height: var(80);
+    width: auto;               /* keep aspect ratio */
+    height: var(100%); /* fill height of overlay circle */
+    object-fit: cover;
     border-radius: 50%;
     border: 2px solid #00b4d8;
     display: block;
     margin: 0 auto 10px;
-    object-fit: cover;
     transform: scale(var(1.2));
 }
 
