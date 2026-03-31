@@ -101,6 +101,7 @@ body {
     text-align: center;
     flex-shrink: 0;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .card:hover {
@@ -146,6 +147,49 @@ body {
     display: flex;
     justify-content: center;
 }
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.overlay-content {
+    background: #001d3d;
+    padding: 25px;
+    border-radius: 16px;
+    width: 85%;
+    max-width: 320px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0,200,255,0.3);
+}
+
+.overlay img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #00b4d8;
+    margin-bottom: 10px;
+}
+
+.close-btn {
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    background: #00b4d8;
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+}
 </style>
 </head>
 
@@ -175,7 +219,7 @@ body {
 <div class="section">
     <h2>Coach</h2>
     <div class="center">
-        <div class="card">
+        <div class="card" onclick="openPlayer('Thekidrambo','Coach','coach.png','Team coach')">
             <div class="pfp"><img src="coach.png"></div>
             <div class="name">Thekidrambo</div>
             <div class="role">Coach</div>
@@ -188,11 +232,15 @@ body {
 <h2>Starters</h2>
 <div class="row">
 
-<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">P1</div><div class="role">Role</div></div>
-<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">P2</div><div class="role">Role</div></div>
-<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">P3</div><div class="role">Role</div></div>
-<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">P4</div><div class="role">Role</div></div>
-<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">P5</div><div class="role">Role</div></div>
+<div class="card" onclick="openPlayer('P1','Role','placeholder.png','Bio')"><div class="pfp"><img src="placeholder.png"></div><div class="name">P1</div><div class="role">Role</div></div>
+
+<div class="card" onclick="openPlayer('P2','Role','placeholder.png','Bio')"><div class="pfp"><img src="placeholder.png"></div><div class="name">P2</div><div class="role">Role</div></div>
+
+<div class="card" onclick="openPlayer('P3','Role','placeholder.png','Bio')"><div class="pfp"><img src="placeholder.png"></div><div class="name">P3</div><div class="role">Role</div></div>
+
+<div class="card" onclick="openPlayer('P4','Role','placeholder.png','Bio')"><div class="pfp"><img src="placeholder.png"></div><div class="name">P4</div><div class="role">Role</div></div>
+
+<div class="card" onclick="openPlayer('P5','Role','placeholder.png','Bio')"><div class="pfp"><img src="placeholder.png"></div><div class="name">P5</div><div class="role">Role</div></div>
 
 </div>
 </div>
@@ -202,19 +250,46 @@ body {
 <h2>Subs</h2>
 <div class="row">
 
-<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">S1</div><div class="role">Role</div></div>
-<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">S2</div><div class="role">Role</div></div>
-<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">S3</div><div class="role">Role</div></div>
-<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">S4</div><div class="role">Role</div></div>
-<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">S5</div><div class="role">Role</div></div>
+<div class="card" onclick="openPlayer('S1','Role','placeholder.png','Bio')"><div class="pfp"><img src="placeholder.png"></div><div class="name">S1</div><div class="role">Role</div></div>
+
+<div class="card" onclick="openPlayer('S2','Role','placeholder.png','Bio')"><div class="pfp"><img src="placeholder.png"></div><div class="name">S2</div><div class="role">Role</div></div>
+
+<div class="card" onclick="openPlayer('S3','Role','placeholder.png','Bio')"><div class="pfp"><img src="placeholder.png"></div><div class="name">S3</div><div class="role">Role</div></div>
+
+<div class="card" onclick="openPlayer('S4','Role','placeholder.png','Bio')"><div class="pfp"><img src="placeholder.png"></div><div class="name">S4</div><div class="role">Role</div></div>
+
+<div class="card" onclick="openPlayer('S5','Role','placeholder.png','Bio')"><div class="pfp"><img src="placeholder.png"></div><div class="name">S5</div><div class="role">Role</div></div>
 
 </div>
+</div>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay">
+    <div class="overlay-content">
+        <img id="overlayImg" src="">
+        <h2 id="overlayName"></h2>
+        <p id="overlayRole"></p>
+        <p id="overlayBio"></p>
+        <button class="close-btn" onclick="closePlayer()">Close</button>
+    </div>
 </div>
 
 <script>
 function toggleMenu() {
     const menu = document.getElementById("menu");
     menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+
+function openPlayer(name, role, img, bio) {
+    document.getElementById("overlay").style.display = "flex";
+    document.getElementById("overlayName").innerText = name;
+    document.getElementById("overlayRole").innerText = role;
+    document.getElementById("overlayImg").src = img;
+    document.getElementById("overlayBio").innerText = bio;
+}
+
+function closePlayer() {
+    document.getElementById("overlay").style.display = "none";
 }
 </script>
 
