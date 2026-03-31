@@ -101,6 +101,7 @@ body {
     text-align: center;
     flex-shrink: 0;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .card:hover {
@@ -194,7 +195,6 @@ body {
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
     <div class="logo">Exotic Esports</div>
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
@@ -216,14 +216,14 @@ body {
 
 <!-- COACH -->
 <div class="section">
-    <h2>Coach</h2>
-    <div class="center">
-        <div class="card" onclick="openPlayer('Thekidrambo','Coach','coach.png')">
-            <div class="pfp"><img src="coach.png"></div>
-            <div class="name">Thekidrambo</div>
-            <div class="role">Coach</div>
-        </div>
-    </div>
+<h2>Coach</h2>
+<div class="center">
+<div class="card" onclick="openPlayer('Thekidrambo','Coach','coach.png','Experienced coach leading Phoenix with strong strategy and discipline.')">
+<div class="pfp"><img src="coach.png"></div>
+<div class="name">Thekidrambo</div>
+<div class="role">Coach</div>
+</div>
+</div>
 </div>
 
 <!-- STARTERS -->
@@ -231,15 +231,20 @@ body {
 <h2>Starters</h2>
 <div class="row">
 
-<div class="card"><div class="pfp"><img src="soadeonics.png"></div><div class="name">Spadeonics</div><div class="role">IGL</div></div>
+<div class="card" onclick="openPlayer('Spadeonics','IGL','soadeonics.png','Smart IGL known for strong calls and clutch decision making.')">
+<div class="pfp"><img src="soadeonics.png"></div><div class="name">Spadeonics</div><div class="role">IGL</div></div>
 
-<div class="card"><div class="pfp"><img src="xef.png"></div><div class="name">Xef</div><div class="role">Entry</div></div>
+<div class="card" onclick="openPlayer('Xef','Entry','xef.png','Aggressive entry fragger who creates openings every round.')">
+<div class="pfp"><img src="xef.png"></div><div class="name">Xef</div><div class="role">Entry</div></div>
 
-<div class="card"><div class="pfp"><img src="dalton.png"></div><div class="name">Dalton</div><div class="role">Entry</div></div>
+<div class="card" onclick="openPlayer('Dalton','Entry','dalton.png','Fast paced player with strong mechanical skill.')">
+<div class="pfp"><img src="dalton.png"></div><div class="name">Dalton</div><div class="role">Entry</div></div>
 
-<div class="card"><div class="pfp"><img src="golden.png"></div><div class="name">Golden</div><div class="role">Flex</div></div>
+<div class="card" onclick="openPlayer('Golden','Flex','golden.png','Reliable flex player who adapts to any role needed.')">
+<div class="pfp"><img src="golden.png"></div><div class="name">Golden</div><div class="role">Flex</div></div>
 
-<div class="card"><div class="pfp"><img src="chubbs.png"></div><div class="name">Chubbs</div><div class="role">Support</div></div>
+<div class="card" onclick="openPlayer('Chubbs','Support','chubbs.png','Support player focused on team play and utility usage.')">
+<div class="pfp"><img src="chubbs.png"></div><div class="name">Chubbs</div><div class="role">Support</div></div>
 
 </div>
 </div>
@@ -249,34 +254,51 @@ body {
 <h2>Subs</h2>
 <div class="row">
 
-<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">Nicheorange</div><div class="role">IGL/Entry</div></div>
+<div class="card" onclick="openPlayer('Nicheorange','IGL/Entry','placeholder.png','Versatile sub capable of leading or fragging.')">
+<div class="pfp"><img src="placeholder.png"></div><div class="name">Nicheorange</div><div class="role">IGL/Entry</div></div>
 
-<div class="card"><div class="pfp"><img src="vursed.png"></div><div class="name">Vursed</div><div class="role">Entry</div></div>
+<div class="card" onclick="openPlayer('Vursed','Entry','vursed.png','High energy entry sub with strong aim.')">
+<div class="pfp"><img src="vursed.png"></div><div class="name">Vursed</div><div class="role">Entry</div></div>
 
-<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">Sub3</div><div class="role">Flex</div></div>
+<div class="card" onclick="openPlayer('Sub3','Flex','placeholder.png','Flexible substitute ready to fill any role.')">
+<div class="pfp"><img src="placeholder.png"></div><div class="name">Sub3</div><div class="role">Flex</div></div>
 
-<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">Sub4</div><div class="role">Support</div></div>
+<div class="card" onclick="openPlayer('Sub4','Support','placeholder.png','Support focused player with strong team awareness.')">
+<div class="pfp"><img src="placeholder.png"></div><div class="name">Sub4</div><div class="role">Support</div></div>
 
-<div class="card"><div class="pfp"><img src="placeholder.png"></div><div class="name">Sub5</div><div class="role">Entry</div></div>
+<div class="card" onclick="openPlayer('Sub5','Entry','placeholder.png','Backup entry bringing aggression off the bench.')">
+<div class="pfp"><img src="placeholder.png"></div><div class="name">Sub5</div><div class="role">Entry</div></div>
 
 </div>
 </div>
 
-<!-- OVERLAY HTML (ADDED ONLY) -->
+<!-- OVERLAY -->
 <div class="overlay" id="overlay">
-    <div class="overlay-content">
-        <img id="overlayImg" src="">
-        <h2 id="overlayName"></h2>
-        <p id="overlayRole"></p>
-        <p id="overlayBio"></p>
-        <button class="close-btn" onclick="closePlayer()">Close</button>
-    </div>
+<div class="overlay-content">
+<img id="overlayImg">
+<h2 id="overlayName"></h2>
+<p id="overlayRole"></p>
+<p id="overlayBio"></p>
+<button class="close-btn" onclick="closePlayer()">Close</button>
+</div>
 </div>
 
 <script>
 function toggleMenu() {
     const menu = document.getElementById("menu");
     menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+
+function openPlayer(name, role, img, bio) {
+    document.getElementById("overlay").style.display = "flex";
+    document.getElementById("overlayName").innerText = name;
+    document.getElementById("overlayRole").innerText = role;
+    document.getElementById("overlayBio").innerText = bio;
+    document.getElementById("overlayImg").src = img;
+}
+
+function closePlayer() {
+    document.getElementById("overlay").style.display = "none";
 }
 </script>
 
