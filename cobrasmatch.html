@@ -15,7 +15,7 @@ body {
 
 /* NAVBAR */
 .navbar {
-    position: relative; /* 🔹 relative so dropdown positions correctly */
+    position: sticky; /* 🔹 sticky keeps it at top while page scrolls */
     top: 0;
     z-index: 10000;
     backdrop-filter: blur(12px);
@@ -39,7 +39,7 @@ body {
 /* DROPDOWN */
 .dropdown {
     position: absolute;
-    top: 100%; /* directly below navbar */
+    top: 100%; /* always below navbar */
     right: 0;
     background: #001d3d;
     border-radius: 12px;
@@ -233,7 +233,7 @@ body {
     <div class="logo-text">Exotic Esports</div>
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-    <!-- PATCHED: dropdown inside navbar -->
+    <!-- dropdown inside navbar -->
     <div class="dropdown" id="menu">
         <a href="index.html">Home</a>
         <a href="phoenix.html">Phoenix Roster</a>
@@ -279,7 +279,6 @@ body {
 <!-- RESULTS -->
 <div class="section-title">Results</div>
 
-<!-- VISIBLE MATCH -->
 <div class="match">
     <div class="teams">
         <div class="team">
@@ -310,7 +309,7 @@ body {
     </div>
 </div>
 
-<!-- HIDDEN MATCH (example second result) -->
+<!-- HIDDEN MATCH -->
 <div class="match hidden">
     <div class="teams">
         <div class="team">
