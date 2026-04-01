@@ -15,7 +15,7 @@ body {
 
 /* NAVBAR */
 .navbar {
-    position: relative; /* patched to fix dropdown issue */
+    position: relative; /* 🔹 relative so dropdown positions correctly */
     top: 0;
     z-index: 10000;
     backdrop-filter: blur(12px);
@@ -38,8 +38,8 @@ body {
 
 /* DROPDOWN */
 .dropdown {
-    position: absolute; /* now relative to navbar */
-    top: 100%;          /* directly below navbar */
+    position: absolute;
+    top: 100%; /* directly below navbar */
     right: 0;
     background: #001d3d;
     border-radius: 12px;
@@ -232,18 +232,19 @@ body {
 <div class="navbar">
     <div class="logo-text">Exotic Esports</div>
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
-</div>
 
-<div class="dropdown" id="menu">
-    <a href="index.html">Home</a>
-    <a href="phoenix.html">Phoenix Roster</a>
-    <a href="phoenixmatch.html">Phoenix Schedule</a>
-    <a href="cobras.html">Cobras Roster</a>
-    <a href="cobrasmatch.html">Cobras Schedule</a>
-    <a href="yetis.html">Yetis Roster</a>
-    <a href="yetismatchs.html">Yetis Schedule</a>
-    <a href="socials.html">Socials</a>
-    <a href="about.html">About</a>
+    <!-- PATCHED: dropdown inside navbar -->
+    <div class="dropdown" id="menu">
+        <a href="index.html">Home</a>
+        <a href="phoenix.html">Phoenix Roster</a>
+        <a href="phoenixmatch.html">Phoenix Schedule</a>
+        <a href="cobras.html">Cobras Roster</a>
+        <a href="cobrasmatch.html">Cobras Schedule</a>
+        <a href="yetis.html">Yetis Roster</a>
+        <a href="yetismatchs.html">Yetis Schedule</a>
+        <a href="socials.html">Socials</a>
+        <a href="about.html">About</a>
+    </div>
 </div>
 
 <div class="header">
