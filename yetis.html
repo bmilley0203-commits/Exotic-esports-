@@ -30,7 +30,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 10;
 }
 
 .logo { font-size: 20px; font-weight: bold; }
@@ -46,7 +45,7 @@ body {
     display: none;
     flex-direction: column;
     width: 200px;
-    z-index: 9999; /* 🔥 ensures dropdown is above navbar */
+    z-index: 1000; /* 🔥 ensures dropdown appears above PFPs */
 }
 
 .dropdown a {
@@ -147,7 +146,7 @@ body {
     justify-content: center;
     align-items: center;
 
-    z-index: 99999; /* 🔥 THIS FIXES IT */
+    z-index: 99999;
 }
 
 .overlay-content {
@@ -190,19 +189,18 @@ body {
 <div class="navbar">
     <div class="logo">Exotic Esports</div>
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
-</div>
 
-<!-- Moved outside navbar -->
-<div class="dropdown" id="menu">
-    <a href="index.html">Home</a>
-    <a href="phoenix.html">Phoenix Roster</a>
-    <a href="phoenixmatch.html">Phoenix Schedule</a>
-    <a href="cobras.html">Cobras Roster</a>
-    <a href="cobrasmatch.html">Cobras Schedule</a>
-    <a href="yetis.html">Yetis Roster</a>
-    <a href="yetismatchs.html">Yetis Schedule</a>
-    <a href="socials.html">Socials</a>
-    <a href="about.html">About</a>
+    <div class="dropdown" id="menu">
+        <a href="index.html">Home</a>
+        <a href="phoenix.html">Phoenix Roster</a>
+        <a href="phoenixmatch.html">Phoenix Schedule</a>
+        <a href="cobras.html">Cobras Roster</a>
+        <a href="cobrasmatch.html">Cobras Schedule</a>
+        <a href="yetis.html">Yetis Roster</a>
+        <a href="yetismatchs.html">Yetis Schedule</a>
+        <a href="socials.html">Socials</a>
+        <a href="about.html">About</a>
+    </div>
 </div>
 
 <h1 class="title">Yetis Roster</h1>
@@ -271,7 +269,7 @@ body {
 <script>
 function toggleMenu() {
     const menu = document.getElementById("menu");
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
 
 function openPlayer(name, role, img, bio) {
