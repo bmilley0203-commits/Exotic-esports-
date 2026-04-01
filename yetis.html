@@ -22,7 +22,7 @@ body {
 
 /* NAVBAR */
 .navbar {
-    position: sticky;
+    position: relative; /* updated to fix dropdown stacking */
     top: 0;
     backdrop-filter: blur(12px);
     background: rgba(0, 8, 20, 0.6);
@@ -30,6 +30,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1000; /* ensure navbar is above PFPs */
 }
 
 .logo { font-size: 20px; font-weight: bold; }
@@ -45,7 +46,7 @@ body {
     display: none;
     flex-direction: column;
     width: 200px;
-    z-index: 1000; /* 🔥 ensures dropdown appears above PFPs */
+    z-index: 2000; /* updated to be above everything */
 }
 
 .dropdown a {
