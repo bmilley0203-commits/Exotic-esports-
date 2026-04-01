@@ -15,7 +15,7 @@ body {
 
 /* NAVBAR */
 .navbar {
-    position: sticky;
+    position: relative; /* patched to fix dropdown issue */
     top: 0;
     z-index: 10000;
     backdrop-filter: blur(12px);
@@ -38,9 +38,9 @@ body {
 
 /* DROPDOWN */
 .dropdown {
-    position: absolute;
-    top: 70px;
-    right: 15px;
+    position: absolute; /* now relative to navbar */
+    top: 100%;          /* directly below navbar */
+    right: 0;
     background: #001d3d;
     border-radius: 12px;
     display: none;
@@ -234,7 +234,7 @@ body {
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
 </div>
 
-    <div class="dropdown" id="menu">
+<div class="dropdown" id="menu">
     <a href="index.html">Home</a>
     <a href="phoenix.html">Phoenix Roster</a>
     <a href="phoenixmatch.html">Phoenix Schedule</a>
