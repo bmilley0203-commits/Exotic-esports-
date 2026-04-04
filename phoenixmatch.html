@@ -5,13 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Phoenix Matches</title>
 <link rel="icon" type="image/png" href="logo4.png">
-    <script>
-  // If the user didn't come from your home page, send them there
-  if (document.referrer === "" || !document.referrer.includes(window.location.hostname)) {
+<script>
+if (document.referrer === "" || !document.referrer.includes(window.location.hostname)) {
     window.location.href = "index.html"; 
-  }
-    </script>
-    
+}
+</script>
 
 <style>
 body {
@@ -21,7 +19,6 @@ body {
     background: linear-gradient(to bottom, #000814, #001d3d, #003566);
 }
 
-/* NAVBAR */
 .navbar {
     position: sticky;
     top: 0;
@@ -44,7 +41,6 @@ body {
     cursor: pointer;
 }
 
-/* DROPDOWN */
 .dropdown {
     position: absolute;
     top: 70px;
@@ -69,7 +65,6 @@ body {
     background: #003566;
 }
 
-/* HEADER */
 .header {
     text-align: center;
     margin: 30px 0 10px;
@@ -79,7 +74,6 @@ body {
     color: #4cc9f0;
 }
 
-/* SECTION */
 .section-title {
     margin: 25px 20px 10px;
     font-size: 20px;
@@ -88,7 +82,6 @@ body {
     padding-left: 10px;
 }
 
-/* MATCH CARD */
 .match {
     background: rgba(0, 20, 40, 0.75);
     margin: 15px 20px;
@@ -99,7 +92,6 @@ body {
     position: relative;
 }
 
-/* FIXTURE */
 .fixture {
     border: 1px solid rgba(0, 200, 255, 0.25);
 }
@@ -110,7 +102,6 @@ body {
     opacity: 0.8;
 }
 
-/* TEAMS */
 .teams {
     display: flex;
     justify-content: space-between;
@@ -121,7 +112,6 @@ body {
     width: 40%;
 }
 
-/* LOGO */
 .logo {
     width: 90px;
     height: 90px;
@@ -145,7 +135,6 @@ body {
     transform: translate(-50%, -50%);
 }
 
-/* VS / SCORE */
 .score, .vs {
     width: 20%;
     font-size: 20px;
@@ -159,7 +148,6 @@ body {
 .win { color: #00ff9d; }
 .loss { color: #ff4d6d; }
 
-/* MAPS */
 .map-series {
     margin-top: 15px;
     margin-bottom: 5px;
@@ -183,14 +171,12 @@ body {
     color: #ff4d6d;
 }
 
-/* MVP */
 .mvp {
     margin-top: 14px;
     font-size: 15px;
     opacity: 0.9;
 }
 
-/* BUTTON */
 .btn {
     margin-top: 12px;
     padding: 10px 20px;
@@ -201,7 +187,6 @@ body {
     font-weight: bold;
 }
 
-/* VOD */
 .vod-container {
     max-height: 0;
     overflow: hidden;
@@ -219,7 +204,6 @@ body {
     max-height: 300px;
 }
 
-/* HIDDEN */
 .hidden {
     display: none;
 }
@@ -254,7 +238,6 @@ body {
     <h1>Phoenix Matches</h1>
 </div>
 
-<!-- UPCOMING -->
 <div class="section-title">Upcoming Matches</div>
 
 <div class="match fixture">
@@ -279,86 +262,102 @@ body {
     </div>
 </div>
 
-<!-- RESULTS -->
 <div class="section-title">Results</div>
 
 <div id="results">
 
-    <!-- MATCH 1 -->
-    <div class="match">
-        <div class="teams">
-            <div class="team">
-                <div class="logo"><img src="phoenix.png"></div>
-                <p>Phoenix</p>
-            </div>
-
-            <div class="score loss">0 - 1</div>
-
-            <div class="team">
-                <div class="logo"><img src="zgg.png"></div>
-                <p>ZGG Venomous</p>
-            </div>
+<!-- MATCH 1 -->
+<div class="match">
+    <div class="teams">
+        <div class="team">
+            <div class="logo"><img src="phoenix.png"></div>
+            <p>Phoenix</p>
         </div>
 
-        <div class="map-series">
-            <div class="map-box map-loss">Clubhouse<br>0-7</div>
-        </div>
+        <div class="score loss">0 - 1</div>
 
-        <div class="mvp">🏆 Dalton (5-6)</div>
-
-        <button class="btn" onclick="toggleVOD(this, 'https://www.youtube.com/embed/Jbjy_wgpI-Q')">
-            Watch VOD
-        </button>
-
-        <div class="vod-container">
-            <iframe src=""></iframe>
+        <div class="team">
+            <div class="logo"><img src="zgg.png"></div>
+            <p>ZGG Venomous</p>
         </div>
     </div>
 
-    <!-- MATCH 2 WITH TWITCH EMBED -->
-    <div class="match">
-        <div class="teams">
-            <div class="team">
-                <div class="logo"><img src="phoenix.png"></div>
-                <p>Phoenix</p>
-            </div>
+    <div class="map-series">
+        <div class="map-box map-loss">Clubhouse<br>0-7</div>
+    </div>
 
-            <div class="score loss">0 - 1</div>
+    <div class="mvp">🏆 Dalton (5-6)</div>
 
-            <div class="team">
-                <div class="logo"><img src="reputation.png"></div>
-                <p>OPM Reputation</p>
-            </div>
+    <button class="btn" onclick="toggleVOD(this, 'https://www.youtube.com/embed/Jbjy_wgpI-Q')">
+        Watch VOD
+    </button>
 
-            <div class="match">
-        <div class="teams">
-            <div class="team">
-                <div class="logo"><img src="phoenix.png"></div>
-                <p>Phoenix</p>
-            </div>
+    <div class="vod-container">
+        <iframe src=""></iframe>
+    </div>
+</div>
 
-            <div class="score loss">0 - 1</div>
-
-            <div class="team">
-                <div class="logo"><img src="astromyx.png"></div>
-                <p>ZGG Astromyx</p>
-            </div>
+<!-- MATCH 2 -->
+<div class="match">
+    <div class="teams">
+        <div class="team">
+            <div class="logo"><img src="phoenix.png"></div>
+            <p>Phoenix</p>
         </div>
 
-        <div class="map-series">
-            <div class="map-box map-loss">chalet<br>1-7</div>
-        </div>
+        <div class="score loss">0 - 1</div>
 
-        <div class="mvp">🏆 Chubbs (5-7-2)</div>
-
-        <button class="btn" onclick="toggleVOD(this, 'twitch:2735224995')">
-            Watch VOD
-        </button>
-
-        <div class="vod-container">
-            <iframe src=""></iframe>
+        <div class="team">
+            <div class="logo"><img src="reputation.png"></div>
+            <p>OPM Reputation</p>
         </div>
     </div>
+
+    <div class="map-series">
+        <div class="map-box map-loss">Clubhouse<br>2-7</div>
+    </div>
+
+    <div class="mvp">🏆 Dalton (5-6)</div>
+
+    <button class="btn" onclick="toggleVOD(this, 'https://www.youtube.com/embed/Jbjy_wgpI-Q')">
+        Watch VOD
+    </button>
+
+    <div class="vod-container">
+        <iframe src=""></iframe>
+    </div>
+</div>
+
+<!-- MATCH 3 -->
+<div class="match hidden">
+    <div class="teams">
+        <div class="team">
+            <div class="logo"><img src="phoenix.png"></div>
+            <p>Phoenix</p>
+        </div>
+
+        <div class="score loss">0 - 1</div>
+
+        <div class="team">
+            <div class="logo"><img src="astromyx.png"></div>
+            <p>ZGG Astromyx</p>
+        </div>
+    </div>
+
+    <div class="map-series">
+        <div class="map-box map-loss">Chalet<br>1-7</div>
+    </div>
+
+    <div class="mvp">🏆 Chubbs (5-7-2)</div>
+
+    <button class="btn" onclick="toggleVOD(this, 'twitch:2735224995')">
+        Watch VOD
+    </button>
+
+    <div class="vod-container">
+        <iframe src=""></iframe>
+    </div>
+</div>
 
 </div>
 
@@ -385,7 +384,6 @@ function toggleVOD(button, link) {
 
         container.classList.add("active");
 
-        // Twitch embed
         if (link.startsWith("twitch:")) {
             const videoId = link.split(":")[1];
             iframe.src = `https://player.twitch.tv/?video=${videoId}&parent=exoticesports.vercel.app&autoplay=false`;
