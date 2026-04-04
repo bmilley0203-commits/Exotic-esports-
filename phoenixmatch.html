@@ -314,7 +314,7 @@ body {
     </div>
 
     <div class="map-series">
-        <div class="map-box map-loss">Clubhouse<br>2-7</div>
+        <div class="map-box map-loss">Clubhouse<br>0-7</div>
     </div>
 
     <div class="mvp">🏆 Dalton (5-6)</div>
@@ -362,6 +362,7 @@ body {
 </div>
 
 <button class="btn show-more" onclick="showMore()">Show More</button>
+<button class="btn show-less" onclick="showLess()" style="display:none;">Show Less</button>
 
 <script>
 function toggleMenu() {
@@ -398,6 +399,15 @@ function showMore() {
         el.classList.remove("hidden");
     });
     document.querySelector(".show-more").style.display = "none";
+    document.querySelector(".show-less").style.display = "block";
+}
+
+function showLess() {
+    document.querySelectorAll("#results .match:nth-child(n+3)").forEach(el => {
+        el.classList.add("hidden");
+    });
+    document.querySelector(".show-more").style.display = "block";
+    document.querySelector(".show-less").style.display = "none";
 }
 </script>
 
