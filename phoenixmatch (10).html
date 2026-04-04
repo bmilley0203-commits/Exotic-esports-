@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phoenix Matches</title>
+<link rel="icon" type="image/png" href="logo4.png">
+<script>
+if (document.referrer === "" || !document.referrer.includes(window.location.hostname)) {
+    window.location.href = "index.html"; 
+}
+</script>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: linear-gradient(to bottom, #000814, #001d3d, #003566);
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    backdrop-filter: blur(12px);
+    background: rgba(0, 8, 20, 0.6);
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.menu-btn {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: absolute;
+    top: 70px;
+    right: 15px;
+    background: #001d3d;
+    border-radius: 12px;
+    display: none;
+    flex-direction: column;
+    width: 200px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,200,255,0.25);
+    z-index: 9999;
+}
+
+.dropdown a {
+    padding: 14px;
+    text-decoration: none;
+    color: white;
+}
+
+.dropdown a:hover {
+    background: #003566;
+}
+
+.header {
+    text-align: center;
+    margin: 30px 0 10px;
+}
+
+.header h1 {
+    color: #4cc9f0;
+}
+
+.section-title {
+    margin: 25px 20px 10px;
+    font-size: 20px;
+    color: #90e0ef;
+    border-left: 4px solid #00b4d8;
+    padding-left: 10px;
+}
+
+.match {
+    background: rgba(0, 20, 40, 0.75);
+    margin: 15px 20px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 200, 255, 0.12);
+    text-align: center;
+    position: relative;
+}
+
+.fixture {
+    border: 1px solid rgba(0, 200, 255, 0.25);
+}
+
+.fixture .date {
+    margin-top: 12px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team {
+    width: 40%;
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.logo img {
+    position: absolute;
+    width: 115%;
+    height: 115%;
+    object-fit: cover;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.score, .vs {
+    width: 20%;
+    font-size: 20px;
+}
+
+.vs {
+    color: #00d4ff;
+    font-weight: bold;
+}
+
+.win { color: #00ff9d; }
+.loss { color: #ff4d6d; }
+
+.map-series {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.map-box {
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    min-width: 70px;
+    background: rgba(255,255,255,0.05);
+}
+
+.map-loss {
+    background: rgba(255,77,109,0.15);
+    border: 1px solid #ff4d6d;
+    color: #ff4d6d;
+}
+
+.mvp {
+    margin-top: 14px;
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+.btn {
+    margin-top: 12px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: #00b4d8;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.vod-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.vod-container iframe {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    border: none;
+}
+
+.vod-container.active {
+    max-height: 300px;
+}
+
+.hidden {
+    display: none;
+}
+
+.show-more {
+    display: block;
+    margin: 20px auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo-text">Exotic Esports</div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    <div class="dropdown" id="menu">
+        <a href="index.html">Home</a>
+        <a href="phoenix.html">Phoenix Roster</a>
+        <a href="phoenixmatch.html">Phoenix Schedule</a>
+        <a href="cobras.html">Cobras Roster</a>
+        <a href="cobrasmatch.html">Cobras Schedule</a>
+        <a href="yetis.html">Yetis Roster</a>
+        <a href="yetismatchs.html">Yetis Schedule</a>
+        <a href="socials.html">Socials</a>
+        <a href="about.html">About</a>
+    </div>
+</div>
+
+<div class="header">
+    <h1>Phoenix Matches</h1>
+</div>
+
+<div class="section-title">Upcoming Matches</div>
+
+<div class="match fixture">
+    <div class="teams">
+        <div class="team">
+            <div class="logo"><img src="phoenix.png"></div>
+            <p>Phoenix</p>
+        </div>
+
+        <div class="vs">VS</div>
+
+        <div class="team">
+            <div class="logo"><img src="tbb.png"></div>
+            <p>TBB</p>
+        </div>
+    </div>
+
+    <div class="date">tbd • tdb PM</div>
+
+    <div class="map-series">
+        <div class="map-box">BO1 • Map Tbd</div>
+    </div>
+</div>
+
+<div class="section-title">Results</div>
+
+<div id="results">
+
+<!-- MATCH 1 -->
+<div class="match">
+    <div class="teams">
+        <div class="team">
+            <div class="logo"><img src="phoenix.png"></div>
+            <p>Phoenix</p>
+        </div>
+
+        <div class="score loss">0 - 1</div>
+
+        <div class="team">
+            <div class="logo"><img src="zgg.png"></div>
+            <p>ZGG Venomous</p>
+        </div>
+    </div>
+
+    <div class="map-series">
+        <div class="map-box map-loss">Clubhouse<br>0-7</div>
+    </div>
+
+    <div class="mvp">🏆 Dalton (5-6)</div>
+
+    <button class="btn" onclick="toggleVOD(this, 'https://www.youtube.com/embed/Jbjy_wgpI-Q')">
+        Watch VOD
+    </button>
+
+    <div class="vod-container">
+        <iframe src=""></iframe>
+    </div>
+</div>
+
+<!-- MATCH 2 -->
+<div class="match">
+    <div class="teams">
+        <div class="team">
+            <div class="logo"><img src="phoenix.png"></div>
+            <p>Phoenix</p>
+        </div>
+
+        <div class="score loss">0 - 1</div>
+
+        <div class="team">
+            <div class="logo"><img src="reputation.png"></div>
+            <p>OPM Reputation</p>
+        </div>
+    </div>
+
+    <div class="map-series">
+        <div class="map-box map-loss">Clubhouse<br>2-7</div>
+    </div>
+
+    <div class="mvp">🏆 Dalton (5-6)</div>
+
+    <button class="btn" onclick="toggleVOD(this, 'https://www.youtube.com/embed/Jbjy_wgpI-Q')">
+        Watch VOD
+    </button>
+
+    <div class="vod-container">
+        <iframe src=""></iframe>
+    </div>
+</div>
+
+<!-- MATCH 3 -->
+<div class="match hidden">
+    <div class="teams">
+        <div class="team">
+            <div class="logo"><img src="phoenix.png"></div>
+            <p>Phoenix</p>
+        </div>
+
+        <div class="score loss">0 - 1</div>
+
+        <div class="team">
+            <div class="logo"><img src="astromyx.png"></div>
+            <p>ZGG Astromyx</p>
+        </div>
+    </div>
+
+    <div class="map-series">
+        <div class="map-box map-loss">Chalet<br>1-7</div>
+    </div>
+
+    <div class="mvp">🏆 Chubbs (5-7-2)</div>
+
+    <button class="btn" onclick="toggleVOD(this, 'twitch:2735224995')">
+        Watch VOD
+    </button>
+
+    <div class="vod-container">
+        <iframe src=""></iframe>
+    </div>
+</div>
+
+</div>
+
+<button class="btn show-more" onclick="showMore()">Show More</button>
+<button class="btn show-less" onclick="showLess()" style="display:none;">Show Less</button>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+
+function toggleVOD(button, link) {
+    const container = button.nextElementSibling;
+    const iframe = container.querySelector("iframe");
+
+    if (container.classList.contains("active")) {
+        container.classList.remove("active");
+        iframe.src = "";
+    } else {
+        document.querySelectorAll(".vod-container").forEach(v => {
+            v.classList.remove("active");
+            v.querySelector("iframe").src = "";
+        });
+
+        container.classList.add("active");
+
+        if (link.startsWith("twitch:")) {
+            const videoId = link.split(":")[1];
+            iframe.src = `https://player.twitch.tv/?video=${videoId}&parent=exoticesports.vercel.app&autoplay=false`;
+        } else {
+            iframe.src = link;
+        }
+    }
+}
+
+function showMore() {
+    document.querySelectorAll(".hidden").forEach(el => {
+        el.classList.remove("hidden");
+    });
+    document.querySelector(".show-more").style.display = "none";
+    document.querySelector(".show-less").style.display = "block";
+}
+
+function showLess() {
+    document.querySelectorAll("#results .match:nth-child(n+3)").forEach(el => {
+        el.classList.add("hidden");
+    });
+    document.querySelector(".show-more").style.display = "block";
+    document.querySelector(".show-less").style.display = "none";
+}
+</script>
+
+</body>
+</html>
