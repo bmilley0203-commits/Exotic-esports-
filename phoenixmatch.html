@@ -272,7 +272,7 @@ body {
 <div id="results">
 
 <!-- MATCH 1 -->
-<div class="match">
+<div class="match" data-date="2026-03-20">
     <div class="teams">
         <div class="team">
             <div class="logo"><img src="phoenix.png"></div>
@@ -303,7 +303,7 @@ body {
 </div>
 
 <!-- MATCH 2 -->
-<div class="match">
+<div class="match" data-date="2026-03-28">
     <div class="teams">
         <div class="team">
             <div class="logo"><img src="phoenix.png"></div>
@@ -334,7 +334,7 @@ body {
 </div>
 
 <!-- MATCH 3 -->
-<div class="match hidden">
+<div class="match hidden" data-date="2026-04-02">
     <div class="teams">
         <div class="team">
             <div class="logo"><img src="phoenix.png"></div>
@@ -362,6 +362,8 @@ body {
     <div class="vod-container">
         <iframe src=""></iframe>
     </div>
+</div>
+
 </div>
 
 </div>
@@ -419,6 +421,22 @@ function showLess() {
     document.querySelector(".show-more").style.display = "block";
     document.querySelector(".show-less").style.display = "none";
 }
+</script>
+<script>
+function sortMatches() {
+    const container = document.getElementById("results");
+    if (!container) return;
+
+    const matches = Array.from(container.querySelectorAll(".match"));
+
+    matches.sort((a, b) => {
+        return new Date(b.dataset.date) - new Date(a.dataset.date);
+    });
+
+    matches.forEach(match => container.appendChild(match));
+}
+
+window.addEventListener("load", sortMatches);
 </script>
 
 </body>
