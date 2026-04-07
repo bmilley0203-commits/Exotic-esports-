@@ -366,8 +366,6 @@ body {
 
 </div>
 
-</div>
-
 <button class="btn show-more" onclick="showMore()">Show More</button>
 <button class="btn show-less" onclick="showLess()" style="display:none;">Show Less</button>
 
@@ -407,36 +405,37 @@ function toggleVOD(button, link) {
 }
 
 function showMore() {
-    document.querySelectorAll(".hidden").forEach(el => {
-        el.classList.remove("hidden");
-    });
+    document.querySelectorAll(".match").forEach(el => el.classList.remove("hidden"));
     document.querySelector(".show-more").style.display = "none";
     document.querySelector(".show-less").style.display = "block";
 }
 
 function showLess() {
-    document.querySelectorAll("#results .match:nth-child(n+3)").forEach(el => {
-        el.classList.add("hidden");
+    const matches = document.querySelectorAll("#results .match");
+    matches.forEach((el, index) => {
+        if(index >= 2) {
+            el.classList.add("hidden");
+        } else {
+            el.classList.remove("hidden");
+        }
     });
     document.querySelector(".show-more").style.display = "block";
     document.querySelector(".show-less").style.display = "none";
 }
-</script>
-<script>
+
 function sortMatches() {
     const container = document.getElementById("results");
     if (!container) return;
 
     const matches = Array.from(container.querySelectorAll(".match"));
-
-    matches.sort((a, b) => {
-        return new Date(b.dataset.date) - new Date(a.dataset.date);
-    });
-
+    matches.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));
     matches.forEach(match => container.appendChild(match));
 }
 
-window.addEventListener("load", sortMatches);
+window.addEventListener("load", () => {
+    sortMatches();
+    showLess(); // ensure only top 2 are visible initially
+});
 </script>
 
 </body>
