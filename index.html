@@ -14,9 +14,14 @@
   font-family: Arial, sans-serif;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   color: white;
   overflow-x: hidden;
+  overflow-y: auto;
   background: radial-gradient(circle at top, #0a0f14, #05070a);
 }
 
@@ -24,7 +29,10 @@ body {
 #particles {
   position: fixed;
   inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: -2;
+  pointer-events: none;
 }
 
 /* BACKGROUND GLOW */
@@ -94,6 +102,29 @@ body::before {
 .nav-links a:hover {
   color: white;
   text-shadow: 0 0 10px #00eaff;
+}
+
+/* MOBILE MENU FIX */
+@media(max-width:768px){
+  .menu-toggle { display:block; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    flex-direction: column;
+    width: 220px;
+
+    background: rgba(10,15,20,0.95);
+    border: 1px solid rgba(0,234,255,0.25);
+    border-radius: 12px;
+    padding: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
 }
 
 /* HERO */
@@ -187,7 +218,7 @@ body::before {
   box-shadow: 0 0 30px rgba(0,234,255,0.35);
 }
 
-/* 🔥 IMPROVED DISCORD BUTTON */
+/* JOIN BUTTON */
 .join-btn {
   display: inline-block;
   margin-top: 10px;
@@ -236,7 +267,7 @@ body::before {
     <a href="cobras.html">Cobras</a>
     <a href="yetis.html">Yetis</a>
     <a href="socials.html">Socials</a>
-    <a href="">Exo Circuit</a>
+    <a href="exo-circuit.html">Exo Circuit</a>
     <a href="about.html">About</a>
   </div>
 </div>
@@ -266,19 +297,24 @@ function toggleMenu() {
   document.getElementById("navMenu").classList.toggle("active");
 }
 
-/* PARTICLES */
+/* FIX CANVAS SIZE */
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
 
+/* PARTICLES */
 let particles = [];
 
 for (let i = 0; i < 60; i++) {
   particles.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
     r: Math.random() * 2,
     dx: (Math.random() - 0.5) * 0.5,
     dy: (Math.random() - 0.5) * 0.5
