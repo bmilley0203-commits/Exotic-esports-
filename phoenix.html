@@ -16,18 +16,11 @@
 
 body {
     color: white;
-    overflow-x: hidden;
     background: radial-gradient(circle at top, #0a0f14, #05070a);
+    overflow-x: hidden;
 }
 
-/* ================= PARTICLES ================= */
-#particles {
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-}
-
-/* ================= GLOW BACKGROUND ================= */
+/* NEON BACKGROUND (MATCH HOME PAGE) */
 body::before {
     content: "";
     position: fixed;
@@ -37,89 +30,83 @@ body::before {
         radial-gradient(circle at 80% 30%, rgba(0,180,255,0.10), transparent 45%),
         radial-gradient(circle at 50% 80%, rgba(0,234,255,0.08), transparent 50%);
     filter: blur(22px);
+    animation: floatBg 12s ease-in-out infinite;
     z-index: -1;
 }
 
-/* ================= NAVBAR ================= */
+@keyframes floatBg {
+    0%,100% { transform: translate(0,0); }
+    50% { transform: translate(2%, -2%); }
+}
+
+/* NAVBAR */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 1000;
+    backdrop-filter: blur(14px);
+    background: rgba(8,12,18,0.7);
+    padding: 18px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 20px;
-
-    backdrop-filter: blur(14px);
-    background: rgba(8, 12, 18, 0.7);
     border-bottom: 1px solid rgba(0,234,255,0.25);
 }
 
 .logo {
-    font-weight: 900;
-    letter-spacing: 3px;
+    font-weight: bold;
     color: #00eaff;
-    text-transform: uppercase;
 }
 
 .menu-icon {
-    font-size: 26px;
+    font-size: 24px;
     cursor: pointer;
     color: #00eaff;
 }
 
+/* DROPDOWN */
 .dropdown {
     position: absolute;
     top: 70px;
     right: 15px;
-    background: rgba(10,15,20,0.95);
-    border: 1px solid rgba(0,234,255,0.25);
+    background: rgba(0,20,40,0.95);
     border-radius: 12px;
     display: none;
     flex-direction: column;
     width: 200px;
-    z-index: 9999;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,234,255,0.25);
 }
 
 .dropdown a {
     padding: 14px;
-    color: #00eaff;
     text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: #00eaff;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .dropdown a:hover {
     background: rgba(0,234,255,0.1);
 }
 
-/* ================= TITLE ================= */
+/* TITLE */
 .title {
     text-align: center;
     margin: 30px 0 10px;
-
-    background: linear-gradient(90deg,#00eaff,#ffffff,#00eaff);
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    animation: shine 4s linear infinite;
+    color: #00eaff;
+    text-shadow: 0 0 15px rgba(0,234,255,0.5);
 }
 
-/* ================= SECTION ================= */
+/* SECTION */
 .section {
     margin: 20px 12px;
     padding: 18px;
     border-radius: 18px;
-
-    background: rgba(0, 20, 40, 0.6);
-    border: 1px solid rgba(0,234,255,0.2);
+    background: rgba(0, 20, 40, 0.65);
+    border: 1px solid rgba(0,234,255,0.15);
 }
 
-.section h2 {
-    color: #00eaff;
-}
-
-/* ================= ROW ================= */
+/* ROW */
 .row {
     display: flex;
     gap: 14px;
@@ -127,32 +114,21 @@ body::before {
     padding-bottom: 10px;
 }
 
-.row::-webkit-scrollbar {
-    height: 6px;
-}
-
-.row::-webkit-scrollbar-thumb {
-    background: #00eaff;
-    border-radius: 10px;
-}
-
-/* ================= CARD ================= */
+/* CARD */
 .card {
     min-width: 120px;
-    position: relative;
-    overflow: hidden;
-
     background: linear-gradient(135deg, rgba(0,234,255,0.12), rgba(0,0,0,0.85));
     border: 1px solid rgba(0,234,255,0.25);
     border-radius: 14px;
     padding: 12px;
     text-align: center;
-
-    transition: 0.3s;
+    flex-shrink: 0;
     cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
-/* shimmer */
 .card::before {
     content: "";
     position: absolute;
@@ -160,9 +136,9 @@ body::before {
     left: -120%;
     width: 60%;
     height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(0,234,255,0.3), transparent);
+    background: linear-gradient(120deg, transparent, rgba(0,234,255,0.35), transparent);
     transform: skewX(-20deg);
-    animation: shimmer 4s linear infinite;
+    animation: shimmer 3.5s linear infinite;
 }
 
 @keyframes shimmer {
@@ -172,18 +148,17 @@ body::before {
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 25px rgba(0,234,255,0.4);
+    box-shadow: 0 0 20px rgba(0,234,255,0.35);
 }
 
-/* ================= PFP ================= */
+/* PFP */
 .pfp {
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    margin: auto;
     overflow: hidden;
-    margin: 0 auto 8px;
-    border: 2px solid #00eaff;
-    box-shadow: 0 0 10px rgba(0,234,255,0.5);
+    border: 2px solid #00b4d8;
 }
 
 .pfp img {
@@ -192,22 +167,15 @@ body::before {
     object-fit: cover;
 }
 
-/* ================= TEXT ================= */
-.name {
-    font-size: 14px;
-    font-weight: bold;
-}
+/* TEXT */
+.name { font-size: 14px; font-weight: bold; }
+.role { font-size: 11px; color: #aaa; }
 
-.role {
-    font-size: 11px;
-    color: #aaa;
-}
-
-/* ================= OVERLAY ================= */
+/* OVERLAY */
 .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0,0,0,0.7);
     backdrop-filter: blur(10px);
     display: none;
     justify-content: center;
@@ -216,48 +184,28 @@ body::before {
 }
 
 .overlay-content {
-    background: rgba(10,15,20,0.95);
-    border: 1px solid rgba(0,234,255,0.25);
+    background: #001d3d;
     padding: 25px;
     border-radius: 16px;
-    text-align: center;
     width: 85%;
     max-width: 320px;
-    box-shadow: 0 0 30px rgba(0,234,255,0.2);
-}
-
-.overlay-pfp {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto 10px;
-    border: 3px solid #00eaff;
-}
-
-.overlay-pfp img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    text-align: center;
 }
 
 .close-btn {
     margin-top: 15px;
     padding: 10px;
-    background: #00eaff;
     border: none;
+    background: #00b4d8;
+    color: black;
     border-radius: 8px;
     cursor: pointer;
-    color: black;
 }
 </style>
 </head>
 
 <body>
 
-<canvas id="particles"></canvas>
-
-<!-- NAVBAR -->
 <div class="navbar">
     <div class="logo">Exotic Esports</div>
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
@@ -275,76 +223,90 @@ body::before {
 
 <h1 class="title">Phoenix Console Roster</h1>
 
-<!-- YOUR CONTENT UNCHANGED BELOW -->
-<!-- (everything else kept same) -->
+<!-- COACH -->
+<div class="section">
+<h2>Coach</h2>
+<div class="row">
+<div class="card" onclick="openPlayer('Thekidrambo','Coach','coach.png','Experienced coach leading Phoenix.')">
+<div class="pfp"><img src="coach.png"></div>
+<div class="name">Thekidrambo</div>
+<div class="role">Coach</div>
+</div>
+</div>
+</div>
 
+<!-- STARTERS -->
+<div class="section">
+<h2>Starters</h2>
+<div class="row">
+
+<div class="card" onclick="openPlayer('Kjrsd','IGL/Entry','kj.png','Smart IGL and aggressive entry.')">
+<div class="pfp"><img src="kj.png"></div><div class="name">Kjrsd</div><div class="role">IGL/Entry</div></div>
+
+<div class="card" onclick="openPlayer('Dalton','Entry','dalton.png','Fast mechanical player.')">
+<div class="pfp"><img src="dalton.png"></div><div class="name">Dalton</div><div class="role">Entry</div></div>
+
+<div class="card" onclick="openPlayer('Chubbs','Flex','chubbs.png','Clutch flex player.')">
+<div class="pfp"><img src="chubbs.png"></div><div class="name">Chubbs</div><div class="role">Flex</div></div>
+
+<div class="card" onclick="openPlayer('Golden','Flex','golden.png','Reliable flex player.')">
+<div class="pfp"><img src="golden.png"></div><div class="name">Golden</div><div class="role">Flex</div></div>
+
+<div class="card" onclick="openPlayer('Spadeonics','Support','soadeonics.png','Strong support player.')">
+<div class="pfp"><img src="soadeonics.png"></div><div class="name">Spadeonics</div><div class="role">Support</div></div>
+
+</div>
+</div>
+
+<!-- SUBS -->
+<div class="section">
+<h2>Subs</h2>
+<div class="row">
+
+<div class="card" onclick="openPlayer('Nicheorange','Entry','orange.png','Versatile sub.')">
+<div class="pfp"><img src="orange.png"></div><div class="name">Nicheorange</div><div class="role">Entry</div></div>
+
+<div class="card" onclick="openPlayer('Vursed','Entry','vursed.png','High energy sub.')">
+<div class="pfp"><img src="vursed.png"></div><div class="name">Vursed</div><div class="role">Entry</div></div>
+
+<div class="card" onclick="openPlayer('BamBaby','Entry','bam.png','Aggressive sub.')">
+<div class="pfp"><img src="bam.png"></div><div class="name">BamBaby</div><div class="role">Entry</div></div>
+
+<div class="card" onclick="openPlayer('Bonezy','Flex','bone.png','Flexible sub.')">
+<div class="pfp"><img src="bone.png"></div><div class="name">Bonezy</div><div class="role">Flex</div></div>
+
+<div class="card" onclick="openPlayer('Fax','Support','Fax.png','Support sub.')">
+<div class="pfp"><img src="Fax.png"></div><div class="name">Fax</div><div class="role">Support</div></div>
+
+</div>
+</div>
+
+<!-- OVERLAY -->
 <div class="overlay" id="overlay">
-    <div class="overlay-content">
-        <div class="overlay-pfp"><img id="overlayImg"></div>
-        <h2 id="overlayName"></h2>
-        <p id="overlayRole"></p>
-        <p id="overlayBio"></p>
-        <button class="close-btn" onclick="closePlayer()">Close</button>
-    </div>
+<div class="overlay-content">
+    <h2 id="overlayName"></h2>
+    <p id="overlayRole"></p>
+    <p id="overlayBio"></p>
+    <button class="close-btn" onclick="closePlayer()">Close</button>
+</div>
 </div>
 
 <script>
-function toggleMenu() {
+function toggleMenu(){
     const menu = document.getElementById("menu");
     menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
 
-function openPlayer(name, role, img, bio) {
+function openPlayer(name, role, img, bio){
     document.getElementById("overlay").style.display = "flex";
     document.getElementById("overlayName").innerText = name;
     document.getElementById("overlayRole").innerText = role;
     document.getElementById("overlayBio").innerText = bio;
-    document.getElementById("overlayImg").src = img;
 }
 
-function closePlayer() {
+function closePlayer(){
     document.getElementById("overlay").style.display = "none";
 }
-
-/* particles */
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-for (let i = 0; i < 60; i++) {
-    particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 2,
-        dx: (Math.random() - 0.5) * 0.5,
-        dy: (Math.random() - 0.5) * 0.5
-    });
-}
-
-function animate() {
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-
-    particles.forEach(p => {
-        p.x += p.dx;
-        p.y += p.dy;
-
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-
-        ctx.fillStyle = "rgba(0,234,255,0.6)";
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fill();
-    });
-
-    requestAnimationFrame(animate);
-}
-
-animate();
 </script>
 
 </body>
