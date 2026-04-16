@@ -7,7 +7,6 @@
 <link rel="icon" type="image/png" href="logo4.png">
 
 <style>
-/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -19,15 +18,16 @@ body {
   color: white;
   overflow-x: hidden;
   background: radial-gradient(circle at top, #0a0f14, #05070a);
-  opacity: 0;
-  animation: pageIn 1.2s ease forwards;
 }
 
-@keyframes pageIn {
-  to { opacity: 1; }
+/* PARTICLE CANVAS */
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
 }
 
-/* NEON BLUE BACKGROUND */
+/* BACKGROUND GLOW */
 body::before {
   content: "";
   position: fixed;
@@ -37,13 +37,7 @@ body::before {
     radial-gradient(circle at 80% 30%, rgba(0,180,255,0.10), transparent 45%),
     radial-gradient(circle at 50% 80%, rgba(0,234,255,0.08), transparent 50%);
   filter: blur(22px);
-  animation: floatBg 12s ease-in-out infinite;
   z-index: -1;
-}
-
-@keyframes floatBg {
-  0%,100% { transform: translate(0,0); }
-  50% { transform: translate(2%, -2%); }
 }
 
 /* NAVBAR */
@@ -55,14 +49,11 @@ body::before {
   position: sticky;
   top: 0;
   z-index: 1000;
-
   backdrop-filter: blur(14px);
   background: rgba(8, 12, 18, 0.7);
-
   border-bottom: 1px solid rgba(0,234,255,0.25);
 }
 
-/* TITLE SHINE */
 .navbar h2 {
   font-size: 22px;
   font-weight: 900;
@@ -82,7 +73,7 @@ body::before {
   100% { background-position: 300% 50%; }
 }
 
-/* MENU */
+/* NAV */
 .menu-toggle {
   font-size: 26px;
   cursor: pointer;
@@ -91,7 +82,7 @@ body::before {
 
 .nav-links {
   display: flex;
-  gap: 20px;
+  gap: 18px;
 }
 
 .nav-links a {
@@ -103,29 +94,6 @@ body::before {
 .nav-links a:hover {
   color: white;
   text-shadow: 0 0 10px #00eaff;
-}
-
-/* MOBILE MENU */
-@media(max-width:768px){
-  .menu-toggle { display:block; }
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 70px;
-    right: 10px;
-    flex-direction: column;
-    width: 220px;
-
-    background: rgba(10,15,20,0.95);
-    border: 1px solid rgba(0,234,255,0.25);
-    border-radius: 12px;
-    padding: 10px;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
 }
 
 /* HERO */
@@ -162,22 +130,20 @@ body::before {
   margin-top: 8px;
 }
 
-/* SECTIONS */
+/* SECTION */
 .section {
   padding: 50px 20px;
   max-width: 1100px;
   margin: auto;
+  text-align: center;
 }
 
 .section h2 {
-  text-align: center;
   margin-bottom: 25px;
-
   background: linear-gradient(90deg,#00eaff,#ffffff,#00eaff);
   background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
   animation: shine 4s linear infinite;
 }
 
@@ -188,20 +154,17 @@ body::before {
   gap: 20px;
 }
 
-/* ✅ FIXED CARD STRUCTURE (NO DUPLICATES) */
 .card {
   position: relative;
   overflow: hidden;
-
   background: linear-gradient(135deg, rgba(0,234,255,0.12), rgba(0,0,0,0.85));
   border: 1px solid rgba(0,234,255,0.25);
   padding: 20px;
   border-radius: 14px;
-  text-align: center;
+  cursor: pointer;
   transition: 0.3s;
 }
 
-/* SHIMMER (SAFE LAYER) */
 .card::before {
   content: "";
   position: absolute;
@@ -209,23 +172,13 @@ body::before {
   left: -120%;
   width: 60%;
   height: 100%;
-
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(0,234,255,0.35),
-    transparent
-  );
-
+  background: linear-gradient(120deg, transparent, rgba(0,234,255,0.35), transparent);
   transform: skewX(-20deg);
   animation: shimmer 3.5s linear infinite;
-
-  pointer-events: none;
 }
 
 @keyframes shimmer {
   0% { left: -120%; }
-  50% { left: 120%; }
   100% { left: 120%; }
 }
 
@@ -234,28 +187,44 @@ body::before {
   box-shadow: 0 0 30px rgba(0,234,255,0.35);
 }
 
-/* JOIN BUTTON */
+/* 🔥 IMPROVED DISCORD BUTTON */
 .join-btn {
-  border: 2px solid #00eaff;
-  color: #00eaff;
-  padding: 12px 25px;
-  border-radius: 10px;
-  text-decoration: none;
   display: inline-block;
+  margin-top: 10px;
+  padding: 14px 30px;
+  border-radius: 12px;
+
+  color: #00eaff;
+  border: 2px solid #00eaff;
+  text-decoration: none;
+  font-weight: bold;
+
+  background: transparent;
+  box-shadow: 0 0 10px rgba(0,234,255,0.4);
+
   transition: 0.3s;
+  animation: pulse 2.5s infinite;
 }
 
 .join-btn:hover {
   background: #00eaff;
   color: black;
-  box-shadow: 0 0 20px #00eaff;
+  box-shadow: 0 0 25px #00eaff;
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 8px rgba(0,234,255,0.3); }
+  50% { box-shadow: 0 0 25px rgba(0,234,255,0.7); }
+  100% { box-shadow: 0 0 8px rgba(0,234,255,0.3); }
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<canvas id="particles"></canvas>
+
 <div class="navbar">
   <h2>EXOTIC ESPORTS</h2>
 
@@ -263,44 +232,79 @@ body::before {
 
   <div class="nav-links" id="navMenu">
     <a href="index.html">Home</a>
-    <a href="phoenix.html">Phoenix Roster</a>
-    <a href="phoenixmatch.html">Phoenix Schedule</a>
-    <a href="cobras.html">Cobras Roster</a>
-    <a href="cobrasmatch.html">Cobras Schedule</a>
-    <a href="yetis.html">Yetis Roster</a>
-    <a href="yetismatchs.html">Yetis Schedule</a>
+    <a href="phoenix.html">Phoenix</a>
+    <a href="cobras.html">Cobras</a>
+    <a href="yetis.html">Yetis</a>
     <a href="socials.html">Socials</a>
+    <a href="">Exo Circuit</a>
     <a href="about.html">About</a>
   </div>
 </div>
 
-<!-- HERO -->
 <div class="hero">
   <img src="logo.png">
   <h2>Exotic Esports</h2>
   <p>Dominating the competition with precision, power, and teamwork.</p>
 </div>
 
-<!-- WHY JOIN -->
 <div class="section">
   <h2>Why Join Us</h2>
+
   <div class="cards">
     <div class="card">Competitive Teams</div>
     <div class="card">Active Community</div>
     <div class="card">Content & Growth</div>
   </div>
-</div>
 
-<!-- JOIN -->
-<div class="section">
-  <h2>Join Exotic Esports</h2>
-  <a href="https://discord.gg/GtKHY3dr3" class="join-btn">Join Here</a>
+  <a class="join-btn" href="https://discord.gg/GtKHY3dr3" target="_blank">
+    Join Discord
+  </a>
 </div>
 
 <script>
 function toggleMenu() {
   document.getElementById("navMenu").classList.toggle("active");
 }
+
+/* PARTICLES */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 60; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 2,
+    dx: (Math.random() - 0.5) * 0.5,
+    dy: (Math.random() - 0.5) * 0.5
+  });
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach(p => {
+    p.x += p.dx;
+    p.y += p.dy;
+
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+
+    ctx.fillStyle = "rgba(0,234,255,0.6)";
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
 </script>
 
 </body>
