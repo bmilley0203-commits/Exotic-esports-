@@ -20,7 +20,7 @@ body {
   background: radial-gradient(circle at top, #0a0f14, #05070a);
 }
 
-/* PARTICLE CANVAS */
+/* PARTICLES */
 #particles {
   position: fixed;
   inset: 0;
@@ -73,7 +73,7 @@ body::before {
   100% { background-position: 300% 50%; }
 }
 
-/* NAV */
+/* NAV LINKS */
 .menu-toggle {
   font-size: 26px;
   cursor: pointer;
@@ -96,27 +96,13 @@ body::before {
   text-shadow: 0 0 10px #00eaff;
 }
 
-/* MOBILE MENU */
-@media(max-width:768px){
-  .menu-toggle { display:block; }
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 70px;
-    right: 10px;
-    flex-direction: column;
-    width: 220px;
-
-    background: rgba(10,15,20,0.95);
-    border: 1px solid rgba(0,234,255,0.25);
-    border-radius: 12px;
-    padding: 10px;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
+/* EXO CIRCUIT HIGHLIGHT */
+.nav-links a:last-child {
+  color: white;
+  border: 1px solid rgba(0,234,255,0.3);
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,234,255,0.2);
 }
 
 /* HERO */
@@ -153,7 +139,7 @@ body::before {
   margin-top: 8px;
 }
 
-/* SECTION */
+/* SECTIONS */
 .section {
   padding: 50px 20px;
   max-width: 1100px;
@@ -163,10 +149,12 @@ body::before {
 
 .section h2 {
   margin-bottom: 25px;
+
   background: linear-gradient(90deg,#00eaff,#ffffff,#00eaff);
   background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
   animation: shine 4s linear infinite;
 }
 
@@ -180,14 +168,16 @@ body::before {
 .card {
   position: relative;
   overflow: hidden;
+
   background: linear-gradient(135deg, rgba(0,234,255,0.12), rgba(0,0,0,0.85));
   border: 1px solid rgba(0,234,255,0.25);
   padding: 20px;
   border-radius: 14px;
-  cursor: pointer;
+
   transition: 0.3s;
 }
 
+/* SHIMMER */
 .card::before {
   content: "";
   position: absolute;
@@ -210,10 +200,10 @@ body::before {
   box-shadow: 0 0 30px rgba(0,234,255,0.35);
 }
 
-/* JOIN BUTTON */
+/* DISCORD BUTTON */
 .join-btn {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 20px;
   padding: 14px 30px;
   border-radius: 12px;
 
@@ -222,63 +212,22 @@ body::before {
   text-decoration: none;
   font-weight: bold;
 
-  background: transparent;
-  box-shadow: 0 0 10px rgba(0,234,255,0.4);
-
+  box-shadow: 0 0 15px rgba(0,234,255,0.4);
   transition: 0.3s;
+  animation: pulse 2.5s infinite;
 }
 
 .join-btn:hover {
   background: #00eaff;
   color: black;
-  box-shadow: 0 0 25px #00eaff;
   transform: scale(1.05);
+  box-shadow: 0 0 30px #00eaff;
 }
 
-/* ===== MODALS ===== */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.75);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.modal-content {
-  background: rgba(8,12,18,0.95);
-  border: 1px solid rgba(0,234,255,0.3);
-  padding: 25px;
-  border-radius: 14px;
-  width: 90%;
-  max-width: 420px;
-  text-align: center;
-  box-shadow: 0 0 25px rgba(0,234,255,0.35);
-}
-
-.modal-content h3 {
-  color: #00eaff;
-  margin-bottom: 10px;
-}
-
-.modal-content p {
-  color: #9aa6ad;
-}
-
-.close-btn {
-  margin-top: 15px;
-  display: inline-block;
-  padding: 8px 14px;
-  border: 1px solid #00eaff;
-  color: #00eaff;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.close-btn:hover {
-  background: #00eaff;
-  color: black;
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px rgba(0,234,255,0.3); }
+  50% { box-shadow: 0 0 25px rgba(0,234,255,0.7); }
+  100% { box-shadow: 0 0 10px rgba(0,234,255,0.3); }
 }
 </style>
 </head>
@@ -313,9 +262,9 @@ body::before {
   <h2>Why Join Us</h2>
 
   <div class="cards">
-    <div class="card" onclick="openModal('teams')">Competitive Teams</div>
-    <div class="card" onclick="openModal('community')">Active Community</div>
-    <div class="card" onclick="openModal('growth')">Content & Growth</div>
+    <div class="card">Competitive Teams</div>
+    <div class="card">Active Community</div>
+    <div class="card">Content & Growth</div>
   </div>
 
   <a class="join-btn" href="https://discord.gg/GtKHY3dr3" target="_blank">
@@ -323,45 +272,50 @@ body::before {
   </a>
 </div>
 
-<!-- MODALS -->
-<div class="modal" id="teams">
-  <div class="modal-content">
-    <h3>Competitive Teams</h3>
-    <p>Join structured rosters, scrims, and tournaments built for competitive play.</p>
-    <div class="close-btn" onclick="closeModal()">Close</div>
-  </div>
-</div>
-
-<div class="modal" id="community">
-  <div class="modal-content">
-    <h3>Active Community</h3>
-    <p>Always active Discord with events, customs, and teammates online 24/7.</p>
-    <div class="close-btn" onclick="closeModal()">Close</div>
-  </div>
-</div>
-
-<div class="modal" id="growth">
-  <div class="modal-content">
-    <h3>Content & Growth</h3>
-    <p>Opportunities for clips, exposure, branding, and improving as a player.</p>
-    <div class="close-btn" onclick="closeModal()">Close</div>
-  </div>
-</div>
-
 <script>
 function toggleMenu() {
   document.getElementById("navMenu").classList.toggle("active");
 }
 
-function openModal(id) {
-  document.getElementById(id).style.display = "flex";
-}
+/* PARTICLES */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
 
-function closeModal() {
-  document.querySelectorAll(".modal").forEach(m => {
-    m.style.display = "none";
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 60; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 2,
+    dx: (Math.random() - 0.5) * 0.5,
+    dy: (Math.random() - 0.5) * 0.5
   });
 }
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach(p => {
+    p.x += p.dx;
+    p.y += p.dy;
+
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+
+    ctx.fillStyle = "rgba(0,234,255,0.6)";
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
 </script>
 
 </body>
