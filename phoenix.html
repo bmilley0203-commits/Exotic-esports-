@@ -15,59 +15,98 @@ if (document.referrer === "" || !document.referrer.includes(window.location.host
 <style>
 :root {
     --pfp-size: 60px;
-    --pfp-scale: 1.3;
-    --overlay-size: 80px;
-    --overlay-img-scale: 1.5;
+    --pfp-scale: 1.2;
 }
 
-/* GENERAL */
+/* ================= BODY ================= */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: white;
-    background: linear-gradient(to bottom, #000814, #001d3d, #003566);
+    background: radial-gradient(circle at top, #05070a, #000814);
+    overflow-x: hidden;
+    opacity: 0;
+    animation: pageIn 1s ease forwards;
 }
 
-/* NAVBAR */
+@keyframes pageIn {
+    to { opacity: 1; }
+}
+
+/* ================= PARTICLES ================= */
+#particles {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+}
+
+/* ================= NEON GLOW BACKDROP ================= */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(0,234,255,0.14), transparent 40%),
+      radial-gradient(circle at 80% 30%, rgba(0,180,255,0.10), transparent 45%),
+      radial-gradient(circle at 50% 80%, rgba(0,234,255,0.08), transparent 50%);
+    filter: blur(30px);
+    z-index: -2;
+}
+
+/* ================= NAVBAR ================= */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(12px);
-    background: rgba(0, 8, 20, 0.6);
+    backdrop-filter: blur(14px);
+    background: rgba(0, 8, 20, 0.65);
     padding: 18px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(0,234,255,0.25);
 }
 
-/* SHIMMER NAV */
+/* SHIMMER LOGO */
 .logo {
     font-size: 20px;
     font-weight: bold;
-    background: linear-gradient(90deg,#4cc9f0,#ffffff,#4cc9f0);
+    background: linear-gradient(90deg,#00eaff,#ffffff,#00eaff);
     background-size: 300% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shine 4s linear infinite;
 }
 
-.menu-icon { font-size: 24px; cursor: pointer; }
+.menu-icon { font-size: 24px; cursor: pointer; color:#00eaff; }
 
-/* DROPDOWN */
+@keyframes shine {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+}
+
+/* ================= TITLE ================= */
+.title {
+    text-align: center;
+    margin: 30px 0 10px;
+    background: linear-gradient(90deg,#00eaff,#ffffff,#00eaff);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+}
+
+/* ================= DROPDOWN ================= */
 .dropdown {
     position: absolute;
     top: 70px;
     right: 15px;
-    background: #001d3d;
+    background: rgba(0,29,61,0.95);
     border-radius: 12px;
     display: none;
     flex-direction: column;
     width: 200px;
-    overflow: hidden;
     box-shadow: 0 0 20px rgba(0,200,255,0.25);
-    z-index: 9999;
 }
 
 .dropdown a {
@@ -77,20 +116,11 @@ body {
     border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.dropdown a:hover { background: #003566; }
-
-/* TITLE */
-.title {
-    text-align: center;
-    margin: 30px 0 10px;
-    background: linear-gradient(90deg,#4cc9f0,#ffffff,#4cc9f0);
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 4s linear infinite;
+.dropdown a:hover {
+    background: #003566;
 }
 
-/* SECTIONS */
+/* ================= SECTION ================= */
 .section {
     margin: 20px 12px;
     padding: 18px;
@@ -99,18 +129,16 @@ body {
     box-shadow: 0 0 25px rgba(0, 200, 255, 0.15);
 }
 
-/* HEADERS */
 .section h2 {
     text-align: center;
-    color: #90e0ef;
-    background: linear-gradient(90deg,#4cc9f0,#ffffff,#4cc9f0);
+    background: linear-gradient(90deg,#00eaff,#ffffff,#00eaff);
     background-size: 300% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shine 4s linear infinite;
 }
 
-/* ROW */
+/* ================= ROW ================= */
 .row {
     display: flex;
     gap: 14px;
@@ -118,7 +146,13 @@ body {
     padding-bottom: 10px;
 }
 
-/* CARD */
+.row::-webkit-scrollbar { height: 6px; }
+.row::-webkit-scrollbar-thumb {
+    background: #00b4d8;
+    border-radius: 10px;
+}
+
+/* ================= CARD ================= */
 .card {
     min-width: 120px;
     background: rgba(0, 40, 70, 0.85);
@@ -128,24 +162,16 @@ body {
     flex-shrink: 0;
     transition: 0.3s;
     cursor: pointer;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 15px #00d4ff;
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px #00eaff;
 }
 
-/* CENTER BOX */
-.center {
-    display: flex;
-    justify-content: center;
-}
-
-/* PFP FIXED + CENTERED */
+/* ================= PFP FIX (CENTERED + INDIVIDUAL CONTROL) ================= */
 .pfp {
     width: var(--pfp-size);
     height: var(--pfp-size);
@@ -154,13 +180,13 @@ body {
     margin: 0 auto 8px;
     border: 2px solid #00b4d8;
     box-shadow: 0 0 10px rgba(0,180,216,0.6);
+    position: relative;
 
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
-/* FIXED IMAGE (no drift anymore) */
 .pfp img {
     width: 100%;
     height: 100%;
@@ -168,48 +194,22 @@ body {
     transform: scale(var(--pfp-scale));
 }
 
-/* === INDIVIDUAL SIZE OPTIONS === */
-.pfp.small { --pfp-size: 45px; }
-.pfp.medium { --pfp-size: 60px; }
-.pfp.large { --pfp-size: 80px; }
-
-/* TEXT */
+/* ================= TEXT ================= */
 .name { font-size: 14px; font-weight: bold; }
 .role { font-size: 11px; color: #aaa; }
 
-/* OVERLAY */
-.overlay {
+/* ================= PARTICLES CANVAS ================= */
+canvas {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(10px);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-}
-
-.overlay-content {
-    background: #001d3d;
-    padding: 25px;
-    border-radius: 16px;
-    width: 85%;
-    max-width: 320px;
-    text-align: center;
-}
-
-/* ANIMATION */
-@keyframes shine {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 300% 50%; }
+    inset: 0;
+    z-index: -4;
 }
 </style>
 </head>
 
 <body>
+
+<canvas id="particles"></canvas>
 
 <div class="navbar">
     <div class="logo">Exotic Esports</div>
@@ -219,7 +219,8 @@ body {
         <a href="index.html">Home</a>
         <a href="phoenix.html">Phoenix Roster</a>
         <a href="phoenixmatch.html">Phoenix Schedule</a>
-        <a href="cobras.html">Cobras</a>
+        <a href="cobras.html">Cobras Roster</a>
+        <a href="cobrasmatch.html">Cobras Schedule</a>
         <a href="yetis.html">Yetis</a>
         <a href="socials.html">Socials</a>
         <a href="about.html">About</a>
@@ -228,88 +229,42 @@ body {
 
 <h1 class="title">Phoenix Console Roster</h1>
 
-<!-- EVERYTHING BELOW KEPT EXACT -->
+<!-- COACH -->
 <div class="section">
 <h2>Coach</h2>
 <div class="center">
 <div class="card">
-<div class="pfp large"><img src="coach.png"></div>
+<div class="pfp"><img src="coach.png"></div>
 <div class="name">Thekidrambo</div>
 <div class="role">Coach</div>
 </div>
 </div>
 </div>
 
+<!-- STARTERS -->
 <div class="section">
 <h2>Starters</h2>
 <div class="row">
 
-<div class="card">
-<div class="pfp"><img src="kj.png"></div>
-<div class="name">Kjrsd</div>
-<div class="role">IGL/Entry</div>
-</div>
-
-<div class="card">
-<div class="pfp medium"><img src="dalton.png"></div>
-<div class="name">Dalton</div>
-<div class="role">Entry</div>
-</div>
-
-<div class="card">
-<div class="pfp"><img src="chubbs.png"></div>
-<div class="name">Chubbs</div>
-<div class="role">Flex</div>
-</div>
-
-<div class="card">
-<div class="pfp"><img src="golden.png"></div>
-<div class="name">Golden</div>
-<div class="role">Flex</div>
-</div>
-
-<div class="card">
-<div class="pfp"><img src="soadeonics.png"></div>
-<div class="name">Spadeonics</div>
-<div class="role">Support</div>
-</div>
+<div class="card"><div class="pfp"><img src="kj.png"></div><div class="name">Kjrsd</div><div class="role">IGL/Entry</div></div>
+<div class="card"><div class="pfp"><img src="dalton.png"></div><div class="name">Dalton</div><div class="role">Entry</div></div>
+<div class="card"><div class="pfp"><img src="chubbs.png"></div><div class="name">Chubbs</div><div class="role">Flex</div></div>
+<div class="card"><div class="pfp"><img src="golden.png"></div><div class="name">Golden</div><div class="role">Flex</div></div>
+<div class="card"><div class="pfp"><img src="soadeonics.png"></div><div class="name">Spadeonics</div><div class="role">Support</div></div>
 
 </div>
 </div>
 
+<!-- SUBS -->
 <div class="section">
 <h2>Subs</h2>
 <div class="row">
 
-<div class="card">
-<div class="pfp small"><img src="orange.png"></div>
-<div class="name">Nicheorange</div>
-<div class="role">IGL/Entry</div>
-</div>
-
-<div class="card">
-<div class="pfp"><img src="vursed.png"></div>
-<div class="name">Vursed</div>
-<div class="role">Entry</div>
-</div>
-
-<div class="card">
-<div class="pfp"><img src="bam.png"></div>
-<div class="name">BamBaby</div>
-<div class="role">Entry</div>
-</div>
-
-<div class="card">
-<div class="pfp"><img src="bone.png"></div>
-<div class="name">Bonezy</div>
-<div class="role">Flex</div>
-</div>
-
-<div class="card">
-<div class="pfp"><img src="Fax.png"></div>
-<div class="name">Fax</div>
-<div class="role">Support</div>
-</div>
+<div class="card"><div class="pfp"><img src="orange.png"></div><div class="name">Nicheorange</div><div class="role">IGL/Entry</div></div>
+<div class="card"><div class="pfp"><img src="vursed.png"></div><div class="name">Vursed</div><div class="role">Entry</div></div>
+<div class="card"><div class="pfp"><img src="bam.png"></div><div class="name">BamBaby</div><div class="role">Entry</div></div>
+<div class="card"><div class="pfp"><img src="bone.png"></div><div class="name">Bonezy</div><div class="role">Flex</div></div>
+<div class="card"><div class="pfp"><img src="Fax.png"></div><div class="name">Fax</div><div class="role">Support</div></div>
 
 </div>
 </div>
@@ -319,6 +274,46 @@ function toggleMenu(){
   const menu = document.getElementById("menu");
   menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
+
+/* PARTICLES */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 70; i++) {
+    particles.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*2,
+        dx: (Math.random()-0.5)*0.6,
+        dy: (Math.random()-0.5)*0.6
+    });
+}
+
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    particles.forEach(p=>{
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if(p.x<0||p.x>canvas.width) p.dx*=-1;
+        if(p.y<0||p.y>canvas.height) p.dy*=-1;
+
+        ctx.fillStyle="rgba(0,234,255,0.6)";
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fill();
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
 </script>
 
 </body>
