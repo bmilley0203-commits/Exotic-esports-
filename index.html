@@ -27,7 +27,7 @@ body {
   to { opacity: 1; }
 }
 
-/* BACKGROUND GLOW */
+/* NEON BLUE BACKGROUND */
 body::before {
   content: "";
   position: fixed;
@@ -38,25 +38,12 @@ body::before {
     radial-gradient(circle at 50% 80%, rgba(0,234,255,0.08), transparent 50%);
   filter: blur(22px);
   animation: floatBg 12s ease-in-out infinite;
-  z-index: -2;
+  z-index: -1;
 }
 
 @keyframes floatBg {
   0%,100% { transform: translate(0,0); }
   50% { transform: translate(2%, -2%); }
-}
-
-/* GRID OVERLAY */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(0,234,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,234,255,0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-  z-index: -1;
-  pointer-events: none;
 }
 
 /* NAVBAR */
@@ -75,10 +62,12 @@ body::after {
   border-bottom: 1px solid rgba(0,234,255,0.25);
 }
 
+/* TITLE SHINE */
 .navbar h2 {
   font-size: 22px;
   font-weight: 900;
   letter-spacing: 4px;
+  text-transform: uppercase;
 
   background: linear-gradient(90deg,#00eaff,#ffffff,#00eaff);
   background-size: 300% 100%;
@@ -103,12 +92,12 @@ body::after {
 .nav-links {
   display: flex;
   gap: 20px;
-  transition: 0.3s ease;
 }
 
 .nav-links a {
   color: #00eaff;
   text-decoration: none;
+  transition: 0.3s;
 }
 
 .nav-links a:hover {
@@ -116,7 +105,7 @@ body::after {
   text-shadow: 0 0 10px #00eaff;
 }
 
-/* MOBILE */
+/* MOBILE MENU */
 @media(max-width:768px){
   .menu-toggle { display:block; }
 
@@ -127,10 +116,11 @@ body::after {
     right: 10px;
     flex-direction: column;
     width: 220px;
+
     background: rgba(10,15,20,0.95);
+    border: 1px solid rgba(0,234,255,0.25);
     border-radius: 12px;
     padding: 10px;
-    border: 1px solid rgba(0,234,255,0.25);
   }
 
   .nav-links.active {
@@ -163,16 +153,18 @@ body::after {
   background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
   animation: shine 4s linear infinite;
 }
 
 .hero p {
   color: #9aa6ad;
+  margin-top: 8px;
 }
 
 /* SECTIONS */
 .section {
-  padding: 70px 20px;
+  padding: 50px 20px;
   max-width: 1100px;
   margin: auto;
 }
@@ -180,40 +172,36 @@ body::after {
 .section h2 {
   text-align: center;
   margin-bottom: 25px;
-  letter-spacing: 2px;
+
+  background: linear-gradient(90deg,#00eaff,#ffffff,#00eaff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shine 4s linear infinite;
 }
 
 /* CARDS */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  gap: 20px;
 }
 
-/* CARD UPGRADE */
+/* ✅ FIXED CARD STRUCTURE (NO DUPLICATES) */
 .card {
   position: relative;
   overflow: hidden;
+
   background: linear-gradient(135deg, rgba(0,234,255,0.12), rgba(0,0,0,0.85));
   border: 1px solid rgba(0,234,255,0.25);
   padding: 20px;
   border-radius: 14px;
   text-align: center;
-
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 15px rgba(0,234,255,0.08);
-
-  transition: 0.3s ease;
-  animation: borderGlow 4s infinite ease-in-out;
+  transition: 0.3s;
 }
 
-@keyframes borderGlow {
-  0% { box-shadow: 0 0 10px rgba(0,234,255,0.15); }
-  50% { box-shadow: 0 0 25px rgba(0,234,255,0.35); }
-  100% { box-shadow: 0 0 10px rgba(0,234,255,0.15); }
-}
-
-/* SHIMMER */
+/* SHIMMER (SAFE LAYER) */
 .card::before {
   content: "";
   position: absolute;
@@ -221,9 +209,18 @@ body::after {
   left: -120%;
   width: 60%;
   height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(0,234,255,0.35), transparent);
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0,234,255,0.35),
+    transparent
+  );
+
   transform: skewX(-20deg);
   animation: shimmer 3.5s linear infinite;
+
+  pointer-events: none;
 }
 
 @keyframes shimmer {
@@ -233,104 +230,76 @@ body::after {
 }
 
 .card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 0 40px rgba(0,234,255,0.45);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 0 30px rgba(0,234,255,0.35);
 }
 
-/* OVERLAY MODAL */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(10px);
-  align-items: center;
-  justify-content: center;
+/* JOIN BUTTON */
+.join-btn {
+  border: 2px solid #00eaff;
+  color: #00eaff;
+  padding: 12px 25px;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s;
 }
 
-.modal-content {
-  background: rgba(10,15,20,0.95);
-  border: 1px solid rgba(0,234,255,0.25);
-  padding: 25px;
-  border-radius: 14px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-}
-
-.close {
-  margin-top: 15px;
-  padding: 10px 15px;
+.join-btn:hover {
   background: #00eaff;
-  border: none;
-  cursor: pointer;
-  border-radius: 8px;
+  color: black;
+  box-shadow: 0 0 20px #00eaff;
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
   <h2>EXOTIC ESPORTS</h2>
+
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
   <div class="nav-links" id="navMenu">
-     <a href="index.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="phoenix.html">Phoenix Roster</a>
     <a href="phoenixmatch.html">Phoenix Schedule</a>
-    <a href="https://exo-circuit.vercel.app/">Exo Circuit</a>
+    <a href="cobras.html">Cobras Roster</a>
+    <a href="cobrasmatch.html">Cobras Schedule</a>
+    <a href="yetis.html">Yetis Roster</a>
+    <a href="yetismatchs.html">Yetis Schedule</a>
     <a href="socials.html">Socials</a>
     <a href="about.html">About</a>
+  </div>
 </div>
 
+<!-- HERO -->
 <div class="hero">
   <img src="logo.png">
   <h2>Exotic Esports</h2>
   <p>Dominating the competition with precision, power, and teamwork.</p>
 </div>
 
+<!-- WHY JOIN -->
 <div class="section">
   <h2>Why Join Us</h2>
   <div class="cards">
-
-    <div class="card" onclick="openModal('Competitive Teams')">Competitive Teams</div>
-    <div class="card" onclick="openModal('Active Community')">Active Community</div>
-    <div class="card" onclick="openModal('Content & Growth')">Content & Growth</div>
-
+    <div class="card">Competitive Teams</div>
+    <div class="card">Active Community</div>
+    <div class="card">Content & Growth</div>
   </div>
 </div>
 
+<!-- JOIN -->
 <div class="section">
   <h2>Join Exotic Esports</h2>
-  <a class="card" href="https://discord.gg/GtKHY3dr3" style="display:inline-block;text-decoration:none;color:#00eaff;">
-    Join Discord
-  </a>
-</div>
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <h3 id="modalText"></h3>
-    <p style="color:#9aa6ad;margin-top:10px;">
-      More info coming soon for this section of Exotic Esports.
-    </p>
-    <button class="close" onclick="closeModal()">Close</button>
-  </div>
+  <a href="https://discord.gg/GtKHY3dr3" class="join-btn">Join Here</a>
 </div>
 
 <script>
-function toggleMenu(){
+function toggleMenu() {
   document.getElementById("navMenu").classList.toggle("active");
-}
-
-function openModal(text){
-  document.getElementById("modalText").innerText = text;
-  document.getElementById("modal").style.display = "flex";
-}
-
-function closeModal(){
-  document.getElementById("modal").style.display = "none";
 }
 </script>
 
