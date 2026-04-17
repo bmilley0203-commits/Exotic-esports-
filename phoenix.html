@@ -25,7 +25,31 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: white;
-    background: linear-gradient(to bottom, #000814, #001d3d, #003566);
+    overflow-x: hidden;
+
+    background: radial-gradient(circle at top, #0a0f14, #05070a);
+}
+
+/* 🔥 ADDED HOME PAGE BACKGROUND */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,234,255,0.14), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(0,180,255,0.10), transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(0,234,255,0.08), transparent 50%);
+
+    filter: blur(22px);
+    animation: floatBg 12s ease-in-out infinite;
+
+    z-index: -1;
+}
+
+@keyframes floatBg {
+    0%,100% { transform: translate(0,0); }
+    50% { transform: translate(2%, -2%); }
 }
 
 /* ================= NAVBAR (MATCH HOME PAGE STYLE) ================= */
@@ -43,14 +67,12 @@ body {
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 
-    /* LESS TRANSPARENT THAN BEFORE */
     background: rgba(0, 10, 25, 0.85);
 
     border-bottom: 1px solid rgba(0, 234, 255, 0.25);
     box-shadow: 0 0 20px rgba(0, 234, 255, 0.15);
 }
 
-/* SHIMMER LOGO */
 .logo {
     font-size: 20px;
     font-weight: bold;
@@ -64,14 +86,12 @@ body {
     animation: shine 4s linear infinite;
 }
 
-/* MENU */
 .menu-icon {
     font-size: 24px;
     cursor: pointer;
     color: #00eaff;
 }
 
-/* DROPDOWN (HOME PAGE STYLE MATCH) */
 .dropdown {
     position: absolute;
     top: 70px;
@@ -103,7 +123,6 @@ body {
     color: white;
 }
 
-/* TITLE */
 .title {
     text-align: center;
     margin: 30px 0 10px;
@@ -117,7 +136,6 @@ body {
     animation: shine 4s linear infinite;
 }
 
-/* SECTION */
 .section {
     margin: 20px 12px;
     padding: 18px;
@@ -128,7 +146,6 @@ body {
     box-shadow: 0 0 25px rgba(0, 200, 255, 0.15);
 }
 
-/* HEADERS */
 .section h2 {
     text-align: center;
 
@@ -141,7 +158,6 @@ body {
     animation: shine 4s linear infinite;
 }
 
-/* ROW */
 .row {
     display: flex;
     gap: 14px;
@@ -155,7 +171,6 @@ body {
     border-radius: 10px;
 }
 
-/* ================= CARD + SLIDING SHIMMER ================= */
 .card {
     position: relative;
     overflow: hidden;
@@ -173,7 +188,6 @@ body {
     cursor: pointer;
 }
 
-/* SLIDING SHIMMER */
 .card::before {
     content: "";
     position: absolute;
@@ -203,13 +217,11 @@ body {
     box-shadow: 0 0 20px #00d4ff;
 }
 
-/* CENTER */
 .center {
     display: flex;
     justify-content: center;
 }
 
-/* PFP (UNCHANGED BUT SAFE) */
 .pfp {
     width: var(--pfp-size);
     height: var(--pfp-size);
@@ -232,11 +244,9 @@ body {
     transform: scale(var(--pfp-scale));
 }
 
-/* TEXT */
 .name { font-size: 14px; font-weight: bold; }
 .role { font-size: 11px; color: #aaa; }
 
-/* ANIMATION */
 @keyframes shine {
     0% { background-position: 0% 50%; }
     100% { background-position: 300% 50%; }
@@ -250,7 +260,6 @@ body {
     <div class="logo">Exotic Esports</div>
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
-    <!-- MATCHED HOME PAGE STYLE MENU -->
     <div class="dropdown" id="menu">
         <a href="index.html">Home</a>
         <a href="phoenix.html">Phoenix Roster</a>
