@@ -10,98 +10,157 @@ if (document.referrer === "" || !document.referrer.includes(window.location.host
     window.location.href = "index.html"; 
 }
 </script>
-
-<style>
+    <style>
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: white;
-    background: linear-gradient(to bottom, #000814, #001d3d, #003566);
+
+    /* MATCH ROSTER BACKGROUND */
+    background: radial-gradient(circle at top, #0a0f14, #05070a);
+
+    padding-bottom: 80px;
 }
 
+/* BACKGROUND GLOW */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,234,255,0.14), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(0,180,255,0.10), transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(0,234,255,0.08), transparent 50%);
+    filter: blur(22px);
+    z-index: -1;
+}
+
+/* NAVBAR */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 10000;
-    backdrop-filter: blur(12px);
-    background: rgba(0, 8, 20, 0.6);
+
+    backdrop-filter: blur(14px);
+    background: rgba(0, 10, 25, 0.85);
+
+    border-bottom: 1px solid rgba(0,234,255,0.25);
+    box-shadow: 0 0 20px rgba(0,234,255,0.15);
+
     padding: 18px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* SHIMMER LOGO */
 .logo-text {
     font-size: 20px;
     font-weight: bold;
+
+    background: linear-gradient(90deg,#00eaff,#ffffff,#00eaff);
+    background-size: 300% 100%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: shine 4s linear infinite;
 }
 
+/* MENU BUTTON */
 .menu-btn {
     font-size: 24px;
     cursor: pointer;
+    color: #00eaff;
 }
 
+/* DROPDOWN */
 .dropdown {
     position: absolute;
     top: 70px;
     right: 15px;
-    background: #001d3d;
+
+    background: rgba(0, 10, 25, 0.95);
+    border: 1px solid rgba(0,234,255,0.25);
+
     border-radius: 12px;
     display: none;
     flex-direction: column;
-    width: 200px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0,200,255,0.25);
-    z-index: 9999;
+    width: 220px;
+
+    box-shadow: 0 0 25px rgba(0,234,255,0.25);
 }
 
 .dropdown a {
     padding: 14px;
     text-decoration: none;
-    color: white;
+    color: #00eaff;
 }
 
 .dropdown a:hover {
-    background: #003566;
+    background: rgba(0,234,255,0.15);
+    color: white;
 }
 
+/* HEADER */
 .header {
     text-align: center;
     margin: 30px 0 10px;
 }
 
 .header h1 {
-    color: #4cc9f0;
+    background: linear-gradient(90deg,#00eaff,#ffffff,#00eaff);
+    background-size: 300% 100%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: shine 4s linear infinite;
 }
 
+/* SECTION TITLE */
 .section-title {
     margin: 25px 20px 10px;
     font-size: 20px;
-    color: #90e0ef;
-    border-left: 4px solid #00b4d8;
+
+    background: linear-gradient(90deg,#00eaff,#ffffff,#00eaff);
+    background-size: 300% 100%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    border-left: 4px solid #00eaff;
     padding-left: 10px;
+
+    animation: shine 4s linear infinite;
 }
 
+/* MATCH CARD */
 .match {
     background: rgba(0, 20, 40, 0.75);
     margin: 15px 20px;
     padding: 20px;
     border-radius: 20px;
+
+    border: 1px solid rgba(0,234,255,0.2);
+
     box-shadow: 0 0 30px rgba(0, 200, 255, 0.12);
     text-align: center;
     position: relative;
+
+    transition: 0.3s;
+}
+
+.match:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(0,234,255,0.35);
 }
 
 .fixture {
     border: 1px solid rgba(0, 200, 255, 0.25);
 }
 
-.fixture .date {
-    margin-top: 12px;
-    font-size: 14px;
-    opacity: 0.8;
-}
-
+/* TEAMS */
 .teams {
     display: flex;
     justify-content: space-between;
@@ -112,13 +171,17 @@ body {
     width: 40%;
 }
 
+/* LOGO */
 .logo {
     width: 90px;
     height: 90px;
     border-radius: 50%;
     overflow: hidden;
     margin: auto;
+
     background: rgba(0,0,0,0.6);
+    box-shadow: 0 0 15px rgba(0,234,255,0.3);
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -135,19 +198,22 @@ body {
     transform: translate(-50%, -50%);
 }
 
+/* SCORE */
 .score, .vs {
     width: 20%;
     font-size: 20px;
 }
 
 .vs {
-    color: #00d4ff;
+    color: #00eaff;
     font-weight: bold;
 }
 
+/* RESULTS COLORS */
 .win { color: #00ff9d; }
 .loss { color: #ff4d6d; }
 
+/* MAP BOXES */
 .map-series {
     margin-top: 15px;
     margin-bottom: 5px;
@@ -170,27 +236,47 @@ body {
     border: 1px solid #ff4d6d;
     color: #ff4d6d;
 }
+
 .map-win {
     background: rgba(0,255,157,0.15);
     border: 1px solid #00ff9d;
     color: #00ff9d;
 }
+
+/* MVP */
 .mvp {
     margin-top: 14px;
     font-size: 15px;
     opacity: 0.9;
 }
 
+/* BUTTON */
 .btn {
     margin-top: 12px;
     padding: 10px 20px;
     border-radius: 10px;
-    background: #00b4d8;
-    border: none;
+
+    border: 2px solid #00eaff;
+    background: transparent;
+    color: #00eaff;
+
     cursor: pointer;
     font-weight: bold;
+
+    box-shadow: 0 0 10px rgba(0,234,255,0.4);
+
+    transition: 0.3s;
+    animation: pulse 2.5s infinite;
 }
 
+.btn:hover {
+    background: #00eaff;
+    color: black;
+    box-shadow: 0 0 25px #00eaff;
+    transform: scale(1.05);
+}
+
+/* VOD */
 .vod-container {
     max-height: 0;
     overflow: hidden;
@@ -208,20 +294,19 @@ body {
     max-height: 300px;
 }
 
-.hidden {
-    display: none;
+/* BUTTON ANIMATION */
+@keyframes pulse {
+    0% { box-shadow: 0 0 8px rgba(0,234,255,0.3); }
+    50% { box-shadow: 0 0 25px rgba(0,234,255,0.7); }
+    100% { box-shadow: 0 0 8px rgba(0,234,255,0.3); }
 }
 
-.show-more {
-    display: block;
-    margin: 20px auto;
+/* SHIMMER TEXT */
+@keyframes shine {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
 }
-
-.show-less {
-    display: block;
-    margin: 20px auto;
-}
-</style>
+    </style>
 </head>
 
 <body>
