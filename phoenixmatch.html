@@ -1,4 +1,6 @@
-<!DOCTYPE html>  <html lang="en">    <head>    
+<!DOCTYPE html>  
+<html lang="en">   
+<head>    
 <meta charset="UTF-8">    
 <meta name="viewport" content="width=device-width, initial-scale=1.0">    
 <title>Phoenix Matches</title>    
@@ -8,265 +10,309 @@ if (document.referrer === "" || !document.referrer.includes(window.location.host
     window.location.href = "index.html";     
 }    
 </script>    
-        <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: white;
-    overflow-x: hidden;
-    padding-bottom: 80px;
+    <style>    
+body {    
+    margin: 0;    
+    font-family: Arial, sans-serif;    
+    color: white;  /* MATCH ROSTER BACKGROUND */    
+background: radial-gradient(circle at top, #0a0f14, #05070a);    padding-bottom: 80px;
 
-    background: radial-gradient(circle at top, #0b0a12, #05070a);
 }
 
 /* BACKGROUND GLOW */
 body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-
-    background:
-        radial-gradient(circle at 20% 20%, rgba(168,85,247,0.16), transparent 40%),
-        radial-gradient(circle at 80% 30%, rgba(255,122,24,0.10), transparent 45%),
-        radial-gradient(circle at 50% 80%, rgba(120,60,255,0.10), transparent 50%);
-
-    filter: blur(22px);
-    z-index: -1;
+content: "";
+position: fixed;
+inset: 0;
+background:
+radial-gradient(circle at 20% 20%, rgba(0,234,255,0.14), transparent 40%),
+radial-gradient(circle at 80% 30%, rgba(0,180,255,0.10), transparent 45%),
+radial-gradient(circle at 50% 80%, rgba(0,234,255,0.08), transparent 50%);
+filter: blur(22px);
+z-index: -1;
 }
 
 /* NAVBAR */
 .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 10000;
+position: sticky;
+top: 0;
+z-index: 10000;
 
-    backdrop-filter: blur(14px);
-    background: rgba(10, 10, 18, 0.85);
+backdrop-filter: blur(14px);
+background: rgba(0, 10, 25, 0.85);
 
-    border-bottom: 1px solid rgba(168,85,247,0.25);
-    box-shadow: 0 0 20px rgba(255,122,24,0.12);
+border-bottom: 1px solid rgba(0,234,255,0.25);
+box-shadow: 0 0 20px rgba(0,234,255,0.15);
 
-    padding: 18px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+padding: 18px 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+
 }
 
-/* LOGO TEXT */
+/* SHIMMER LOGO */
 .logo-text {
-    font-size: 20px;
-    font-weight: bold;
+font-size: 20px;
+font-weight: bold;
 
-    background: linear-gradient(90deg,#a855f7,#ff7a18,#ffffff,#a855f7);
-    background-size: 300% 100%;
+background: linear-gradient(90deg,#00eaff,#ffffff,#00eaff);
+background-size: 300% 100%;
 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
 
-    animation: shine 4s linear infinite;
+animation: shine 4s linear infinite;
+
 }
 
-/* MENU */
+/* MENU BUTTON */
 .menu-btn {
-    font-size: 24px;
-    cursor: pointer;
-    color: #a855f7;
+font-size: 24px;
+cursor: pointer;
+color: #00eaff;
 }
 
 /* DROPDOWN */
 .dropdown {
-    position: absolute;
-    top: 70px;
-    right: 15px;
+position: absolute;
+top: 70px;
+right: 15px;
 
-    display: none;
-    flex-direction: column;
-    width: 220px;
+background: rgba(0, 10, 25, 0.95);
+border: 1px solid rgba(0,234,255,0.25);
 
-    background: rgba(10, 10, 18, 0.95);
-    border: 1px solid rgba(168,85,247,0.25);
-    border-radius: 12px;
+border-radius: 12px;
+display: none;
+flex-direction: column;
+width: 220px;
 
-    box-shadow: 0 0 25px rgba(168,85,247,0.18);
+box-shadow: 0 0 25px rgba(0,234,255,0.25);
+
 }
 
 .dropdown a {
-    padding: 14px;
-    text-decoration: none;
-    color: #d8b4fe;
+padding: 14px;
+text-decoration: none;
+color: #00eaff;
 }
 
 .dropdown a:hover {
-    background: rgba(168,85,247,0.18);
-    color: white;
+background: rgba(0,234,255,0.15);
+color: white;
 }
 
 /* HEADER */
+.header {
+text-align: center;
+margin: 30px 0 10px;
+}
+
 .header h1 {
-    background: linear-gradient(90deg,#a855f7,#ff7a18,#ffffff,#a855f7);
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 4s linear infinite;
+background: linear-gradient(90deg,#00eaff,#ffffff,#00eaff);
+background-size: 300% 100%;
+
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+animation: shine 4s linear infinite;
+
 }
 
 /* SECTION TITLE */
 .section-title {
-    background: linear-gradient(90deg,#a855f7,#ff7a18,#ffffff);
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+margin: 25px 20px 10px;
+font-size: 20px;
 
-    border-left: 4px solid #a855f7;
+background: linear-gradient(90deg,#00eaff,#ffffff,#00eaff);
+background-size: 300% 100%;
+
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+border-left: 4px solid #00eaff;
+padding-left: 10px;
+
+animation: shine 4s linear infinite;
+
 }
 
 /* MATCH CARD */
 .match {
-    background: rgba(20, 10, 30, 0.75);
-    margin: 15px 20px;
-    padding: 20px;
-    border-radius: 20px;
+background: rgba(0, 20, 40, 0.75);
+margin: 15px 20px;
+padding: 20px;
+border-radius: 20px;
 
-    border: 1px solid rgba(168,85,247,0.18);
-    box-shadow: 0 0 25px rgba(168,85,247,0.10);
+border: 1px solid rgba(0,234,255,0.2);
 
-    text-align: center;
-    transition: 0.3s;
+box-shadow: 0 0 30px rgba(0, 200, 255, 0.12);
+text-align: center;
+position: relative;
+
+transition: 0.3s;
+
 }
 
 .match:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 30px rgba(255,122,24,0.18);
+transform: translateY(-4px);
+box-shadow: 0 0 30px rgba(0,234,255,0.35);
 }
 
-/* FIXTURE */
 .fixture {
-    border: 1px solid rgba(255,122,24,0.22);
+border: 1px solid rgba(0, 200, 255, 0.25);
 }
 
 /* TEAMS */
 .teams {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
 .team {
-    width: 40%;
+width: 40%;
 }
 
-/* LOGO (FIXED — NO ZOOM ISSUES) */
+/* LOGO */
 .logo {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: auto;
+width: 90px;
+height: 90px;
+border-radius: 50%;
+overflow: hidden;
+margin: auto;
 
-    background: rgba(0,0,0,0.6);
-    box-shadow: 0 0 12px rgba(168,85,247,0.25);
+background: rgba(0,0,0,0.6);
+box-shadow: 0 0 15px rgba(0,234,255,0.3);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+
 }
 
 .logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: none; /* IMPORTANT FIX */
+position: absolute;
+width: 115%;
+height: 115%;
+object-fit: cover;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
 }
 
 /* SCORE */
 .score, .vs {
-    width: 20%;
-    font-size: 20px;
+width: 20%;
+font-size: 20px;
 }
 
 .vs {
-    color: #a855f7;
-    font-weight: bold;
+color: #00eaff;
+font-weight: bold;
 }
 
-/* RESULTS */
+/* RESULTS COLORS */
 .win { color: #00ff9d; }
 .loss { color: #ff4d6d; }
 
-/* MAPS */
+/* MAP BOXES */
 .map-series {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
+margin-top: 15px;
+margin-bottom: 5px;
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px;
 }
 
 .map-box {
-    padding: 6px 10px;
-    border-radius: 8px;
-    font-size: 12px;
-    background: rgba(255,255,255,0.05);
+padding: 6px 10px;
+border-radius: 8px;
+font-size: 12px;
+min-width: 70px;
+background: rgba(255,255,255,0.05);
 }
 
 .map-loss {
-    background: rgba(255,77,109,0.15);
-    border: 1px solid #ff4d6d;
-    color: #ff4d6d;
+background: rgba(255,77,109,0.15);
+border: 1px solid #ff4d6d;
+color: #ff4d6d;
 }
 
 .map-win {
-    background: rgba(0,255,157,0.15);
-    border: 1px solid #00ff9d;
-    color: #00ff9d;
+background: rgba(0,255,157,0.15);
+border: 1px solid #00ff9d;
+color: #00ff9d;
+}
+
+/* MVP */
+.mvp {
+margin-top: 14px;
+font-size: 15px;
+opacity: 0.9;
 }
 
 /* BUTTON */
 .btn {
-    margin-top: 12px;
-    padding: 10px 20px;
-    border-radius: 10px;
+margin-top: 12px;
+padding: 10px 20px;
+border-radius: 10px;
 
-    border: 2px solid #a855f7;
-    background: transparent;
-    color: #a855f7;
+border: 2px solid #00eaff;
+background: transparent;
+color: #00eaff;
 
-    cursor: pointer;
-    font-weight: bold;
+cursor: pointer;
+font-weight: bold;
 
-    box-shadow: 0 0 10px rgba(168,85,247,0.25);
-    transition: 0.3s;
+box-shadow: 0 0 10px rgba(0,234,255,0.4);
+
+transition: 0.3s;
+animation: pulse 2.5s infinite;
+
 }
 
 .btn:hover {
-    background: #a855f7;
-    color: black;
+background: #00eaff;
+color: black;
+box-shadow: 0 0 25px #00eaff;
+transform: scale(1.05);
 }
 
 /* VOD */
 .vod-container {
-    max-height: 0;
-    overflow: hidden;
-    transition: 0.4s;
-}
-
-.vod-container.active {
-    max-height: 300px;
+max-height: 0;
+overflow: hidden;
+transition: 0.4s;
 }
 
 .vod-container iframe {
-    width: 100%;
-    height: 220px;
-    border-radius: 12px;
-    border: none;
+width: 100%;
+height: 220px;
+border-radius: 12px;
+border: none;
 }
 
-/* ANIMATION */
-@keyframes shine {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 300% 50%; }
+.vod-container.active {
+max-height: 300px;
 }
-        </style>
+
+/* BUTTON ANIMATION */
+@keyframes pulse {
+0% { box-shadow: 0 0 8px rgba(0,234,255,0.3); }
+50% { box-shadow: 0 0 25px rgba(0,234,255,0.7); }
+100% { box-shadow: 0 0 8px rgba(0,234,255,0.3); }
+}
+
+/* SHIMMER TEXT */
+@keyframes shine {
+0% { background-position: 0% 50%; }
+100% { background-position: 300% 50%; }
+}
+</style>
+
 </head>  <body>  <div class="navbar">    
     <div class="logo-text">Exotic Esports</div>    
     <div class="menu-btn" onclick="toggleMenu()">☰</div>  <div class="dropdown" id="menu">    
@@ -445,4 +491,4 @@ window.addEventListener("load", () => {
 });    
 </script> 
 </body>   
-</html>   
+</html>  
