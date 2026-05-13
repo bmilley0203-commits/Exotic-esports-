@@ -461,6 +461,7 @@ function showMore() {
 
 function showLess() {
     const matches = document.querySelectorAll("#results .match");
+
     matches.forEach((el, index) => {
         if (index >= 2) {
             el.classList.add("hidden");
@@ -469,10 +470,11 @@ function showLess() {
         }
     });
 
-    if (matches.length > 2) {
-        document.querySelector(".show-more").style.display = "block";
-    }
-    document.querySelector(".show-less").style.display = "none";
+    const showMoreBtn = document.querySelector(".show-more");
+    const showLessBtn = document.querySelector(".show-less");
+
+    showMoreBtn.style.display = matches.length > 2 ? "block" : "none";
+    showLessBtn.style.display = "none";
 }
 
 function sortMatches() {
